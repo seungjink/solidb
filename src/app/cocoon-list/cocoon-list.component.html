@@ -1,0 +1,32 @@
+<div class="contents">
+<mat-form-field>
+  <mat-label>검색</mat-label>
+  <input matInput (keyup)="applyFilter($event)" placeholder="검색어 입력">
+</mat-form-field>
+
+<mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+
+  <ng-container matColumnDef="Name">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> 고치 </mat-header-cell>
+    <mat-cell *matCellDef="let row"> <img class="face" src="assets/Cocoon/{{row.ID | underbarEliminator }}.jpg"> {{row.Name}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="Tier">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> 티어 </mat-header-cell>
+    <mat-cell *matCellDef="let row"> {{row.Tier}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="Time">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> 해제시간 </mat-header-cell>
+    <mat-cell *matCellDef="let row"> {{row.Time}} 분 </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="Desc">
+    <mat-header-cell *matHeaderCellDef> 정보 </mat-header-cell>
+    <mat-cell *matCellDef="let row"> {{row.Desc}} </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"  routerLink="/cocoon/{{row.ID}}"></mat-row>
+</mat-table>
+</div>

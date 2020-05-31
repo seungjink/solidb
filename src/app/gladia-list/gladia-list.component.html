@@ -1,0 +1,38 @@
+
+<div class="contents">
+<mat-form-field>
+  <mat-label>검색</mat-label>
+  <input matInput (keyup)="applyFilter($event)" placeholder="검색어 입력">
+</mat-form-field>
+
+<mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+
+  <ng-container matColumnDef="ID">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> 글라디아 </mat-header-cell>
+    <mat-cell *matCellDef="let row"> <img class="face" src="assets/GladiaThumbnails/{{row.ID}}.jpg"> <span class="wordnonbreak">{{row.Name}}</span> </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="Atk">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> 공 </mat-header-cell>
+    <mat-cell *matCellDef="let row"> {{row.Atk}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="Def">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> 방 </mat-header-cell>
+    <mat-cell *matCellDef="let row"> {{row.Def}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="Hp">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> 체 </mat-header-cell>
+    <mat-cell *matCellDef="let row"> {{row.Hp}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="Skill">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> 스 </mat-header-cell>
+    <mat-cell *matCellDef="let row"> {{row.Skill}} </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;" routerLink="/gladia/{{row.ID}}"></mat-row>
+</mat-table>
+</div>

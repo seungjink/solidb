@@ -1,0 +1,101 @@
+<div class="mat-elevation-z8 basecanvas">
+<div class="section group">
+  <div class="col span_2_of_2"><h1 class="subtitle">{{cocoon.Name}}</h1><hr class="hr90"></div>
+</div>
+
+<div class="section group">
+  <div class="col span_1_of_2" style="text-align: center;">
+
+    <div class="divTable">
+      <div class="divTableRow">
+        <div class="divTableCell"><img class="gdimg" src="assets/Cocoon/{{cocoon.ID | underbarEliminator }}.jpg"></div>
+      </div>
+    </div>
+
+     <div class="divTable">
+      <div class="divTableRow">
+        <div class="divTableCell" style="text-align: left; white-space:pre-wrap;">{{cocoon.Desc}}</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col span_1_of_2">
+    <div class="divTable">
+      <div class="divTableRow">
+        <div class="divTableCell cell-tc35">티어</div>
+        <div class="divTableCell cell-tc64" >{{cocoon.Tier}}</div>
+      </div>
+    </div>
+    <hr class="hr90">
+
+    <div class="divTable">
+      <div class="divTableRow">
+        <div class="divTableCell cell-tc35">해제시간</div>
+        <div class="divTableCell cell-tc65">{{cocoon.Time}} 분</div>
+      </div>
+    </div>
+    <hr class="hr90">
+
+    <div class="divTable">
+      <div class="divTableRow">
+        <div class="divTableCell cell-tc35"> 드랍정보 </div>
+        <div class="divTableCell cell-tc65"></div>
+      </div>
+    </div>
+
+    <div class="divTable" style="table-layout: fixed" *ngIf="cocoon.Drop !== ''">
+      <div class="divTableRow" *ngFor="let x of getCSV(cocoon.Drop)">
+        <div class="divTableCell cell-tc35"></div>
+        <div class="divTableCell cell-tc65">
+          <a class="highlightReduced" routerLink="/quest/{{x[1]}}">{{x[0]}}</a>
+        </div>
+      </div>
+    </div>
+    <div class="divTable">
+      <div class="divTableRow">
+        <div class="divTableCell"></div>
+      </div>
+    </div>
+
+
+
+    <hr class="hr90">
+  </div>
+</div>
+
+<div class="section group">
+  <div class="col span_1_of_2">
+    <h2 class="subtitle"> 요원 드랍 </h2><hr class="hr90">
+
+    <ng-container *ngIf="cocoon.Agents !== ''">
+      <div class="divTable" style="table-layout: fixed" *ngFor="let x of getNameAndID(cocoon.Agents, cocoon.AgentsID)">
+        <div class="divTableRow">
+          <div class="divTableCell cell-tc35">
+            <img class="item25" src="assets/AgentsThumbnails/{{x[1]}}.jpg">
+          </div>
+          <div class="divTableCell cell-tc65">
+            <a routerLink="/agents/{{x[1]}}" class="highlight"> {{x[0]}} </a>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+
+  <div class="col span_1_of_2" style="white-space:pre-wrap;">
+    <h2 class="subtitle"> 글라디아 드랍 </h2><hr class="hr90">
+
+    <ng-container *ngIf="cocoon.Gladia !== ''">
+      <div class="divTable" style="table-layout: fixed" *ngFor="let x of getNameAndID(cocoon.Gladia, cocoon.GladiaID)">
+        <div class="divTableRow">
+          <div class="divTableCell cell-tc35">
+            <img class="item25" src="assets/GladiaThumbnails/{{x[1]}}.jpg">
+          </div>
+          <div class="divTableCell cell-tc65">
+            <a routerLink="/gladia/{{x[1]}}" class="highlight"> {{x[0]}} </a>
+          </div>
+        </div>
+    </div>
+    </ng-container>
+  </div>
+</div>
+</div>

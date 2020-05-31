@@ -1,0 +1,163 @@
+<div class="mat-elevation-z8 basecanvas">
+  <div class="section group">
+    <div class="col span_2_of_2">
+      <h1 class="subtitle">{{ gladia.Name }}</h1>
+      <hr class="hr90" />
+    </div>
+  </div>
+
+  <div class="section group">
+    <div class="col span_1_of_2" style="text-align: center;">
+      <img class="gdimg" src="assets/Gladia/{{ gladia.ID }}.png" />
+    </div>
+
+    <div class="col span_1_of_2">
+      <div class="divTable">
+        <div class="divTableRow">
+          <div class="divTableCell cell-tc40">공격력</div>
+          <div class="divTableCell cell-tc60">{{ gladia.Atk }}</div>
+        </div>
+      </div>
+      <hr class="hr90" />
+
+      <div class="divTable">
+        <div class="divTableRow">
+          <div class="divTableCell cell-tc40">방어력</div>
+          <div class="divTableCell cell-tc60">{{ gladia.Def }}</div>
+        </div>
+      </div>
+      <hr class="hr90" />
+
+      <div class="divTable">
+        <div class="divTableRow">
+          <div class="divTableCell cell-tc40">체력</div>
+          <div class="divTableCell cell-tc60">{{ gladia.Hp }}</div>
+        </div>
+      </div>
+      <hr class="hr90" />
+
+      <div class="divTable">
+        <div class="divTableRow">
+          <div class="divTableCell cell-tc40">스킬위력</div>
+          <div class="divTableCell cell-tc60">{{ gladia.Skill }}</div>
+        </div>
+      </div>
+      <hr class="hr90" />
+
+      <div class="divTable">
+        <div class="divTableRow">
+          <div class="divTableCell cell-tc40">착용 레벨</div>
+          <div class="divTableCell cell-tc60">{{ gladia.ReqLv }}</div>
+        </div>
+      </div>
+      <hr class="hr90" />
+
+      <div class="divTable">
+        <div class="divTableRow">
+          <div class="divTableCell cell-tc40">가치</div>
+          <div class="divTableCell cell-tc60">{{ gladia.Value }}</div>
+        </div>
+      </div>
+      <hr class="hr90" />
+
+      <div class="divTable">
+        <div class="divTableRow">
+          <div class="divTableCell cell-tc40">해제비용</div>
+          <div class="divTableCell cell-tc60">
+            <img class="inline15" src="assets/Etc/nyang.png" />
+            {{ gladia.Cost }}
+          </div>
+        </div>
+      </div>
+      <hr class="hr90" />
+
+      <ng-container *ngIf="gladia.Speed != ''">
+        <div class="divTable">
+          <div class="divTableRow">
+            <div class="divTableCell cell-tc40">이동속도</div>
+            <div class="divTableCell cell-tc60">{{ gladia.Speed }}</div>
+          </div>
+        </div>
+        <hr class="hr90" />
+      </ng-container>
+
+      <div style="text-align: center;">속성 저항</div>
+      <div class="divTable" style="table-layout: fixed;">
+        <div class="divTableRow">
+          <div
+            class="divTableCell"
+            *ngFor="let res of resistAtkType"
+            style="width: 100%;"
+          >
+            <img class="inline15" src="assets/Etc/{{ res }}.png" />
+          </div>
+        </div>
+      </div>
+
+      <div class="divTable" style="table-layout: fixed;">
+        <div class="divTableRow">
+          <div
+            class="divTableCell"
+            *ngFor="let res of resistAtkType"
+            style="width: 100%;"
+          >
+            {{ getGladiaAttr(res) }}
+          </div>
+        </div>
+      </div>
+      <hr class="hr90" />
+    </div>
+  </div>
+
+  <div class="section group">
+    <div class="col span_1_of_2" style="white-space: pre-wrap;">
+      <h2 class="subtitle">고유 효과</h2>
+      <hr class="hr90" />
+      {{ gladia.Unique }}
+    </div>
+    <div class="col span_1_of_2">
+      <h2 class="subtitle">연관 글라디아</h2>
+      <hr class="hr90" />
+
+      <ng-container *ngIf="gladia.Rel !== ''">
+        <div class="divTable" style="table-layout: fixed;">
+          <div class="divTableRow">
+            <div
+              class="divTableCell"
+              *ngFor="let d of getRelative(gladia.Rel)"
+              style="width: 100%;"
+            >
+              <a routerLink="/gladia/{{ d }}">
+                <img
+                  class="inline40"
+                  src="assets/GladiaThumbnails/{{ d }}.jpg"
+                />
+              </a>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+
+  <div class="section group">
+  <div class="col span_1_of_2">
+    <h2 class="subtitle"> 드랍 고치</h2>
+    <hr class="hr90">
+    <div class="divTable" *ngIf="gladia.Drop">
+      <ng-container *ngFor="let x of getCocoon(gladia.Drop)">
+        <div class="divTableRow">
+          <div class="divTableCell cell-tc30"> 
+            <img class="inline40" src="assets/Cocoon/{{x[0] | underbarEliminator}}.jpg">
+          </div>
+          <div class="divTableCell cell-tc70"> 
+            <a class="highlight" routerLink="/cocoon/{{x[0]}}">{{x[1]}}</a>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+
+
+
+</div>

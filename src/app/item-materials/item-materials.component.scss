@@ -1,0 +1,38 @@
+@import '../../styles.scss';
+
+@media screen and (min-width: 800px) {
+  .contents { width: 80%;}
+}
+
+.contents {
+	clear: both;
+	padding: 0px;
+  margin: auto;
+}
+
+@include mat-table-columns((
+    ID  : (maxwidth: 10rem, minwidth:4rem, flex-direction: column),
+    Name: (minwidth: 6rem),
+    Tier: (minwidth: 2rem, maxwidth: 6rem),
+    Sell: (minwidth: 2rem, maxwidth: 6rem),
+    Buy : (minwidth: 2rem, maxwidth: 6rem),
+));
+
+mat-header-cell {
+  justify-content: center;
+  flex-direction: row;
+}
+mat-cell{
+  justify-content: center;
+}
+
+img.face {
+  object-fit: contain;
+  width: 100%;
+  height: auto;
+  margin: 0;
+}
+span.wordnonbreak {
+  word-break: keep-all;
+  text-align: center;
+}

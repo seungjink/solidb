@@ -1,0 +1,36 @@
+h1.subtitle {
+  font-size:2.3rem;
+  text-align:center;
+}
+
+h2.subtitle {
+  font-size:1.8rem;
+  line-height: 0.1em;
+}
+
+
+img.actimg {
+  max-width: 90%;
+  height: auto;
+}
+
+img.inline15 {
+  display: inline-block;
+  vertical-align: middle;
+  width: 1.5rem;
+}
+
+img.inline40 {
+  display: inline-block;
+  vertical-align: middle;
+  width: 4.0rem;
+}
+
+.highlight {
+background: url("../../assets/Etc/brush.png");
+background-repeat: no-repeat;
+background-size: 100% 95%;
+padding: 8px 0;
+text-decoration: none;
+color:black;
+}

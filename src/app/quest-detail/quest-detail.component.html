@@ -1,0 +1,187 @@
+<div class="mat-elevation-z8 basecanvas">
+<div class="section group">
+  <div class="col span_2_of_2"><h1 class="subtitle">{{data.Name}}</h1><hr class="hr90"></div>
+</div>
+
+<div class="section group">
+  <div class="col span_1_of_2" style="text-align: center;"><img class="actimg" src="assets/ActBackground/{{data.ActBackground}}.jpg"></div>
+  <div class="col span_1_of_2">
+
+    <div class="divTable">
+      <div class="divTableRow">
+        <div class="divTableCell cell-tc40">활력소모</div>
+        <div class="divTableCell cell-tc60"> <img src="assets/Etc/heart.png" class="inline15"> {{data.Fatigue}}</div>
+      </div>
+    </div>
+    <hr class="hr90">
+
+    <div class="divTable">
+      <div class="divTableRow">
+        <div class="divTableCell cell-tc40">티어</div>
+        <div class="divTableCell cell-tc60"> {{data.Tier}}</div>
+      </div>
+    </div>
+    <hr class="hr90">
+
+    <div class="divTable">
+      <div class="divTableRow">
+        <div class="divTableCell cell-tc40">경험치</div>
+        <div class="divTableCell cell-tc60">{{data.Exp}}</div>
+      </div>
+    </div>
+    <hr class="hr90">
+ 
+    <div class="divTable">
+      <div class="divTableRow">
+        <div class="divTableCell cell-tc40">적정 전투력</div>
+        <div class="divTableCell cell-tc60">{{data.RecStat}}</div>
+      </div>
+    </div>
+    <hr class="hr90">
+
+    <div class="divTable">
+      <div class="divTableRow">
+        <div class="divTableCell cell-tc40">작전시간</div>
+        <div class="divTableCell cell-tc60">{{getTime(data.Time)}}</div>
+      </div>
+    </div>
+    <hr class="hr90">
+
+
+
+    <div class="divTable">
+      <div class="divTableRow">
+        <div class="divTableCell cell-tc40">추천 공격</div>
+        <div class="divTableCell cell-tc60" style="text-align: center;">
+          <ng-container *ngIf="data.RecAtk">
+            <img class="inline15" *ngFor="let atk of getAtkType(data.RecAtk)" src="assets/Etc/{{atk}}.png">
+          </ng-container>
+        </div>
+      </div>
+    </div>
+    <hr class="hr90">
+
+    <div class="divTable">
+      <div class="divTableRow">
+        <div class="divTableCell cell-tc40">추천 방어</div>
+        <div class="divTableCell cell-tc60" style="text-align: center;">
+            <img class="inline15" *ngFor="let def of getAtkType(data.RecDef)" src="assets/Etc/{{def}}.png">
+        </div>
+      </div>
+    </div>
+    <hr class="hr90">
+  </div>
+</div>
+
+<div class="section group">
+  <div class="col span_1_of_2" style="white-space:pre-wrap;">
+    <h2 class="subtitle" > 정보 </h2> <hr class="hr90">
+    {{data.Desc}}
+  </div>
+  <div class="col span_1_of_2">
+    <h2 class="subtitle" > 획득자원 </h2> <hr class="hr90">
+
+    <div class="divTable">
+      <div class="divTableRow">
+        <div class="divTableCell cell-tc20"></div>
+        <div class="divTableCell cell-tc40">원료(랜덤)</div>
+        <div class="divTableCell cell-tc40">정제(고정)</div>
+      </div>
+
+      <ng-container *ngFor="let x of getRSC()">
+        <div class="divTableRow">
+          <div class="divTableCell cell-tc20"> 
+            <img class="inline15" src="assets/Etc/{{x[0]}}.png">
+          </div>
+          <div class="divTableCell cell-tc40"> 
+            <img *ngIf="x[1]" class="inline15" src="assets/Etc/{{x[1]}}.png">
+          </div>
+          <div class="divTableCell cell-tc40"> 
+            {{x[2]}}
+          </div>
+        </div>
+      </ng-container>
+    </div>
+
+    <div class="divTable">
+      <div class="divTableRow">
+        <div class="divTableCell cell-tc20"><img class="inline15" src="assets/Etc/nyang.png"></div>
+        <div class="divTableCell cell-tc80">{{data.Nyang}}</div>
+      </div>
+    </div>
+    <div class="divTable">
+      <div class="divTableRow">
+        <div class="divTableCell cell-tc20"><img class="inline15" src="assets/Etc/food.png"></div>
+        <div class="divTableCell cell-tc80">{{data.Food}}</div>
+      </div>
+    </div> 
+  </div>
+</div>
+
+<div class="section group">
+  <div class="col span_1_of_2">
+    <h2 class="subtitle" > 보상(고정) </h2> <hr class="hr90">
+    <div class="divTable" *ngIf="data.DropFixedItemWithNum">
+      <ng-container *ngFor="let x of getFixedItem(data.DropFixedItemWithNum)">
+        <div class="divTableRow">
+          <div class="divTableCell cell-tc30"> 
+            <img class="inline40" src="assets/ItemsMaterials/{{x[0] | underbarEliminator}}.jpg">
+          </div>
+          <div class="divTableCell cell-tc40"> 
+            <a class="highlight" routerLink="/items/{{x[0] }}">{{x[2]}}</a>
+          </div>
+          <div class="divTableCell cell-tc30"> 
+            {{x[1]}}
+          </div>
+        </div>
+      </ng-container>
+    </div>
+
+    <div class="divTable" *ngIf="data.DropFixedCocoonId">
+      <ng-container *ngFor="let x of getFixedItem(data.DropFixedCocoonId)">
+        <div class="divTableRow">
+          <div class="divTableCell cell-tc30"> 
+            <img class="inline40" src="assets/Cocoon/{{x[0] | underbarEliminator}}.jpg">
+          </div>
+          <div class="divTableCell cell-tc40"> 
+            <a class="highlight" routerLink="/cocoon/{{x[0]}}">{{x[2]}}</a>
+          </div>
+          <div class="divTableCell cell-tc30"> 
+            {{x[1]}}
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+
+  <div class="col span_1_of_2">
+    <h2 class="subtitle" > 보상(랜덤) </h2> <hr class="hr90">
+    <div class="divTable" *ngIf="data.DropRandomItemID">
+      <ng-container *ngFor="let x of getRandomItem(data.DropRandomItemID)">
+        <div class="divTableRow">
+          <div class="divTableCell cell-tc30"> 
+            <img class="inline40" src="assets/ItemsMaterials/{{x[1] | underbarEliminator}}.jpg">
+          </div>
+          <div class="divTableCell cell-tc70"> 
+            <a class="highlight" routerLink="/items/{{x[1]}}">{{x[0]}}</a>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+
+    <div class="divTable" *ngIf="data.DropRandomcocoonID">
+      <ng-container *ngFor="let x of getRandomItem(data.DropRandomCocoonID)">
+        <div class="divTableRow">
+          <div class="divTableCell cell-tc30"> 
+            <img class="inline40" src="assets/Cocoon/{{x[1] | underbarEliminator }}.jpg">
+          </div>
+          <div class="divTableCell cell-tc70"> 
+            <a class="highlight" routerLink="/cocoon/{{x[1]}}">{{x[0]}}</a>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+
+  </div>
+</div>
+</div>

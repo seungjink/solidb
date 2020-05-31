@@ -1,0 +1,56 @@
+<div class="contents">
+<mat-form-field>
+  <mat-label>검색</mat-label>
+  <input matInput (keyup)="applyFilter($event)" placeholder="검색어 입력">
+</mat-form-field>
+
+<mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+
+  <ng-container matColumnDef="ID">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> 요원 </mat-header-cell>
+    <mat-cell *matCellDef="let row"> <img class="face" src="assets/AgentsThumbnails/{{row.ID}}.jpg"> <span class="wordnonbreak">{{row.Name}}</span></mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="Position">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> 포지션 </mat-header-cell>
+    <mat-cell *matCellDef="let row"> {{row.Position}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="Type">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> 속성 </mat-header-cell>
+    <mat-cell *matCellDef="let row"> {{row.Type}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="ChaAtkType_1">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> 참 </mat-header-cell>
+    <mat-cell *matCellDef="let row"> {{row.ChaAtkType_1}} </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="ChaAtkType_2">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> 타 </mat-header-cell>
+    <mat-cell *matCellDef="let row"> {{row.ChaAtkType_2}} </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="ChaAtkType_3">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> 화 </mat-header-cell>
+    <mat-cell *matCellDef="let row"> {{row.ChaAtkType_3}} </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="ChaAtkType_4">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> 냉 </mat-header-cell>
+    <mat-cell *matCellDef="let row"> {{row.ChaAtkType_4}} </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="ChaAtkType_5">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> 전 </mat-header-cell>
+    <mat-cell *matCellDef="let row"> {{row.ChaAtkType_5}} </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="ChaAtkType_6">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> 신 </mat-header-cell>
+    <mat-cell *matCellDef="let row"> {{row.ChaAtkType_6}} </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="ChaAtkType_7">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> 암 </mat-header-cell>
+    <mat-cell *matCellDef="let row"> {{row.ChaAtkType_7}} </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"  routerLink="/agents/{{row.ID}}"></mat-row>
+</mat-table>
+</div>

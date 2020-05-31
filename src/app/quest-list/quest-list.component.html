@@ -1,0 +1,39 @@
+<div class="contents">
+<mat-form-field>
+  <mat-label>검색</mat-label>
+  <input matInput (keyup)="applyFilter($event)" placeholder="검색어 입력">
+</mat-form-field>
+
+<mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+
+  <!-- Id name Definition -->
+  <ng-container matColumnDef="Name">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>퀘스트</mat-header-cell>
+    <mat-cell *matCellDef="let row"> <span class="wordnonbreak">{{row.Name}}</span></mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="Tier">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>티어</mat-header-cell>
+    <mat-cell *matCellDef="let row"> {{row.Tier}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="Fatigue">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>활력</mat-header-cell>
+    <mat-cell *matCellDef="let row"> {{row.Fatigue}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="Exp">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>경험치</mat-header-cell>
+    <mat-cell *matCellDef="let row"> {{row.Exp}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="RecStat">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>전투력</mat-header-cell>
+    <mat-cell *matCellDef="let row"> {{row.RecStat}} </mat-cell>
+  </ng-container>
+
+  <!-- Header and Row Declarations -->
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;" routerLink="/quest/{{row.ID}}"></mat-row>
+</mat-table>
+</div>
