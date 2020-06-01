@@ -3,7 +3,6 @@ import { HttpClient } from '@angular/common/http'
 import { Papa } from 'ngx-papaparse';
 import { map } from 'rxjs/operators';
 import { forkJoin, Subject} from 'rxjs';
-import { QuestIdToName } from './soliHashTable';
 
 @Injectable({
   providedIn: 'root'
@@ -23,6 +22,24 @@ export class SoliProviderService implements OnDestroy{
   private dataGladia       : any;
   private dataCocoon       : any;
 
+  public hashAgentList      : object;
+  public hashCocoonList     : object;
+  public hashGladiaList     : object;
+  public hashItemList       : object;
+  public hashQuestList      : object;
+  public hashItemToName     : object;
+  public hashQuestIdToName  : object;
+  public hashCocoonIdToName : object;
+
+//ItemIdToName
+//  MA00001: '물방울',
+//
+//export const QuestIdToName = {
+//  FREE0101: '긴급 식량 공수',
+//
+//export const CocoonIdToName = {
+//  CC00001: '신선한 고치',
+//
   public getdataAgent() {
     return this.dataAgent
   }
@@ -58,15 +75,30 @@ export class SoliProviderService implements OnDestroy{
     ])
     .subscribe(response => {
       this.dataAgent        = this.papa.parse(response[0], {header:true}).data
-      this.dataItemMaterial = this.papa.parse(response[1], {header:true}).data
-      this.dataItemMaterial = this.parseDropData(this.dataItemMaterial)
       this.dataQuest        = this.papa.parse(response[2], {header:true}).data
       this.dataGladia       = this.papa.parse(response[3], {header:true}).data
       this.dataCocoon       = this.papa.parse(response[4], {header:true}).data
+      this.dataItemMaterial = this.papa.parse(response[1], {header:true}).data
+ 
+
+      this.hashAgentList = this.genArray(this.dataAgent, "ID")
+      this.hashCocoonList = this.genArray(this.dataCocoon, "ID")
+      this.hashGladiaList = this.genArray(this.dataGladia, "ID")
+      this.hashItemList = this.genArray(this.dataItemMaterial, "ID")
+      this.hashQuestList = this.genArray(this.dataQuest, "ID")
+      this.hashItemToName     =  this.genArray(this.dataItemMaterial,"ID","Name");
+      this.hashQuestIdToName  =  this.genArray(this.dataQuest,"ID","Name");
+      this.hashCocoonIdToName =  this.genArray(this.dataCocoon,"ID","Name");
+
+      this.dataItemMaterial = this.parseDropData(this.dataItemMaterial)
+
+
       console.log("Loading complated.")
       resolve(true);
     }
     )
+
+
     })
   }
 
@@ -77,7 +109,7 @@ export class SoliProviderService implements OnDestroy{
           // Improve this part
           let tmparr: any = []
           for (let j in data[i]["DropRandom"]){
-            tmparr.push(QuestIdToName[data[i]["DropRandom"][j]]);
+            tmparr.push(this.hashQuestIdToName[data[i]["DropRandom"][j]]);
           }
           data[i]["DropRandomName"] = tmparr;
           
@@ -89,13 +121,33 @@ export class SoliProviderService implements OnDestroy{
 
           data[i]["DropFixedNameID"] = {};
           for(const key in data[i]["DropFixed"]){
-            data[i]["DropFixedNameID"][QuestIdToName[key]] = [data[i]["DropFixed"][key], key];
+            data[i]["DropFixedNameID"][this.hashQuestIdToName[key]] = [data[i]["DropFixed"][key], key];
           }
         }
         return data
       }
+  
+
+  genArray(data, key:string, value?:string){
+    let arr = {}
+    if (value){
+      for (let i in data){
+        arr[data[i][key]] = data[i][value];
+      }
+    }
+    else{
+      for (let i in data){
+        arr[data[i][key]] = i;
+      }
+    }
+   return arr;
+  }
+
+
+
   ngOnDestroy(): void{
     this.destroy$.next();
     this.destroy$.complete();
   }
+
 }

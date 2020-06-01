@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { SoliProviderService } from '../soli-provider.service'
-import { QuestDetailsHash, AtkTypeENG, QuestRSC, ItemIdToName } from '../soliHashTable'
+import { SoliProviderService } from '../shared/soli-provider.service'
+import { AtkTypeENG, QuestRSC } from '../shared/soliHashTable'
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -24,7 +24,7 @@ export class QuestDetailComponent implements OnInit {
   ngOnInit(): void {
     this.route.params.subscribe( params => {
     this.idItem = params["id"];
-    this.data = this.soliProvider.getdataQuest()[QuestDetailsHash[this.idItem]]
+    this.data= this.soliProvider.getdataQuest()[this.soliProvider.hashQuestList[this.idItem]]
     })
 
   }
@@ -48,7 +48,7 @@ export class QuestDetailComponent implements OnInit {
     var resultArr = [];
 
     for (let i = 0; i < id.length; i++) {
-        resultArr.push([ItemIdToName[id[i]], id[i]]);
+        resultArr.push([this.soliProvider.hashItemToName[id[i]], id[i]]);
     };
 
     return resultArr  
@@ -63,7 +63,7 @@ export class QuestDetailComponent implements OnInit {
       let resultArr = [];
 
       for(let id in parsed){
-        resultArr.push([id, parsed[id], ItemIdToName[id]]);
+        resultArr.push([id, parsed[id], this.soliProvider.hashItemToName[id]]);
       }
       return resultArr
     }

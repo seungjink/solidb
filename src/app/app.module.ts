@@ -1,7 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, APP_INITIALIZER } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import { UnderbarEliminator } from './regex.pipe'
+import { UnderbarEliminator } from './shared/regex.pipe';
+
 
 // For Scrolling Issue////////////////////////
 import {Router, Scroll} from '@angular/router';
@@ -31,7 +32,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card'; 
 import { MatDividerModule } from '@angular/material/divider'; 
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner'; 
-import { SoliProviderService } from './soli-provider.service';
+import { SoliProviderService } from './shared/soli-provider.service';
 import { ItemMaterialsDetailComponent } from './item-materials-detail/item-materials-detail.component';
 import { QuestDetailComponent } from './quest-detail/quest-detail.component';
 import { FormsModule } from '@angular/forms';

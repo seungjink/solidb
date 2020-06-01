@@ -18,14 +18,18 @@
     <div class="divTable">
       <div class="divTableRow">
         <div class="divTableCell cell-tc40">파는가격</div>
-        <div class="divTableCell cell-tc60">{{data.Sell}}</div>
+        <div class="divTableCell cell-tc60"><img src="assets/Etc/nyang.png" class="inline15"> {{data.Sell}}</div>
       </div>
     </div>
     <hr class="hr90">
     <div class="divTable">
       <div class="divTableRow">
         <div class="divTableCell cell-tc40">사는가격</div>
-        <div class="divTableCell cell-tc60">{{data.Buy}}</div>
+        <div class="divTableCell cell-tc60">
+          <img src="assets/Etc/sphere.png" class="inline15" *ngIf="data.Buy[0] == 's'"> 
+          <img src="assets/Etc/nyang.png" class="inline15" *ngIf="data.Buy[0] !== 's'"> 
+           {{data.Buy.slice(1,data.Buy.length)}}
+        </div>
       </div>
     </div>
     <hr class="hr90">

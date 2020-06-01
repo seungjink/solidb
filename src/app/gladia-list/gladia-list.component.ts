@@ -1,8 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatSort } from '@angular/material/sort'
-import { SoliProviderService } from '../soli-provider.service'
+import { SoliProviderService } from '../shared/soli-provider.service'
 import { MatTableDataSource } from '@angular/material/table';
-
 
 @Component({
   selector: 'app-gladia-list',

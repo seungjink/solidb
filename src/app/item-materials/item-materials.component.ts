@@ -1,7 +1,6 @@
 import { Component, OnInit, ViewChild} from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
 import { MatSort } from '@angular/material/sort'
-import { SoliProviderService } from '../soli-provider.service'
+import { SoliProviderService } from '../shared/soli-provider.service'
 import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
@@ -16,7 +15,6 @@ export class ItemMaterialsComponent implements OnInit {
   displayedColumns: string[] = ['ID', 'Name', 'Tier','Sell', 'Buy'];
 
   constructor(
-    public dialog: MatDialog,
     soliProvider: SoliProviderService
   ) {
     this.dataSource = new MatTableDataSource(soliProvider.getdataItemMaterial())

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { SoliProviderService } from '../soli-provider.service';
-import { CocoonDetailHash, QuestIdToName, AgentDetailHash, GladiaDetailHash } from '../soliHashTable'
+import { SoliProviderService } from '../shared/soli-provider.service';
 
 @Component({
   selector: 'app-cocoon-detail',
@@ -23,7 +22,7 @@ export class CocoonDetailComponent implements OnInit {
   ngOnInit(): void {
     this.route.params.subscribe( params => {
     this.idItem = params["id"];
-    this.cocoon= this.soliProvider.getdataCocoon()[CocoonDetailHash[this.idItem]]
+    this.cocoon= this.soliProvider.getdataCocoon()[this.soliProvider.hashCocoonList[this.idItem]]
     });
   }
 
@@ -31,7 +30,7 @@ export class CocoonDetailComponent implements OnInit {
    let id = y.split(",")
    var resultArr = [];
    for (let i = 0; i < id.length; i++) {
-       resultArr.push([QuestIdToName[id[i]], id[i]]);
+       resultArr.push([this.soliProvider.hashQuestIdToName[id[i]], id[i]]);
    };
    return resultArr  
  }

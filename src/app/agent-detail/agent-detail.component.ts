@@ -1,8 +1,9 @@
 import { Component, OnInit, ViewEncapsulation} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { SoliProviderService } from '../soli-provider.service'
-import { AtkTypeKOR, AgentDetailHash, resistAtkType} from '../soliHashTable'
-import { Agent } from '../agent';
+import { SoliProviderService } from '../shared/soli-provider.service'
+import { AtkTypeKOR, resistAtkType} from '../shared/soliHashTable'
+import { Agent } from '../shared/agent';
+
 
 @Component({
   selector: 'app-agent-detail',
@@ -45,7 +46,7 @@ export class AgentDetailComponent implements OnInit {
   ngOnInit(): void {
     this.route.params.subscribe( params => {
     this.idItem = params["id"];
-    this.agent = this.soliProvider.getdataAgent()[AgentDetailHash[this.idItem]]
+    this.agent = this.soliProvider.getdataAgent()[this.soliProvider.hashAgentList[this.idItem]]
     })
   }
  

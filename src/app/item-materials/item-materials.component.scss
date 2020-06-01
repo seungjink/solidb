@@ -14,8 +14,8 @@
     ID  : (maxwidth: 10rem, minwidth:4rem, flex-direction: column),
     Name: (minwidth: 6rem),
     Tier: (minwidth: 2rem, maxwidth: 6rem),
-    Sell: (minwidth: 2rem, maxwidth: 6rem),
-    Buy : (minwidth: 2rem, maxwidth: 6rem),
+    Sell: (minwidth: 2rem, maxwidth: 6rem, flex-direction: column),
+    Buy : (minwidth: 2rem, maxwidth: 6rem, flex-direction: column),
 ));
 
 mat-header-cell {
@@ -32,6 +32,15 @@ img.face {
   height: auto;
   margin: 0;
 }
+
+img.trade {
+  object-fit: contain;
+  max-width : 1.2rem;
+  width: 100%;
+  height: auto;
+  margin: 0;
+}
+
 span.wordnonbreak {
   word-break: keep-all;
   text-align: center;

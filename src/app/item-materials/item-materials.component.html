@@ -24,13 +24,22 @@
 
   <ng-container matColumnDef="Sell">
     <mat-header-cell *matHeaderCellDef mat-sort-header>판매</mat-header-cell>
-    <mat-cell *matCellDef="let row"> {{row.Sell}} </mat-cell>
+    <mat-cell *matCellDef="let row"> <img src="assets/Etc/nyang.png" class="trade">{{row.Sell}} </mat-cell>
   </ng-container>
 
   <ng-container matColumnDef="Buy">
     <mat-header-cell *matHeaderCellDef mat-sort-header>구매</mat-header-cell>
-    <mat-cell *matCellDef="let row"> {{row.Buy}} </mat-cell>
-  </ng-container>
+    <mat-cell *matCellDef="let row">
+      <ng-container *ngIf="row.Buy[0] == 's'">
+        <img src="assets/Etc/sphere.png" class="trade">
+        {{row.Buy.slice(1,row.Buy.length)}}
+       </ng-container>
+       <ng-container *ngIf="row.Buy[0] !== 's'">
+       <img src="assets/Etc/nyang.png" class="trade">
+        {{row.Buy}}
+      </ng-container>
+    </mat-cell>
+    </ng-container>
 
   <!-- Header and Row Declarations -->
   <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>

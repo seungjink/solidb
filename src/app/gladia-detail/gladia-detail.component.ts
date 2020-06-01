@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { SoliProviderService } from '../soli-provider.service';
-import { GladiaDetailHash, resistAtkType, CocoonIdToName } from '../soliHashTable'
+import { SoliProviderService } from '../shared/soli-provider.service';
+import { resistAtkType } from '../shared/soliHashTable'
 
 @Component({
   selector: 'app-gladia-detail',
@@ -26,7 +26,7 @@ export class GladiaDetailComponent implements OnInit {
   ngOnInit(): void {
     this.route.params.subscribe( params => {
     this.idItem = params["id"];
-    this.gladia = this.soliProvider.getdataGladia()[GladiaDetailHash[this.idItem]]
+    this.gladia= this.soliProvider.getdataGladia()[this.soliProvider.hashGladiaList[this.idItem]]
     });
   }
 
@@ -40,7 +40,7 @@ export class GladiaDetailComponent implements OnInit {
   getCocoon = (x:string): any => {
     let arr = [];
     for (let y of x.split(',')){
-      arr.push([y, CocoonIdToName[y]])
+      arr.push([y,this.soliProvider.hashCocoonIdToName[y]])
     }
     return arr
   }
