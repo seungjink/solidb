@@ -1,61 +1,84 @@
 <div class="mat-elevation-z8 basecanvas">
-<div class="section group">
-  <div class="col span_2_of_2"><h1 class="subtitle">{{data.Name}}</h1><hr class="hr90"></div>
-</div>
-
-
-<div class="section group">
-  <div class="col span_1_of_2" style="text-align: center;">
-    <div><img src="assets/ItemsMaterials/{{data.ID | underbarEliminator}}.jpg"></div>
-    <hr class="hr90">
-    <div class="divTable">
-      <div class="divTableRow">
-        <div class="divTableCell cell-tc40">티어</div>
-        <div class="divTableCell cell-tc60">{{data.Tier}}</div>
-      </div>
+  <div class="section group">
+    <div class="col span_2_of_2">
+      <h1 class="subtitle">{{ data.Name }}</h1>
+      <hr class="hr90" />
     </div>
-    <hr class="hr90">
-    <div class="divTable">
-      <div class="divTableRow">
-        <div class="divTableCell cell-tc40">파는가격</div>
-        <div class="divTableCell cell-tc60"><img src="assets/Etc/nyang.png" class="inline15"> {{data.Sell}}</div>
+  </div>
+
+  <div class="section group">
+    <div class="col span_1_of_2" style="text-align: center;">
+      <div>
+        <img
+          src="assets/ItemsMaterials/{{ data.ID | underbarEliminator }}.jpg"
+        />
       </div>
-    </div>
-    <hr class="hr90">
-    <div class="divTable">
-      <div class="divTableRow">
-        <div class="divTableCell cell-tc40">사는가격</div>
-        <div class="divTableCell cell-tc60">
-          <img src="assets/Etc/sphere.png" class="inline15" *ngIf="data.Buy[0] == 's'"> 
-          <img src="assets/Etc/nyang.png" class="inline15" *ngIf="data.Buy[0] !== 's'"> 
-           {{data.Buy.slice(1,data.Buy.length)}}
+      <hr class="hr90" />
+      <div class="divTable">
+        <div class="divTableRow">
+          <div class="divTableCell cell-tc40">티어</div>
+          <div class="divTableCell cell-tc60">{{ data.Tier }}</div>
         </div>
       </div>
+      <hr class="hr90" />
+      <div class="divTable">
+        <div class="divTableRow">
+          <div class="divTableCell cell-tc40">파는가격</div>
+          <div class="divTableCell cell-tc60">
+            <img src="assets/Etc/nyang.png" class="inline15" /> {{ data.Sell }}
+          </div>
+        </div>
+      </div>
+      <hr class="hr90" />
+      <div class="divTable">
+        <div class="divTableRow">
+          <div class="divTableCell cell-tc40">사는가격</div>
+          <div class="divTableCell cell-tc60">
+            <ng-container *ngIf="row.Buy[0] == 's'">
+              <img src="assets/Etc/sphere.png" class="inline15" />
+              {{ row.Buy.slice(1, row.Buy.length) }}
+            </ng-container>
+            <ng-container *ngIf="row.Buy[0] !== 's'">
+              <img src="assets/Etc/nyang.png" class="inline15" />
+              {{ row.Buy }}
+            </ng-container>
+          </div>
+        </div>
+      </div>
+      <hr class="hr90" />
     </div>
-    <hr class="hr90">
+    <div class="col span_1_of_2" style="white-space: pre-wrap;">
+      <br />{{ data.Desc }}
+    </div>
   </div>
-  <div class="col span_1_of_2" style="white-space: pre-wrap;"><br>{{data.Desc}}</div>
-</div>
 
-<div class="section group">
-<div class="col span_1_of_2">
-    <h2 class="subtitle"> 랜덤드랍</h2>
-    <hr class="hr90">
-    <ng-container *ngFor="let d of data.DropRandomName; let i=index">
-      <p style="text-align:center">
-        <a class="highlight" routerLink="/quest/{{data.DropRandom[i]}}">{{d}}</a><br><br>
-      </p>
-    </ng-container>
-</div>
+  <div class="section group">
+    <div class="col span_1_of_2">
+      <h2 class="subtitle">랜덤드랍</h2>
+      <hr class="hr90" />
+      <ng-container *ngFor="let d of data.DropRandomName; let i = index">
+        <p style="text-align: center;">
+          <a class="highlight" routerLink="/quest/{{ data.DropRandom[i] }}">{{
+            d
+          }}</a
+          ><br /><br />
+        </p>
+      </ng-container>
+    </div>
 
-<div class="col span_1_of_2">
-    <h2 class="subtitle"> 고정드랍</h2>
-    <hr class="hr90">
-    <ng-container *ngFor="let name of data.DropFixedNameID | keyvalue; let i=index">
-      <p style="text-align:center">
-        <a class="highlight" routerLink="/quest/{{name.value[1]}}">{{name.key}}</a>: <b>{{name.value[0]}}</b> <br><br>
-      </p>
-    </ng-container>
-</div>
-</div>
+    <div class="col span_1_of_2">
+      <h2 class="subtitle">고정드랍</h2>
+      <hr class="hr90" />
+      <ng-container
+        *ngFor="let name of data.DropFixedNameID | keyvalue; let i = index"
+      >
+        <p style="text-align: center;">
+          <a class="highlight" routerLink="/quest/{{ name.value[1] }}">{{
+            name.key
+          }}</a
+          >: <b>{{ name.value[0] }}</b> <br /><br />
+        </p>
+      </ng-container>
+    </div>
+  </div>
 </div>
