@@ -34,13 +34,13 @@
         <div class="divTableRow">
           <div class="divTableCell cell-tc40">사는가격</div>
           <div class="divTableCell cell-tc60">
-            <ng-container *ngIf="row.Buy[0] == 's'">
+            <ng-container *ngIf="data.Buy[0] == 's'">
               <img src="assets/Etc/sphere.png" class="inline15" />
-              {{ row.Buy.slice(1, row.Buy.length) }}
+              {{ data.Buy.slice(1, data.Buy.length) }}
             </ng-container>
-            <ng-container *ngIf="row.Buy[0] !== 's'">
+            <ng-container *ngIf="data.Buy[0] !== 's'">
               <img src="assets/Etc/nyang.png" class="inline15" />
-              {{ row.Buy }}
+              {{ data.Buy }}
             </ng-container>
           </div>
         </div>
