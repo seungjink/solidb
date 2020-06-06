@@ -72,4 +72,5 @@ export const agentlist = {
     "AG06072" : "v38",
     "AG06069" : "v38",
     "AG07073" : "v38",
+    "AG07074" : "v38",
 }
