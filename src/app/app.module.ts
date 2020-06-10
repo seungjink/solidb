@@ -44,6 +44,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import {MatSelectModule} from '@angular/material/select';
 import { CocoonListComponent } from './cocoon-list/cocoon-list.component';
 import { CocoonDetailComponent } from './cocoon-detail/cocoon-detail.component';
+import { DevEquipComponent } from './dev-equip/dev-equip.component';
+import {MatAutocompleteModule} from '@angular/material/autocomplete'; 
 
 export function soliProviderFactory(provider: SoliProviderService) {
   return () => provider.load();
@@ -63,7 +65,8 @@ export function soliProviderFactory(provider: SoliProviderService) {
     GladiaDetailComponent,
     CocoonListComponent,
     CocoonDetailComponent,
-    UnderbarEliminator
+    UnderbarEliminator,
+    DevEquipComponent
   ],
   imports: [
     BrowserModule,
@@ -86,7 +89,8 @@ export function soliProviderFactory(provider: SoliProviderService) {
     FormsModule,
     MatCheckboxModule,
     ReactiveFormsModule,
-    MatSelectModule
+    MatSelectModule,
+    MatAutocompleteModule
   ],
   providers: [
     SoliProviderService, 
