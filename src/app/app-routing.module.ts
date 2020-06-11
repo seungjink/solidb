@@ -11,8 +11,11 @@ import { GladiaListComponent } from './gladia-list/gladia-list.component';
 import { GladiaDetailComponent } from './gladia-detail/gladia-detail.component';
 import { CocoonListComponent } from './cocoon-list/cocoon-list.component';
 import { CocoonDetailComponent } from './cocoon-detail/cocoon-detail.component';
+import { IndexComponent } from './index/index.component';
 
 const routes: Routes = [
+  { path: '', redirectTo: 'index', pathMatch: 'full'},
+  { path: 'index', component: IndexComponent},
   { path: 'agents', component: AgentListComponent },
   { path: 'agents/:id', component: AgentDetailComponent},
   { path: 'items', component: ItemMaterialsComponent},
