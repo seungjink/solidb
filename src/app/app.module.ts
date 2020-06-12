@@ -46,6 +46,7 @@ import { CocoonListComponent } from './cocoon-list/cocoon-list.component';
 import { CocoonDetailComponent } from './cocoon-detail/cocoon-detail.component';
 import { DevEquipComponent } from './dev-equip/dev-equip.component';
 import {MatAutocompleteModule} from '@angular/material/autocomplete'; 
+import {ClipboardModule} from '@angular/cdk/clipboard';  
 
 export function soliProviderFactory(provider: SoliProviderService) {
   return () => provider.load();
@@ -90,7 +91,8 @@ export function soliProviderFactory(provider: SoliProviderService) {
     MatCheckboxModule,
     ReactiveFormsModule,
     MatSelectModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    ClipboardModule
   ],
   providers: [
     SoliProviderService, 
