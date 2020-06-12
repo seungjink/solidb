@@ -141,23 +141,62 @@
   </div>
 
   <div class="section group">
-  <div class="col span_1_of_2">
-    <h2 class="subtitle"> 드랍 고치</h2>
-    <hr class="hr90">
-    <div class="divTable" *ngIf="gladia.Drop">
-      <ng-container *ngFor="let x of getCocoon(gladia.Drop)">
-        <div class="divTableRow">
-          <div class="divTableCell cell-tc30"> 
-            <img class="inline40" src="assets/Cocoon/{{x[0] | underbarEliminator}}.jpg">
+    <div class="col span_1_of_2">
+      <h2 class="subtitle">드랍 고치</h2>
+      <hr class="hr90" />
+      <div class="divTable" *ngIf="gladia.Drop">
+        <ng-container *ngFor="let x of getCocoon(gladia.Drop)">
+          <div class="divTableRow">
+            <div class="divTableCell cell-tc30">
+              <img
+                class="inline40"
+                src="assets/Cocoon/{{ x[0] | underbarEliminator }}.jpg"
+              />
+            </div>
+            <div class="divTableCell cell-tc70">
+              <a class="highlight" routerLink="/cocoon/{{ x[0] }}">{{
+                x[1]
+              }}</a>
+            </div>
           </div>
-          <div class="divTableCell cell-tc70"> 
-            <a class="highlight" routerLink="/cocoon/{{x[0]}}">{{x[1]}}</a>
+        </ng-container>
+      </div>
+    </div>
+
+    <div class="col span_1_of_2" *ngIf="gladia.PromotionMaterialsFull">
+      <h2 class="subtitle">진화재료</h2>
+      <hr class="hr90" />
+      <div class="divTable">
+        <ng-container
+          *ngFor="let x of getFixedItem(gladia.PromotionMaterialsFull)"
+        >
+          <div class="divTableRow">
+            <div class="divTableCell cell-tc30">
+              <img
+                class="inline40"
+                src="assets/ItemsMaterials/{{ x[0] | underbarEliminator }}.jpg"
+              />
+            </div>
+            <div class="divTableCell cell-tc40">
+              <a class="highlight" routerLink="/items/{{ x[0] }}">{{ x[2] }}</a>
+            </div>
+            <div class="divTableCell cell-tc30">
+              {{ x[1] }}
+            </div>
+          </div>
+        </ng-container>
+        <div class="divTableRow">
+          <div class="divTableCell cell-tc30">
+            <img class="inline40" src="assets/Etc/nyang.png" />
+          </div>
+          <div class="divTableCell cell-tc40">
+            냥
+          </div>
+          <div class="divTableCell cell-tc30">
+            {{ gladia.PromotionNyang }}
           </div>
         </div>
-      </ng-container>
+      </div>
     </div>
   </div>
-
-
-
 </div>

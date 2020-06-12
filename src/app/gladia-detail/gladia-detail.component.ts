@@ -44,5 +44,20 @@ export class GladiaDetailComponent implements OnInit {
     }
     return arr
   }
+  getFixedItem(y: string){
+    if (y == ""){
+      return ""
+    }
+    else{
+      let parsed = JSON.parse(y);
+      let resultArr = [];
+
+      for(let id in parsed){
+        resultArr.push([id, parsed[id], this.soliProvider.hashItemToName[id]]);
+      }
+      return resultArr
+    }
+  }
+
 
 }

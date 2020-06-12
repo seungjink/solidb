@@ -1,8 +1,8 @@
 import { Component, OnInit, AfterViewChecked, NgZone, OnDestroy } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import { agentlist } from './spineVer';
 import { spine as sp37 } from '../../assets/SpineData/spine37/spine37';
 import { spine as sp38 } from '../../assets/SpineData/spine38/spine38';
+import { SoliProviderService } from '../shared/soli-provider.service'
 
 @Component({
   selector: 'app-agent-motion',
@@ -14,20 +14,24 @@ export class AgentMotionComponent implements OnInit, AfterViewChecked{
   private inZone = true;
   ts: any;
   sp: any;
+  spinever:string;
 
   constructor(
     private ngZone: NgZone,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private soliProvider: SoliProviderService
    ){}
 
   ngOnInit(): void {
     this.route.params.subscribe( params => {
     this.idAgent = params["id"];
+    this.spinever = this.soliProvider.getdataAgent()[this.soliProvider.hashAgentList[this.idAgent]].spinever
+    console.log(this.spinever)
     })
-    if (agentlist[this.idAgent] == "v37"){
+    if (this.spinever == "v37"){
       this.sp = sp37;
     }
-    else if (agentlist[this.idAgent] == "v38"){
+    else if (this.spinever == "v38"){
       this.sp = sp38;
     }
 
