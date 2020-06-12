@@ -48,7 +48,9 @@ export class QuestDetailComponent implements OnInit {
     var resultArr = [];
 
     for (let i = 0; i < id.length; i++) {
-        resultArr.push([this.soliProvider.hashItemToName[id[i]], id[i]]);
+        resultArr.push([
+          this.soliProvider.hashItemToName[id[i]] ? this.soliProvider.hashItemToName[id[i]] : this.soliProvider.hashCocoonIdToName[id[i]] 
+          , id[i]]);
     };
 
     return resultArr  

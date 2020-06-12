@@ -74,7 +74,7 @@
 </div>
 
 <div class="section group">
-  <div class="col span_1_of_2" style="white-space:pre-wrap;">
+  <div class="col span_1_of_2" style="white-space:pre-wrap;word-break: keep-all;">
     <h2 class="subtitle" > 정보 </h2> <hr class="hr90">
     {{data.Desc}}
   </div>
@@ -169,7 +169,7 @@
       </ng-container>
     </div>
 
-    <div class="divTable" *ngIf="data.DropRandomcocoonID">
+    <div class="divTable" *ngIf="data.DropRandomCocoonID">
       <ng-container *ngFor="let x of getRandomItem(data.DropRandomCocoonID)">
         <div class="divTableRow">
           <div class="divTableCell cell-tc30"> 
