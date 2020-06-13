@@ -17,7 +17,7 @@ export class DevEquipRecipieComponent implements OnInit {
   result: string;
 
   materialsList = [];
-  recipieForm = this.fb.group({
+  recipeForm = this.fb.group({
     name: [''],
     hour: [''],
     minute: [''],
@@ -33,7 +33,9 @@ export class DevEquipRecipieComponent implements OnInit {
     nyang: [''],
     nyangc: [''],
     materials: this.fb.array([]),
+    results: this.fb.array([])
   });
+  INITIALFORM = this.recipeForm.value;
 
   constructor(
     private soliProvider: SoliProviderService,
@@ -61,21 +63,47 @@ export class DevEquipRecipieComponent implements OnInit {
   }
 
   get materials() {
-    return this.recipieForm.get('materials') as FormArray;
+    return this.recipeForm.get('materials') as FormArray;
+  }
+
+  get results(){
+    return this.recipeForm.get('results') as FormArray;
   }
 
   addMaterials() {
     if(this.itemControl.value){
-    this.materials.push(
-      this.fb.group({
-        name: [this.itemControl.value.Name],
-        ID: [this.itemControl.value.ID],
-        count: [''],
-      })
-    );}
+      this.materials.push(
+        this.fb.group({
+          name: [this.itemControl.value.Name],
+          ID: [this.itemControl.value.ID],
+          count: [''],
+        })
+      );
+      this.itemControl.reset('')
+    }
+  }
+
+  addResults(){
+    this.results.push(
+      this.fb.control('')
+    )
+  }
+
+  removeResults(i: number){
+    this.results.removeAt(i);
   }
 
   removeMaterials(i: number) {
     this.materials.removeAt(i);
+  }
+  
+  copyToClipboard(){
+    return JSON.stringify(this.recipeForm.value)
+  }
+  reset(){
+    this.recipeForm.reset(this.INITIALFORM)
+    this.results.clear()
+    this.materials.clear()
+    this.itemControl.reset('')
   }
 }

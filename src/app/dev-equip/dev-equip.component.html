@@ -1,0 +1,273 @@
+<div class="mat-elevation-z8 basecanvas">
+  <form [formGroup]="equipForm">
+    <div class="section group">
+      <div class="col span_2_of_2" style="text-align: center;">
+        <mat-form-field style="width: 30%;">
+          <mat-label>장비 이름 검색</mat-label>
+
+          <input
+            type="text"
+            matInput
+            [formControl]="itemControl"
+            [matAutocomplete]="auto"
+          />
+          <mat-autocomplete
+            autoActiveFirstOption
+            #auto="matAutocomplete"
+            [displayWith]="displayFn"
+          >
+            <mat-option
+              *ngFor="let option of filteredOptions | async"
+              [value]="option"
+            >
+              {{ option.name }}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+         <button mat-stroked-button color="accent" (click)="updateNameRecipe()">
+          선택
+        </button>
+        
+        <mat-form-field style="width: 20%;">
+          <mat-label>아이템이름(자동)</mat-label>
+          <input type="text" matInput formControlName="name" />
+        </mat-form-field>
+         <mat-form-field style="width: 20%;">
+          <mat-label>조합법(자동)</mat-label>
+          <input type="text" matInput formControlName="recipe" />
+        </mat-form-field>
+ 
+      </div>
+    </div>
+
+    <div class="section group">
+      <div class="col span_1_of_2" style="text-align: center;">
+        <h3>기본 스탯</h3>
+
+        <mat-form-field style="width: 33%;">
+          <mat-label>공격력(고정)</mat-label>
+          <input type="text" matInput formControlName="atk" />
+        </mat-form-field>
+        <mat-form-field style="width: 33%;">
+          <mat-label>추가(최소)</mat-label>
+          <input type="text" matInput formControlName="atk_min" />
+        </mat-form-field>
+        <mat-form-field style="width: 33%;">
+          <mat-label>추가(최대)</mat-label>
+          <input type="text" matInput formControlName="atk_max" />
+        </mat-form-field>
+
+        <mat-form-field style="width: 33%;">
+          <mat-label>방어력(고정)</mat-label>
+          <input type="text" matInput formControlName="def" />
+        </mat-form-field>
+        <mat-form-field style="width: 33%;">
+          <mat-label>추가(최소)</mat-label>
+          <input type="text" matInput formControlName="def_min" />
+        </mat-form-field>
+        <mat-form-field style="width: 33%;">
+          <mat-label>추가(최대)</mat-label>
+          <input type="text" matInput formControlName="def_max" />
+        </mat-form-field>
+
+        <mat-form-field style="width: 33%;">
+          <mat-label>체력(고정)</mat-label>
+          <input type="text" matInput formControlName="hp" />
+        </mat-form-field>
+        <mat-form-field style="width: 33%;">
+          <mat-label>추가(최소)</mat-label>
+          <input type="text" matInput formControlName="hp_min" />
+        </mat-form-field>
+        <mat-form-field style="width: 33%;">
+          <mat-label>추가(최대)</mat-label>
+          <input type="text" matInput formControlName="hp_max" />
+        </mat-form-field>
+
+        <mat-form-field style="width: 33%;">
+          <mat-label>스킬위력(고정)</mat-label>
+          <input type="text" matInput formControlName="skill" />
+        </mat-form-field>
+        <mat-form-field style="width: 33%;">
+          <mat-label>추가(최소)</mat-label>
+          <input type="text" matInput formControlName="skill_min" />
+        </mat-form-field>
+        <mat-form-field style="width: 33%;">
+          <mat-label>추가(최대)</mat-label>
+          <input type="text" matInput formControlName="skill_max" />
+        </mat-form-field>
+
+        <mat-form-field style="width: 50%;">
+          <mat-label>랜덤스탯 개수</mat-label>
+          <input type="text" matInput formControlName="countRandomStat" />
+        </mat-form-field>
+      </div>
+
+      <div class="col span_1_of_2" style="text-align: center;">
+        <h3>저항력</h3>
+        <mat-form-field style="width: 14%;">
+          <mat-label>참격</mat-label>
+          <input type="text" matInput formControlName="ChaAtkType_1" />
+        </mat-form-field>
+        <mat-form-field style="width: 14%;">
+          <mat-label>타격</mat-label>
+          <input type="text" matInput formControlName="ChaAtkType_2" />
+        </mat-form-field>
+        <mat-form-field style="width: 14%;">
+          <mat-label>화염</mat-label>
+          <input type="text" matInput formControlName="ChaAtkType_3" />
+        </mat-form-field>
+        <mat-form-field style="width: 14%;">
+          <mat-label>냉기</mat-label>
+          <input type="text" matInput formControlName="ChaAtkType_4" />
+        </mat-form-field>
+        <mat-form-field style="width: 14%;">
+          <mat-label>전격</mat-label>
+          <input type="text" matInput formControlName="ChaAtkType_5" />
+        </mat-form-field>
+        <mat-form-field style="width: 14%;">
+          <mat-label>신성</mat-label>
+          <input type="text" matInput formControlName="ChaAtkType_6" />
+        </mat-form-field>
+        <mat-form-field style="width: 14%;">
+          <mat-label>암흑</mat-label>
+          <input type="text" matInput formControlName="ChaAtkType_7" />
+        </mat-form-field>
+
+        <h3>크리티컬</h3>
+        <mat-form-field style="width: 25%;">
+          <mat-label>공격(최소)</mat-label>
+          <input type="text" matInput formControlName="criAtkMin" />
+        </mat-form-field>
+        <mat-form-field style="width: 25%;">
+          <mat-label>공격(최대)</mat-label>
+          <input type="text" matInput formControlName="criAtkMax" />
+        </mat-form-field>
+        <mat-form-field style="width: 25%;">
+          <mat-label>스킬(최소)</mat-label>
+          <input type="text" matInput formControlName="criSkillMin" />
+        </mat-form-field>
+        <mat-form-field style="width: 25%;">
+          <mat-label>스킬(최대)</mat-label>
+          <input type="text" matInput formControlName="criSkillMax" />
+        </mat-form-field>
+
+        <h3>기타스탯</h3>
+        <mat-form-field style="width: 20%;">
+          <mat-label>티어</mat-label>
+          <input type="text" matInput formControlName="tier" />
+        </mat-form-field>
+        <mat-form-field style="width: 20%;">
+          <mat-label>요구레벨</mat-label>
+          <input type="text" matInput formControlName="lvl" />
+        </mat-form-field>
+        <mat-form-field style="width: 20%;">
+          <mat-label>이동속도</mat-label>
+          <input type="text" matInput formControlName="speed" />
+        </mat-form-field>
+        <mat-form-field style="width: 20%;">
+          <mat-label>mp</mat-label>
+          <input type="text" matInput formControlName="mp" />
+        </mat-form-field>
+        <mat-form-field style="width: 20%;">
+          <mat-label>한정요원</mat-label>
+          <input type="text" matInput formControlName="agent" />
+        </mat-form-field>
+
+        <h3>착용 가능 포지션</h3>
+        <button mat-stroked-button color="accent" (click)="updatePosition()">
+          전체선택/해제
+        </button>
+        <mat-checkbox formControlName="ChaPosition_Short">근접</mat-checkbox>
+        <mat-checkbox formControlName="ChaPosition_Tank">탱커</mat-checkbox>
+        <mat-checkbox formControlName="ChaPosition_Long">원거리</mat-checkbox>
+        <mat-checkbox formControlName="ChaPosition_Support">지원</mat-checkbox>
+      </div>
+    </div>
+
+    <div class="section group">
+      <div class="col span_2_of_2" style="text-align: center;">
+        <h3>나머지 고유 효과들</h3>
+        <div formArrayName="textPlain">
+          <button
+            mat-stroked-button
+            color="accent"
+            type="button"
+            (click)="addTextPlain()"
+          >
+            일반 효과 추가
+          </button>
+          <div *ngFor="let item of textPlain.controls; let i = index">
+            <mat-form-field style="width: 50%;">
+              <input matInput placeholder="설명" [formControlName]="i" />
+            </mat-form-field>
+
+            <button
+              mat-stroked-button
+              color="primary"
+              type="button"
+              (click)="removeTextPlain(i)"
+            >
+              제거
+            </button>
+          </div>
+        </div>
+        <div formArrayName="textFormatted">
+          <button
+            mat-stroked-button
+            color="accent"
+            type="button"
+            (click)="addTextFormatted()"
+          >
+            가변 수치를 포함한 효과 추가
+          </button>
+          <div *ngFor="let item of textFormatted.controls; let i = index">
+            <div [formGroupName]="i">
+              <mat-form-field style="width: 35%;">
+                <input matInput placeholder="설명. ex)데미지를" formControlName="head" />
+              </mat-form-field>
+              <mat-form-field style="width: 10%;">
+                <input matInput placeholder="최소값. ex)10" formControlName="min" />
+              </mat-form-field>
+              <mat-form-field style="width: 10%;">
+                <input matInput placeholder="최대값. ex)20" formControlName="max" />
+              </mat-form-field>
+               <mat-form-field style="width: 35%;">
+                <input matInput placeholder="설명. ex)줍니다" formControlName="tail" />
+              </mat-form-field>
+            <button
+              mat-stroked-button
+              color="primary"
+              type="button"
+              (click)="removeTextFormatted(i)"
+            >
+              제거
+            </button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section group">
+      <div class="col span_2_of_2" style="text-align: center;">
+        {{ equipForm.value | json }}
+      </div>
+
+      <div class="col span_2_of_2" style="text-align: center;">
+        <button
+          mat-button
+          color="warn"
+          type="button"
+          [cdkCopyToClipboard]="copyToClipboard()"
+        >
+          복사
+        </button>
+        <button mat-button color="primary" type="button" (click)="reset()">
+          리셋
+        </button>
+      </div>
+    </div>
+
+  </form>
+</div>

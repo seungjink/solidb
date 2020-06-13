@@ -13,6 +13,8 @@ import { CocoonListComponent } from './cocoon-list/cocoon-list.component';
 import { CocoonDetailComponent } from './cocoon-detail/cocoon-detail.component';
 import { IndexComponent } from './index/index.component';
 import { DevEquipRecipieComponent } from './dev-equip-recipie/dev-equip-recipie.component';
+import { DevComponent } from './dev/dev.component';
+import { DevEquipComponent } from './dev-equip/dev-equip.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'index', pathMatch: 'full'},
@@ -27,7 +29,9 @@ const routes: Routes = [
   { path: 'gladia/:id', component:GladiaDetailComponent},
   { path: 'cocoon', component: CocoonListComponent},
   { path: 'cocoon/:id', component:CocoonDetailComponent},
-  { path: 'dev/equip_recipie', component:DevEquipRecipieComponent}
+  { path: 'dev', component:DevComponent},
+  { path: 'dev/equip_recipe', component:DevEquipRecipieComponent},
+  { path: 'dev/equip', component: DevEquipComponent}
 ];
 
 @NgModule({

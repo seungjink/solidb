@@ -1,5 +1,5 @@
 <div class="mat-elevation-z8 basecanvas">
-  <form [formGroup]="recipieForm">
+  <form [formGroup]="recipeForm">
     <div class="section group">
       <div class="col span_1_of_2" style="text-align: center;">
         <mat-form-field style="width: 50%;">
@@ -18,7 +18,7 @@
         </mat-form-field>
         <mat-form-field style="width: 33%;">
           <mat-label>초</mat-label>
-          <input type="text" matInput formControlName="hour" />
+          <input type="text" matInput formControlName="sec" />
         </mat-form-field>
 
         <mat-divider></mat-divider>
@@ -105,10 +105,9 @@
 
           <mat-divider></mat-divider>
           <div *ngFor="let material of materials.controls; let i = index">
-
-            <mat-form-field style="width:40%;">
+            <mat-form-field style="width: 40%;">
               <div [formGroupName]="i">
-                <input matInput formControlName="name"/>
+                <input matInput formControlName="name" />
               </div>
             </mat-form-field>
 
@@ -128,12 +127,54 @@
             </button>
           </div>
         </div>
+
+        <div formArrayName="results">
+          <button
+            mat-stroked-button
+            color="primary"
+            type="button"
+            (click)="addResults()"
+          >
+            완성품 추가
+          </button>
+          <div *ngFor="let result of results.controls; let i = index">
+
+            <mat-form-field style="width: 50%;">
+              <input matInput placeholder="아이템 이름" [formControlName]="i">
+            </mat-form-field>
+
+            <button
+              mat-stroked-button
+              color="primary"
+              type="button"
+              (click)="removeResults(i)"
+            >
+              제거
+            </button>
+          </div>
+ 
+        </div>
+
       </div>
     </div>
 
     <div class="section group">
       <div class="col span_2_of_2" style="text-align: center;">
-        {{ recipieForm.value | json }}
+        {{ recipeForm.value | json }}
+      </div>
+
+      <div class="col span_2_of_2" style="text-align: center;">
+        <button
+          mat-button
+          color="warn"
+          type="button"
+          [cdkCopyToClipboard]="copyToClipboard()"
+        >
+          복사
+        </button>
+        <button mat-button color="primary" type="button" (click)="reset()">
+          리셋
+        </button>
       </div>
     </div>
   </form>

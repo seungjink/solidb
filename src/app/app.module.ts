@@ -47,7 +47,9 @@ import { CocoonDetailComponent } from './cocoon-detail/cocoon-detail.component';
 import { IndexComponent } from './index/index.component';
 import {MatAutocompleteModule} from '@angular/material/autocomplete'; 
 import {ClipboardModule} from '@angular/cdk/clipboard';
-import { DevEquipRecipieComponent } from './dev-equip-recipie/dev-equip-recipie.component';  
+import { DevEquipRecipieComponent } from './dev-equip-recipie/dev-equip-recipie.component';
+import { DevComponent } from './dev/dev.component';
+import { DevEquipComponent } from './dev-equip/dev-equip.component';  
 
 export function soliProviderFactory(provider: SoliProviderService) {
   return () => provider.load();
@@ -70,6 +72,8 @@ export function soliProviderFactory(provider: SoliProviderService) {
     UnderbarEliminator,
     IndexComponent,
     DevEquipRecipieComponent,
+    DevComponent,
+    DevEquipComponent,
   ],
   imports: [
     BrowserModule,

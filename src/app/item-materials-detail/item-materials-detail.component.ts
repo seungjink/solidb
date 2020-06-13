@@ -26,4 +26,22 @@ export class ItemMaterialsDetailComponent implements OnInit {
       ];
     });
   }
+
+  getFixedDrop(): Array<object>{
+    let arr = []
+    let dropIdWithNum = JSON.parse(this.data.DropFixed)
+    for(let key in dropIdWithNum){
+      arr.push([this.soliProvider.hashQuestIdToName[key], dropIdWithNum[key], key])
+    }
+    return arr
+  }
+
+  getRandomDrop(): Array<object>{
+    let arr= []
+    let dropId = this.data.DropRandom.split(',')
+    for(let item of dropId){
+      arr.push([this.soliProvider.hashQuestIdToName[item], item])
+    }
+    return arr
+  }
 }

@@ -56,29 +56,31 @@
     <div class="col span_1_of_2">
       <h2 class="subtitle">랜덤드랍</h2>
       <hr class="hr90" />
-      <ng-container *ngFor="let d of data.DropRandomName; let i = index">
-        <p style="text-align: center;">
-          <a class="highlight" routerLink="/quest/{{ data.DropRandom[i] }}">{{
-            d
+      <div class="divTable" *ngIf="data.DropRandom">
+        <div class="divTableRow" *ngFor="let x of getRandomDrop()">
+          <div class="divTableCell">
+          <a class="highlight" routerLink="/quest/{{ x[1]}}">{{
+            x[0]
           }}</a
           ><br /><br />
-        </p>
-      </ng-container>
+          </div>
+        </div>
+      </div>
     </div>
 
     <div class="col span_1_of_2">
       <h2 class="subtitle">고정드랍</h2>
       <hr class="hr90" />
-      <ng-container
-        *ngFor="let name of data.DropFixedNameID | keyvalue; let i = index"
-      >
-        <p style="text-align: center;">
-          <a class="highlight" routerLink="/quest/{{ name.value[1] }}">{{
-            name.key
+      <div class="divTable" *ngIf="data.DropFixed">
+        <div class="divTableRow" *ngFor="let x of getFixedDrop()">
+          <div class="divTableCell">
+          <a class="highlight" routerLink="/quest/{{ x[2]}}">{{
+            x[0]
           }}</a
-          >: <b>{{ name.value[0] }}</b> <br /><br />
-        </p>
-      </ng-container>
+          >: <b>{{ x[1] }}</b> <br /><br />
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
