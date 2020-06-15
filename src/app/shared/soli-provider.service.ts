@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http'
 import { Papa } from 'ngx-papaparse';
 import { map } from 'rxjs/operators';
 import { forkJoin, Subject} from 'rxjs';
+import { Agent } from './agent';
 
 @Injectable({
   providedIn: 'root'
@@ -15,12 +16,13 @@ export class SoliProviderService implements OnDestroy{
     private papa: Papa
   ) { }
 
-  private dataAgent        : any;
-  private dataItemMaterial : any;
-  private dataQuest        : any;
-  private dataGladia       : any;
-  private dataCocoon       : any;
-  private dataRecipeEquip  : any;
+  private dataAgent        : Array<Agent>;
+  private dataItemMaterial : Array<object>;
+  private dataQuest        : Array<object>;
+  private dataGladia       : Array<object>;
+  private dataCocoon       : Array<object>;
+  private dataRecipeEquip  : Array<object>;
+  private dataEquip        : Array<object>;
 
   public hashAgentList      : object;
   public hashCocoonList     : object;
@@ -30,6 +32,8 @@ export class SoliProviderService implements OnDestroy{
   public hashItemToName     : object;
   public hashQuestIdToName  : object;
   public hashCocoonIdToName : object;
+  public hashEquipList      : object;
+  public hashRecipeEquipList: object;
 
   public getdataAgent() {
     return this.dataAgent
@@ -49,6 +53,9 @@ export class SoliProviderService implements OnDestroy{
   public getdataRecipeEquip() {
     return this.dataRecipeEquip
   }
+  public getdataEquip() {
+    return this.dataEquip
+  }
 
   sheetUrlAgent:        string = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQxYfMrORo8jx12o1X0131u0OORd6aSE4Z8YPzBXCrwQurnUNpHR1XsLfapdSEYJEmqfRO5ISnlrEzP/pub?output=csv'; 
   sheetUrlItemMaterial: string = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSKFLmOd7RKXok2-W1ykDjONAMg3IUnYsjxbGsfSF7xFb_weA7qM-4mmVQfrSTUgFBDqBmLmgMgQhek/pub?output=csv';
@@ -56,9 +63,10 @@ export class SoliProviderService implements OnDestroy{
   sheetUrlGladia      : string = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTaafPLh57OeldvUOgniBokurK5PHNWu5HPobB1n35utMwebEEvwTiiqgzMCxG04Y5sbJPxnto694YB/pub?output=csv';
   sheetUrlCocoon      : string = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSX6pSJ_pPlXoRi_AsrvKHXuPzZWRc2v2hs1FayVhlFL8QdOOGsWZqwQ-rAZL3DTwpOAmYNAfTSEHoQ/pub?output=csv';
   sheetUrlRecipeEquip : string = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRFFBlB361q-jDLZsNiKhvLtlIhREO4Hb2jTWWIOIyFKvitNL5nzI0oEZD5DX_NL8nq38jcscDbjxOT/pub?output=csv';
+  sheetUrlEquip       : string = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRZMGmBY3yePQI2p9LKr-hohXIpQPsagoRcaj9T8BRtL7ljLYXAUNQGisNGcnO7-btW1tLP63oSJGYO/pub?output=csv';
 
   load(){
-    console.log("Loading data from google sheets...")
+    console.log("Loading data...")
     return new Promise((resolve, reject) => {
     forkJoin([
       this.http.get(this.sheetUrlAgent,        {responseType:'text'}).pipe(map(res => res)),
@@ -66,7 +74,8 @@ export class SoliProviderService implements OnDestroy{
       this.http.get(this.sheetUrlQuest,        {responseType:'text'}).pipe(map(res => res)),
       this.http.get(this.sheetUrlGladia,       {responseType:'text'}).pipe(map(res => res)),
       this.http.get(this.sheetUrlCocoon,       {responseType:'text'}).pipe(map(res => res)),
-      this.http.get(this.sheetUrlRecipeEquip,  {responseType:'text'}).pipe(map(res => res))
+      this.http.get(this.sheetUrlRecipeEquip,  {responseType:'text'}).pipe(map(res => res)),
+      this.http.get(this.sheetUrlEquip,        {responseType:'text'}).pipe(map(res => res))
     ])
     .subscribe(response => {
       this.dataAgent        = this.papa.parse(response[0], {header:true}).data
@@ -75,6 +84,7 @@ export class SoliProviderService implements OnDestroy{
       this.dataGladia       = this.papa.parse(response[3], {header:true}).data
       this.dataCocoon       = this.papa.parse(response[4], {header:true}).data
       this.dataRecipeEquip  = this.papa.parse(response[5], {header:true}).data
+      this.dataEquip        = this.papa.parse(response[6], {header:true, dynamicTyping: true}).data
  
 
       this.hashAgentList = this.genArray(this.dataAgent, "ID")
@@ -82,47 +92,17 @@ export class SoliProviderService implements OnDestroy{
       this.hashGladiaList = this.genArray(this.dataGladia, "ID")
       this.hashItemList = this.genArray(this.dataItemMaterial, "ID")
       this.hashQuestList = this.genArray(this.dataQuest, "ID")
+      this.hashEquipList = this.genArray(this.dataEquip, "ID")
+      this.hashRecipeEquipList = this.genArray(this.dataRecipeEquip, "ID")
       this.hashItemToName     =  this.genArray(this.dataItemMaterial,"ID","Name");
       this.hashQuestIdToName  =  this.genArray(this.dataQuest,"ID","Name");
       this.hashCocoonIdToName =  this.genArray(this.dataCocoon,"ID","Name");
 
-//      this.dataItemMaterial = this.parseDropData(this.dataItemMaterial)
-
-
-      console.log("Loading complated.")
+      console.log("Loading completed.")
       resolve(true);
-    }
-    )
-
-
+    })
     })
   }
-
-  parseDropData(data:any){
-        for (let i in data){
-          data[i]["DropRandom"] = data[i]["DropRandom"].split(",");
-
-          // Improve this part
-          let tmparr: any = []
-          for (let j in data[i]["DropRandom"]){
-            tmparr.push(this.hashQuestIdToName[data[i]["DropRandom"][j]]);
-          }
-          data[i]["DropRandomName"] = tmparr;
-          
-          if (data[i]["DropFixed"] == "" ) {
-            continue;
-          }
-          data[i]["DropFixed"] = JSON.parse(data[i]["DropFixed"]);
-
-
-          data[i]["DropFixedNameID"] = {};
-          for(const key in data[i]["DropFixed"]){
-            data[i]["DropFixedNameID"][this.hashQuestIdToName[key]] = [data[i]["DropFixed"][key], key];
-          }
-        }
-        return data
-      }
-  
 
   genArray(data, key:string, value?:string){
     let arr = {}
@@ -139,11 +119,8 @@ export class SoliProviderService implements OnDestroy{
    return arr;
   }
 
-
-
   ngOnDestroy(): void{
     this.destroy$.next();
     this.destroy$.complete();
   }
-
 }

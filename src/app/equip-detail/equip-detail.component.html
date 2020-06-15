@@ -1,0 +1,241 @@
+<div class="mat-elevation-z8 basecanvas">
+  <div class="section group">
+    <div class="col span_2_of_2">
+      <h1 class="subtitle">{{ equip.name }}</h1>
+      <hr class="hr90" />
+    </div>
+  </div>
+
+  <div class="section group">
+    <div class="col span_1_of_2">
+      <div class="divTable">
+        <div class="divTableRow">
+          <div class="divTableCell">
+            <img
+              src="assets/Equipments/{{ equip.ID | underbarEliminator }}.jpg"
+            />
+          </div>
+        </div>
+      </div>
+
+      <h2 class="subtitle">기본 스탯</h2>
+      <hr class="hr90" />
+      <div class="divTable">
+        <div class="divTableRow">
+          <div class="divTableCell cell-tc20"></div>
+          <div class="divTableCell cell-tc20" style="font-weight: bold;">
+            고정
+          </div>
+          <div class="divTableCell cell-tc60" style="font-weight: bold;">
+            랜덤(품질에 따름)
+          </div>
+        </div>
+      </div>
+      <ng-container *ngFor="let stat of stats">
+        <div class="divTable">
+          <div class="divTableRow">
+            <div class="divTableCell cell-tc20">
+              {{ stat[0] }}
+            </div>
+            <div class="divTableCell cell-tc20">{{ equip[stat[1]] }}</div>
+            <div class="divTableCell cell-tc60">
+              {{ getMinMax(equip[stat[2]], equip[stat[3]]) }}
+            </div>
+          </div>
+        </div>
+        <hr class="hr90 inTable" />
+      </ng-container>
+      <div class="divTable">
+        <div class="divTableRow">
+          <div class="divTableCell cell-tc20"></div>
+          <div class="divTableCell cell-tc20"></div>
+          <div class="divTableCell cell-tc60">
+            ※랜덤 {{ equip.countRandomStat }}개 선택
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col span_1_of_2">
+      <h2 class="subtitle">기타 스탯</h2>
+      <hr class="hr90" />
+      <div class="divTable" style="table-layout: fixed;">
+        <div class="divTableRow">
+          <div class="divTableCell cell-tc40">티어</div>
+          <div class="divTableCell cell-tc60">{{ equip.tier }}</div>
+        </div>
+      </div>
+      <hr class="hr90 inTable" />
+
+      <div class="divTable" style="table-layout: fixed;">
+        <div class="divTableRow">
+          <div class="divTableCell cell-tc40">착용 레벨</div>
+          <div class="divTableCell cell-tc60">{{ equip.lvl }}</div>
+        </div>
+      </div>
+      <hr class="hr90 inTable" />
+
+      <div class="divTable" style="table-layout: fixed;">
+        <div class="divTableRow">
+          <div class="divTableCell cell-tc40">제작 시간</div>
+          <div class="divTableCell cell-tc60">{{ parseTime() }}</div>
+        </div>
+      </div>
+      <hr class="hr90 inTable" />
+
+
+      <div class="divTable" style="table-layout: fixed;">
+        <div class="divTableRow">
+          <div class="divTableCell cell-tc40">귀속여부</div>
+          <div class="divTableCell cell-tc60" *ngIf="equip.belonging">
+            <img class="inline10" src="assets/Etc/Checkmark.png" />
+          </div>
+          <div class="divTableCell cell-tc60" *ngIf="!equip.belonging">
+            <img class="inline10" src="assets/Etc/DieX.png" />
+          </div>
+        </div>
+      </div>
+      <hr class="hr90 inTable" />
+
+      <ng-container *ngIf="equip.mp">
+        <div class="divTable" style="table-layout: fixed;">
+          <div class="divTableRow">
+            <div class="divTableCell cell-tc40">mp</div>
+            <div class="divTableCell cell-tc60">{{ equip.mp }}</div>
+          </div>
+        </div>
+        <hr class="hr90 inTable" />
+      </ng-container>
+
+      <ng-container *ngIf="equip.speed">
+        <div class="divTable" style="table-layout: fixed;">
+          <div class="divTableRow">
+            <div class="divTableCell cell-tc40">이동속도</div>
+            <div class="divTableCell cell-tc60">+{{ equip.speed }}</div>
+          </div>
+        </div>
+        <hr class="hr90 inTable" />
+      </ng-container>
+
+      <ng-container *ngIf="equip.agent">
+        <div class="divTable" style="table-layout: fixed;">
+          <div class="divTableRow">
+            <div class="divTableCell cell-tc40">한정요원</div>
+            <div class="divTableCell cell-tc60">{{ equip.agent }}</div>
+          </div>
+        </div>
+        <hr class="hr90 inTable" />
+      </ng-container>
+
+      <ng-container *ngIf="equip.criAtkMax">
+        <div class="divTable" style="table-layout: fixed;">
+          <div class="divTableRow">
+            <div class="divTableCell cell-tc40">공격치명</div>
+            <div class="divTableCell cell-tc60">
+              {{ getMinMax(equip.criAtkMin, equip.criAtkMax) }}
+            </div>
+          </div>
+        </div>
+        <hr class="hr90 inTable" />
+      </ng-container>
+
+      <ng-container *ngIf="equip.criSkillMax">
+        <div class="divTable" style="table-layout: fixed;">
+          <div class="divTableRow">
+            <div class="divTableCell cell-tc40">스킬치명</div>
+            <div class="divTableCell cell-tc60">
+              {{ getMinMax(equip.criSkillMin, equip.criSkillMax) }}
+            </div>
+          </div>
+        </div>
+        <hr class="hr90 inTable" />
+      </ng-container>
+
+      <ng-container *ngIf="chkResist()">
+          <br>
+        <h2 class="subtitle">속성저항</h2>
+        <hr class="hr90" />
+        <div class="divTable" style="table-layout: fixed;">
+          <div class="divTableRow">
+            <div
+              class="divTableCell"
+              *ngFor="let res of resistAtkType"
+              style="width: 100%;"
+            >
+              <img class="inline15" src="assets/Etc/{{ res }}.png" />
+            </div>
+          </div>
+        </div>
+      </ng-container>
+
+      <div class="divTable" style="table-layout: fixed;">
+        <div class="divTableRow">
+          <div
+            class="divTableCell"
+            *ngFor="let res of resistAtkType"
+            style="width: 100%;"
+          >
+            {{ equip[res] }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section group">
+    <div class="col span_1_of_2">
+      <h2 class="subtitle">고유효과</h2>
+      <hr class="hr90" />
+
+      <ng-container *ngIf="equip.textPlain">
+        <div class="divTable">
+          <div class="divTableRow" *ngFor="let x of parsePlain()">
+            <div class="divTableCell" style="text-align: left;">{{ x }}</div>
+          </div>
+        </div>
+      </ng-container>
+
+      <ng-container *ngIf="equip.textFormatted">
+        <div class="divTable">
+          <div class="divTableRow" *ngFor="let x of parseFormatted()">
+            <div class="divTableCell" style="text-align: left;">
+              {{ x.head }}
+              <span style="color: seagreen; font-weight: bold;">{{
+                x.min
+              }}</span>
+              ~
+              <span style="color: seagreen; font-weight: bold;">{{
+                x.max
+              }}</span>
+              {{ x.tail }}
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  <div class="col span_1_of_2">
+    <h2 class="subtitle">조합재료</h2>
+    <hr class="hr90" />
+<div class="divTable">
+  <ng-container *ngIf="equipRecipe.baseEquip">
+   <div class="divTableRow" *ngFor="let x of parseBaseEquip()">
+     <div class="divTableCell tc-30"><img class="inline30" src="assets/Equipments/{{x.ID}}.jpg"></div>
+     <div class="divTableCell tc-40"><a class="highlight" routerLink="/equip/{{x.ID}}">{{x.name}}</a></div>
+     <div class="divTableCell tc-30">1</div>
+    </div>
+  </ng-container>
+   <div class="divTableRow" *ngFor="let x of parseRsc()">
+     <div class="divTableCell tc-30"><img class="inline30" src="assets/Etc/{{x[0]}}.png"></div>
+     <div class="divTableCell tc-40">{{x[1]}}</div>
+     <div class="divTableCell tc-30">{{x[2]}}</div>
+    </div>
+   <div class="divTableRow" *ngFor="let x of parseMaterial()">
+     <div class="divTableCell tc-30"><img class="inline30" src="assets/ItemsMaterials/{{x.ID}}.jpg"></div>
+     <div class="divTableCell tc-40">
+      <a class="highlight" routerLink="/items/{{x.ID}}">{{x.name}}</a>
+        </div>
+     <div class="divTableCell tc-30">{{x.count}}</div>
+    </div>
+  </div>
+  </div>
+</div>

@@ -26,7 +26,6 @@ export class AgentMotionComponent implements OnInit, AfterViewChecked{
     this.route.params.subscribe( params => {
     this.idAgent = params["id"];
     this.spinever = this.soliProvider.getdataAgent()[this.soliProvider.hashAgentList[this.idAgent]].spinever
-    console.log(this.spinever)
     })
     if (this.spinever == "v37"){
       this.sp = sp37;

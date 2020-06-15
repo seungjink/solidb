@@ -25,4 +25,5 @@ export interface Agent {
   sk1cool: string;
   sk2cool: string;
   sk3cool: string;
+  spinever: string;
 }

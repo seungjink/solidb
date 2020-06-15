@@ -49,7 +49,10 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {ClipboardModule} from '@angular/cdk/clipboard';
 import { DevEquipRecipieComponent } from './dev-equip-recipie/dev-equip-recipie.component';
 import { DevComponent } from './dev/dev.component';
-import { DevEquipComponent } from './dev-equip/dev-equip.component';  
+import { DevEquipComponent } from './dev-equip/dev-equip.component';
+import { EquipListComponent } from './equip-list/equip-list.component';  
+import {MatRadioModule} from '@angular/material/radio';
+import { EquipDetailComponent } from './equip-detail/equip-detail.component'; 
 
 export function soliProviderFactory(provider: SoliProviderService) {
   return () => provider.load();
@@ -74,6 +77,8 @@ export function soliProviderFactory(provider: SoliProviderService) {
     DevEquipRecipieComponent,
     DevComponent,
     DevEquipComponent,
+    EquipListComponent,
+    EquipDetailComponent,
   ],
   imports: [
     BrowserModule,
@@ -98,7 +103,8 @@ export function soliProviderFactory(provider: SoliProviderService) {
     ReactiveFormsModule,
     MatSelectModule,
     MatAutocompleteModule,
-    ClipboardModule
+    ClipboardModule,
+    MatRadioModule,
   ],
   providers: [
     SoliProviderService, 

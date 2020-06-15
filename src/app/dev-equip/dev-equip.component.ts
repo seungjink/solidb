@@ -53,6 +53,7 @@ export class DevEquipComponent implements OnInit {
     ChaPosition_Long: false,
     ChaPosition_Support: false,
     agent: [''],
+    belonging: false,
     textPlain: this.fb.array([]),
     textFormatted: this.fb.array([]),
   })

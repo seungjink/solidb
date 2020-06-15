@@ -1,6 +1,7 @@
 <nav mat-tab-nav-bar mat-align-tabs="center" color=warn>
   <a mat-tab-link routerLink="/agents" routerLinkActive #agentsTab="routerLinkActive" [active]="agentsTab.isActive">요원</a>
-  <a mat-tab-link routerLink="/items" routerLinkActive #itemsTab="routerLinkActive" [active]="itemsTab.isActive">아이템</a>
+  <a mat-tab-link routerLink="/items" routerLinkActive #itemsTab="routerLinkActive" [active]="itemsTab.isActive">소재</a>
+  <a mat-tab-link routerLink="/equip" routerLinkActive #equipTab="routerLinkActive" [active]="equipTab.isActive">장비</a>
   <a mat-tab-link routerLink="/quest" routerLinkActive #questTab="routerLinkActive" [active]="questTab.isActive">퀘스트</a>
   <a mat-tab-link routerLink="/gladia" routerLinkActive #gladiaTab="routerLinkActive" [active]="gladiaTab.isActive">글라디아</a>
   <a mat-tab-link routerLink="/cocoon" routerLinkActive #cocoonTab="routerLinkActive" [active]="cocoonTab.isActive">고치</a>

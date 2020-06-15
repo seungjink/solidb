@@ -1,0 +1,86 @@
+<div class="contents">
+  <div class="section group">
+    <div class="col span_1_of_2" style="text-align: center;">
+      <span style="font-weight: bold">[표시할 정보]</span>
+      <form [formGroup]="equipForm">
+        <mat-checkbox formControlName="tier">티어 </mat-checkbox>
+        <mat-checkbox formControlName="atk_max">공 </mat-checkbox>
+        <mat-checkbox formControlName="def_max">방 </mat-checkbox>
+        <mat-checkbox formControlName="hp_max">체 </mat-checkbox>
+        <mat-checkbox formControlName="skill_max">스 </mat-checkbox><br />
+        <ng-container *ngFor="let res of resistAtkType">
+          <mat-checkbox formControlName="{{ res }}"
+            ><img class="inline15" src="assets/Etc/{{ res }}.png"
+          /></mat-checkbox>
+        </ng-container>
+      </form>
+    </div>
+    <div class="col span_1_of_2" style="text-align: center;">
+      <span style="font-weight: bold;">[포지션]</span>
+      <form [formGroup]="filterAgentForm">
+        <mat-checkbox formControlName="ChaPosition_Short">근접 </mat-checkbox>
+        <mat-checkbox formControlName="ChaPosition_Tank">탱커 </mat-checkbox>
+        <mat-checkbox formControlName="ChaPosition_Long">원거리 </mat-checkbox>
+        <mat-checkbox formControlName="ChaPosition_Support">지원 </mat-checkbox>
+      </form>
+    </div>
+  </div>
+  <mat-table
+    [dataSource]="dataSource"
+    matSort
+    matSortActive="ID"
+    matSortDirection="desc"
+    class="mat-elevation-z8"
+  >
+    <ng-container matColumnDef="ID">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>
+        장비
+      </mat-header-cell>
+      <mat-cell *matCellDef="let row">
+        <img class="face" src="assets/Equipments/{{ row.ID }}.jpg" />
+        <span class="wordnonbreak">{{ row.name }}</span></mat-cell
+      >
+    </ng-container>
+    <ng-container matColumnDef="tier">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> 티어 </mat-header-cell>
+      <mat-cell *matCellDef="let row">
+          {{row.tier}}
+      </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="atk_max">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> 공 </mat-header-cell>
+      <mat-cell *matCellDef="let row">
+        {{ getMinMax(row.atk, row.atk_min, row.atk_max) }}
+      </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="def_max">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> 방 </mat-header-cell>
+      <mat-cell *matCellDef="let row">
+        {{ getMinMax(row.def, row.def_min, row.def_max) }}
+      </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="hp_max">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> 체 </mat-header-cell>
+      <mat-cell *matCellDef="let row">
+        {{ getMinMax(row.hp, row.hp_min, row.hp_max) }}
+      </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="skill_max">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> 스 </mat-header-cell>
+      <mat-cell *matCellDef="let row">
+        {{ getMinMax(row.skill, row.skill_min, row.skill_max) }}
+      </mat-cell>
+    </ng-container>
+    <ng-container *ngFor="let res of resistAtkType">
+      <ng-container matColumnDef="{{ res }}">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>
+          <img class="inline10" src="assets/Etc/{{ res }}.png" />
+        </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{ row[res] }} </mat-cell>
+      </ng-container>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumn"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumn;"  routerLink="/equip/{{row.ID}}"></mat-row>
+  </mat-table>
+</div>

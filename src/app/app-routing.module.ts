@@ -15,6 +15,8 @@ import { IndexComponent } from './index/index.component';
 import { DevEquipRecipieComponent } from './dev-equip-recipie/dev-equip-recipie.component';
 import { DevComponent } from './dev/dev.component';
 import { DevEquipComponent } from './dev-equip/dev-equip.component';
+import { EquipListComponent } from './equip-list/equip-list.component';
+import { EquipDetailComponent } from './equip-detail/equip-detail.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'index', pathMatch: 'full'},
@@ -31,7 +33,9 @@ const routes: Routes = [
   { path: 'cocoon/:id', component:CocoonDetailComponent},
   { path: 'dev', component:DevComponent},
   { path: 'dev/equip_recipe', component:DevEquipRecipieComponent},
-  { path: 'dev/equip', component: DevEquipComponent}
+  { path: 'dev/equip', component: DevEquipComponent},
+  { path: 'equip', component: EquipListComponent},
+  { path: 'equip/:id', component:EquipDetailComponent}
 ];
 
 @NgModule({

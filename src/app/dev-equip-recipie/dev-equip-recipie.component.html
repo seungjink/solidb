@@ -7,6 +7,7 @@
           <input type="text" matInput formControlName="name" />
         </mat-form-field>
 
+
         <mat-divider></mat-divider>
         <mat-form-field style="width: 33%;">
           <mat-label>시간</mat-label>
@@ -25,30 +26,30 @@
         <div style="width: 100%; text-align: center;">일반자원</div>
         <mat-form-field style="width: 25%;">
           <mat-label>아르브</mat-label>
-          <input type="text" matInput formControlName="a" />
+          <input type="text" matInput formControlName="rsc_A" />
         </mat-form-field>
         <mat-form-field style="width: 25%;">
           <mat-label>베크</mat-label>
-          <input type="text" matInput formControlName="b" />
+          <input type="text" matInput formControlName="rsc_B" />
         </mat-form-field>
         <mat-form-field style="width: 25%;">
           <mat-label>시스트</mat-label>
-          <input type="text" matInput formControlName="c" />
+          <input type="text" matInput formControlName="rsc_C" />
         </mat-form-field>
         <mat-form-field style="width: 25%;">
           <mat-label>다나</mat-label>
-          <input type="text" matInput formControlName="d" />
+          <input type="text" matInput formControlName="rsc_D" />
         </mat-form-field>
 
         <mat-divider></mat-divider>
         <div style="width: 100%; text-align: center;">압축자원</div>
         <mat-form-field style="width: 25%;">
           <mat-label>아르브</mat-label>
-          <input type="text" matInput formControlName="ac" />
+          <input type="text" matInput formControlName="MA90042" />
         </mat-form-field>
         <mat-form-field style="width: 25%;">
           <mat-label>베크</mat-label>
-          <input type="text" matInput formControlName="bc" />
+          <input type="text" matInput formControlName="MA90043" />
         </mat-form-field>
         <mat-form-field style="width: 25%;">
           <mat-label>시스트</mat-label>
@@ -67,8 +68,32 @@
         </mat-form-field>
         <mat-form-field style="width: 35%;">
           <mat-label>진액</mat-label>
-          <input type="text" matInput formControlName="nyangc" />
+          <input type="text" matInput formControlName="MA90016" />
         </mat-form-field>
+
+          <mat-form-field style="width: 40%;">
+            <mat-label>베이스 장비</mat-label>
+            <input
+              type="text"
+              matInput
+              [formControl]="equipControl"
+              [matAutocomplete]="autoEquip"
+            />
+            <mat-autocomplete
+              autoActiveFirstOption
+              #autoEquip="matAutocomplete"
+              [displayWith]="displayFn2"
+            >
+              <mat-option
+                *ngFor="let option of filteredEquip | async"
+                [value]="option"
+              >
+                {{ option.name }}
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
+          <button mat-button (click)="updateBaseEquip()">선택</button>
+ 
       </div>
 
       <div class="col span_1_of_2" style="text-align: center;">
