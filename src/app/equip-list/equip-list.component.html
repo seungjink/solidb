@@ -37,7 +37,7 @@
         장비
       </mat-header-cell>
       <mat-cell *matCellDef="let row">
-        <img class="face" src="assets/Equipments/{{ row.ID }}.jpg" />
+        <img class="face" src="assets/Equipments/{{ row.ID | underbarEliminator}}.jpg" />
         <span class="wordnonbreak">{{ row.name }}</span></mat-cell
       >
     </ng-container>

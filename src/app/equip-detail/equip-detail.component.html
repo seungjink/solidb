@@ -219,7 +219,7 @@
 <div class="divTable">
   <ng-container *ngIf="equipRecipe.baseEquip">
    <div class="divTableRow" *ngFor="let x of parseBaseEquip()">
-     <div class="divTableCell tc-30"><img class="inline30" src="assets/Equipments/{{x.ID}}.jpg"></div>
+     <div class="divTableCell tc-30"><img class="inline30" src="assets/Equipments/{{x.ID}}.jpg | underbarEliminator"></div>
      <div class="divTableCell tc-40"><a class="highlight" routerLink="/equip/{{x.ID}}">{{x.name}}</a></div>
      <div class="divTableCell tc-30">1</div>
     </div>
