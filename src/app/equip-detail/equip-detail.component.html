@@ -216,16 +216,19 @@
                 >조합식 {{ i + 1 }}</span
               >
             </div>
-            <div class="divTableCell tc-40">
+           <div class="divTableCell tc-40">
               <span style="font-weight: bold; font-size: 1.1rem;">{{
                 recipe.Name
               }}</span>
             </div>
             <div class="divTableCell tc-30">
-              <span style="font-weight: bold; font-size: 1.1rem;">{{
+              <span>{{
               parseTime(recipe) }}</span></div>
           </div>
-
+          </div>
+        <hr class="hr90 inTable" />
+        <div class="divTable">
+ 
           <ng-container *ngIf="recipe.baseEquip">
             <div class="divTableRow" *ngFor="let x of parseBaseEquip(recipe)">
               <div class="divTableCell tc-30">

@@ -13,16 +13,24 @@
             ><img class="inline15" src="assets/Etc/{{ res }}.png"
           /></mat-checkbox>
         </ng-container>
+        <br>
+        <mat-checkbox formControlName="atk_cri">공격치명 </mat-checkbox>
+        <mat-checkbox formControlName="skill_cri">스킬치명 </mat-checkbox>
       </form>
     </div>
     <div class="col span_1_of_2" style="text-align: center;">
       <span style="font-weight: bold;">[포지션]</span>
-      <form [formGroup]="filterAgentForm">
+      <form [formGroup]="filterRowForm">
         <mat-checkbox formControlName="ChaPosition_Short">근접 </mat-checkbox>
         <mat-checkbox formControlName="ChaPosition_Tank">탱커 </mat-checkbox>
         <mat-checkbox formControlName="ChaPosition_Long">원거리 </mat-checkbox>
         <mat-checkbox formControlName="ChaPosition_Support">지원 </mat-checkbox>
+      <div formArrayName="Tier">
+      <br><span style="font-weight: bold;">[티어]</span><br>
+        <mat-checkbox [formControlName]="i" *ngFor="let val of Tier.controls; let i=index"> {{i+1}} &nbsp;</mat-checkbox>
+      </div>
       </form>
+
     </div>
   </div>
   <mat-table
@@ -79,7 +87,19 @@
         <mat-cell *matCellDef="let row"> {{ row[res] }} </mat-cell>
       </ng-container>
     </ng-container>
-
+    <ng-container matColumnDef="atk_cri">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> 공격치명 </mat-header-cell>
+      <mat-cell *matCellDef="let row">
+        {{ getMinMax(0, row.criAtkMin, row.criAtkMax) }}
+      </mat-cell>
+    </ng-container>
+     <ng-container matColumnDef="skill_cri">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> 스킬치명 </mat-header-cell>
+      <mat-cell *matCellDef="let row">
+        {{ getMinMax(0, row.criSkillMin, row.criSkillMax) }}
+      </mat-cell>
+    </ng-container>
+ 
     <mat-header-row *matHeaderRowDef="displayedColumn"></mat-header-row>
     <mat-row *matRowDef="let row; columns: displayedColumn;"  routerLink="/equip/{{row.ID}}"></mat-row>
   </mat-table>
