@@ -1,0 +1,33 @@
+
+@import '../../styles.scss';
+
+@media screen and (min-width: 800px) {
+  .contents { width: 80%;}
+}
+
+.contents {
+	clear: both;
+	padding: 0px;
+  margin: auto;
+}
+
+//@include mat-table-columns((
+//    Name: (maxwidth: 8rem, minwidth:5rem, flex-direction: column),
+//    Tier: (maxwidth: 4rem),
+//    Time: (maxwidth: 4rem)
+//));
+
+mat-header-cell {
+  justify-content: center;
+  flex-direction: row;
+}
+mat-cell{
+  justify-content: center;
+}
+
+img.face {
+  object-fit: contain;
+  width: 100%;
+  height: auto;
+  margin: 0;
+}

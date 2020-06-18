@@ -54,7 +54,8 @@ import { EquipListComponent } from './equip-list/equip-list.component';
 import {MatRadioModule} from '@angular/material/radio';
 import { EquipDetailComponent } from './equip-detail/equip-detail.component'; 
 import {MatExpansionModule} from '@angular/material/expansion';
-import { DevCodetableComponent } from './dev-codetable/dev-codetable.component'; 
+import { DevCodetableComponent } from './dev-codetable/dev-codetable.component';
+import { EtcComponent } from './etc/etc.component'; 
 
 export function soliProviderFactory(provider: SoliProviderService) {
   return () => provider.load();
@@ -82,6 +83,7 @@ export function soliProviderFactory(provider: SoliProviderService) {
     EquipListComponent,
     EquipDetailComponent,
     DevCodetableComponent,
+    EtcComponent,
   ],
   imports: [
     BrowserModule,

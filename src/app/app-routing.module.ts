@@ -18,6 +18,7 @@ import { DevEquipComponent } from './dev-equip/dev-equip.component';
 import { EquipListComponent } from './equip-list/equip-list.component';
 import { EquipDetailComponent } from './equip-detail/equip-detail.component';
 import { DevCodetableComponent } from './dev-codetable/dev-codetable.component';
+import { EtcComponent } from './etc/etc.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'index', pathMatch: 'full'},
@@ -37,7 +38,8 @@ const routes: Routes = [
   { path: 'dev/equip', component: DevEquipComponent},
   { path: 'dev/codetable', component: DevCodetableComponent},
   { path: 'equip', component: EquipListComponent},
-  { path: 'equip/:id', component:EquipDetailComponent}
+  { path: 'equip/:id', component:EquipDetailComponent},
+  { path: 'etc', component:EtcComponent}
 ];
 
 @NgModule({
