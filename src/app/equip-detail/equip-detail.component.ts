@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { SoliProviderService } from '../shared/soli-provider.service';
 import { resistAtkType } from '../shared/soliHashTable';
-//import { Agent } from '../shared/agent';
+import { equipRecipe } from '../shared/model';
 
 @Component({
   selector: 'app-equip-detail',
@@ -15,7 +15,8 @@ import { resistAtkType } from '../shared/soliHashTable';
 export class EquipDetailComponent implements OnInit {
   public idEquip: string;
   public equip;
-  public equipRecipe;
+  public equipRecipe: equipRecipe[] = [];
+
 
   stats = [
     ['공격력', 'atk', 'atk_min', 'atk_max'],
@@ -50,12 +51,20 @@ export class EquipDetailComponent implements OnInit {
       this.equip = this.soliProvider.getdataEquip()[
         this.soliProvider.hashEquipList[this.idEquip]
       ];
-      this.equipRecipe = this.soliProvider.getdataRecipeEquip()[
-        this.soliProvider.hashRecipeEquipList[this.equip.recipe]
-      ];
+      this.equip.recipe
+        .replace(/['"]+/g, '')
+        .split(',')
+        .forEach((val) => {
+          this.equipRecipe.push(
+            this.soliProvider.getdataRecipeEquip()[
+              this.soliProvider.hashRecipeEquipList[val]
+            ]
+          );
+        });
     });
   }
-  getMinMax(xmin, xmax) {
+
+  getMinMax(xmin: number, xmax: number): string {
     return xmax ? `+ ${xmin} ~ ${xmax}` : '';
   }
 
@@ -67,6 +76,7 @@ export class EquipDetailComponent implements OnInit {
     }
     return false;
   }
+
   parsePlain(): Array<string> {
     if (this.equip.textPlain) {
       let splitted = this.equip.textPlain.match(/("[^"]*")|[^,]+/g);
@@ -88,42 +98,42 @@ export class EquipDetailComponent implements OnInit {
     }
   }
 
-  parseRsc() {
+  parseRsc(recipe:equipRecipe) {
     let arr = [];
     for (let x of this.recipeRsc) {
-      if (this.equipRecipe[x[0]]) {
-        arr.push([x[0], x[1], this.equipRecipe[x[0]]]);
+      if (recipe[x[0]]) {
+        arr.push([x[0], x[1], recipe[x[0]]]);
       }
     }
     return arr;
   }
 
-  parseMaterial() {
-    if (this.equipRecipe.materials) {
-      return JSON.parse(`[${this.equipRecipe.materials}]`);
+  parseMaterial(recipe:equipRecipe) {
+    if (recipe.materials) {
+      return JSON.parse(`[${recipe.materials}]`);
     } else {
       return [{ name: '', ID: '', count: '' }];
     }
   }
 
-  parseBaseEquip() {
-    if (this.equipRecipe.baseEquip) {
-      return JSON.parse(`[${this.equipRecipe.baseEquip}]`);
+  parseBaseEquip(recipe:equipRecipe) {
+    if (recipe.baseEquip) {
+      return JSON.parse(`[${recipe.baseEquip}]`);
     } else {
       return [{ name: '', ID: '' }];
     }
   }
 
-  parseTime() {
+  parseTime(recipe:equipRecipe) {
     let time = '';
-    if (this.equipRecipe.Hour) {
-      time = `${this.equipRecipe.Hour}시간`;
+    if (recipe.Hour) {
+      time = `${recipe.Hour}시간`;
     }
-    if (this.equipRecipe.Minute) {
-      time = `${time} ${this.equipRecipe.Minute}분`;
+    if (recipe.Minute) {
+      time = `${time} ${recipe.Minute}분`;
     }
-    if (this.equipRecipe.Sec) {
-      time = `${time} ${this.equipRecipe.Sec}초`;
+    if (recipe.Sec) {
+      time = `${time} ${recipe.Sec}초`;
     }
     return time;
   }

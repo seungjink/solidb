@@ -21,10 +21,10 @@ export class EquipListComponent implements OnInit, OnDestroy {
   equipForm = this.fb.group({
     ID: true,
     tier: false,
-    atk_max: true,
-    def_max: true,
-    hp_max: true,
-    skill_max: true,
+    atk: true,
+    def: true,
+    hp: true,
+    skill: true,
     ChaAtkType_1: false,
     ChaAtkType_2: false,
     ChaAtkType_3: false,
@@ -56,6 +56,22 @@ export class EquipListComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.dataSource = new MatTableDataSource(this.soliProvider.getdataEquip())
     this.dataSource.sort = this.sort
+
+    this.dataSource.sortingDataAccessor = (item, property) => {
+      switch (property) {
+        case 'atk':
+          return item.atk + item.atk_max;
+        case 'def':
+          return item.def + item.def_max;
+         case 'hp':
+          return item.hp + item.hp_max;
+         case 'skill':
+          return item.skill + item.skill_max;
+        default:
+          return item[property];
+      }
+    }; 
+
     this.columnChanged = this.equipForm.valueChanges.subscribe(value => {
       this.displayedColumn = Object.keys(value).filter(k => value[k])
     })

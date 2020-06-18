@@ -4,10 +4,10 @@
       <span style="font-weight: bold">[표시할 정보]</span>
       <form [formGroup]="equipForm">
         <mat-checkbox formControlName="tier">티어 </mat-checkbox>
-        <mat-checkbox formControlName="atk_max">공 </mat-checkbox>
-        <mat-checkbox formControlName="def_max">방 </mat-checkbox>
-        <mat-checkbox formControlName="hp_max">체 </mat-checkbox>
-        <mat-checkbox formControlName="skill_max">스 </mat-checkbox><br />
+        <mat-checkbox formControlName="atk">공 </mat-checkbox>
+        <mat-checkbox formControlName="def">방 </mat-checkbox>
+        <mat-checkbox formControlName="hp">체 </mat-checkbox>
+        <mat-checkbox formControlName="skill">스 </mat-checkbox><br />
         <ng-container *ngFor="let res of resistAtkType">
           <mat-checkbox formControlName="{{ res }}"
             ><img class="inline15" src="assets/Etc/{{ res }}.png"
@@ -47,25 +47,25 @@
           {{row.tier}}
       </mat-cell>
     </ng-container>
-    <ng-container matColumnDef="atk_max">
+    <ng-container matColumnDef="atk">
       <mat-header-cell *matHeaderCellDef mat-sort-header> 공 </mat-header-cell>
       <mat-cell *matCellDef="let row">
         {{ getMinMax(row.atk, row.atk_min, row.atk_max) }}
       </mat-cell>
     </ng-container>
-    <ng-container matColumnDef="def_max">
+    <ng-container matColumnDef="def">
       <mat-header-cell *matHeaderCellDef mat-sort-header> 방 </mat-header-cell>
       <mat-cell *matCellDef="let row">
         {{ getMinMax(row.def, row.def_min, row.def_max) }}
       </mat-cell>
     </ng-container>
-    <ng-container matColumnDef="hp_max">
+    <ng-container matColumnDef="hp">
       <mat-header-cell *matHeaderCellDef mat-sort-header> 체 </mat-header-cell>
       <mat-cell *matCellDef="let row">
         {{ getMinMax(row.hp, row.hp_min, row.hp_max) }}
       </mat-cell>
     </ng-container>
-    <ng-container matColumnDef="skill_max">
+    <ng-container matColumnDef="skill">
       <mat-header-cell *matHeaderCellDef mat-sort-header> 스 </mat-header-cell>
       <mat-cell *matCellDef="let row">
         {{ getMinMax(row.skill, row.skill_min, row.skill_max) }}

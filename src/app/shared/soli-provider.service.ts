@@ -4,6 +4,7 @@ import { Papa } from 'ngx-papaparse';
 import { map } from 'rxjs/operators';
 import { forkJoin, Subject} from 'rxjs';
 import { Agent } from './agent';
+import { equipRecipe } from './model'
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +22,7 @@ export class SoliProviderService implements OnDestroy{
   private dataQuest        : Array<object>;
   private dataGladia       : Array<object>;
   private dataCocoon       : Array<object>;
-  private dataRecipeEquip  : Array<object>;
+  private dataRecipeEquip  : equipRecipe;
   private dataEquip        : Array<object>;
 
   public hashAgentList      : object;
@@ -50,7 +51,7 @@ export class SoliProviderService implements OnDestroy{
   public getdataCocoon() {
     return this.dataCocoon
   }
-  public getdataRecipeEquip() {
+  public getdataRecipeEquip():equipRecipe {
     return this.dataRecipeEquip
   }
   public getdataEquip() {

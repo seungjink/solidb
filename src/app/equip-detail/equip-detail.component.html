@@ -77,15 +77,6 @@
 
       <div class="divTable" style="table-layout: fixed;">
         <div class="divTableRow">
-          <div class="divTableCell cell-tc40">제작 시간</div>
-          <div class="divTableCell cell-tc60">{{ parseTime() }}</div>
-        </div>
-      </div>
-      <hr class="hr90 inTable" />
-
-
-      <div class="divTable" style="table-layout: fixed;">
-        <div class="divTableRow">
           <div class="divTableCell cell-tc40">귀속여부</div>
           <div class="divTableCell cell-tc60" *ngIf="equip.belonging">
             <img class="inline10" src="assets/Etc/Checkmark.png" />
@@ -152,7 +143,7 @@
       </ng-container>
 
       <ng-container *ngIf="chkResist()">
-          <br>
+        <br />
         <h2 class="subtitle">속성저항</h2>
         <hr class="hr90" />
         <div class="divTable" style="table-layout: fixed;">
@@ -213,29 +204,68 @@
         </div>
       </ng-container>
     </div>
-  <div class="col span_1_of_2">
-    <h2 class="subtitle">조합재료</h2>
-    <hr class="hr90" />
-<div class="divTable">
-  <ng-container *ngIf="equipRecipe.baseEquip">
-   <div class="divTableRow" *ngFor="let x of parseBaseEquip()">
-     <div class="divTableCell tc-30"><img class="inline30" src="assets/Equipments/{{x.ID}}.jpg | underbarEliminator"></div>
-     <div class="divTableCell tc-40"><a class="highlight" routerLink="/equip/{{x.ID}}">{{x.name}}</a></div>
-     <div class="divTableCell tc-30">1</div>
-    </div>
-  </ng-container>
-   <div class="divTableRow" *ngFor="let x of parseRsc()">
-     <div class="divTableCell tc-30"><img class="inline30" src="assets/Etc/{{x[0]}}.png"></div>
-     <div class="divTableCell tc-40">{{x[1]}}</div>
-     <div class="divTableCell tc-30">{{x[2]}}</div>
-    </div>
-   <div class="divTableRow" *ngFor="let x of parseMaterial()">
-     <div class="divTableCell tc-30"><img class="inline30" src="assets/ItemsMaterials/{{x.ID}}.jpg"></div>
-     <div class="divTableCell tc-40">
-      <a class="highlight" routerLink="/items/{{x.ID}}">{{x.name}}</a>
+    <div class="col span_1_of_2">
+      <h2 class="sub title">조합정보</h2>
+      <hr class="hr90" />
+
+      <ng-container *ngFor="let recipe of equipRecipe; let i = index">
+        <div class="divTable">
+          <div class="divTableRow">
+            <div class="divTableCell tc-30">
+              <span style="font-weight: bold; font-size: 1.1rem;"
+                >조합식 {{ i + 1 }}</span
+              >
+            </div>
+            <div class="divTableCell tc-40">
+              <span style="font-weight: bold; font-size: 1.1rem;">{{
+                recipe.Name
+              }}</span>
+            </div>
+            <div class="divTableCell tc-30">
+              <span style="font-weight: bold; font-size: 1.1rem;">{{
+              parseTime(recipe) }}</span></div>
+          </div>
+
+          <ng-container *ngIf="recipe.baseEquip">
+            <div class="divTableRow" *ngFor="let x of parseBaseEquip(recipe)">
+              <div class="divTableCell tc-30">
+                <img
+                  class="inline30"
+                  src="assets/Equipments/{{ x.ID }}.jpg | underbarEliminator"
+                />
+              </div>
+              <div class="divTableCell tc-40">
+                <a class="highlight" routerLink="/equip/{{ x.ID }}">{{
+                  x.name
+                }}</a>
+              </div>
+              <div class="divTableCell tc-30">1</div>
+            </div>
+          </ng-container>
+          <div class="divTableRow" *ngFor="let x of parseRsc(recipe)">
+            <div class="divTableCell tc-30">
+              <img class="inline30" src="assets/Etc/{{ x[0] }}.png" />
+            </div>
+            <div class="divTableCell tc-40">{{ x[1] }}</div>
+            <div class="divTableCell tc-30">{{ x[2] }}</div>
+          </div>
+          <div class="divTableRow" *ngFor="let x of parseMaterial(recipe)">
+            <div class="divTableCell tc-30">
+              <img
+                class="inline30"
+                src="assets/ItemsMaterials/{{ x.ID }}.jpg"
+              />
+            </div>
+            <div class="divTableCell tc-40">
+              <a class="highlight" routerLink="/items/{{ x.ID }}">{{
+                x.name
+              }}</a>
+            </div>
+            <div class="divTableCell tc-30">{{ x.count }}</div>
+          </div>
         </div>
-     <div class="divTableCell tc-30">{{x.count}}</div>
+        <hr style="width: 80%;" />
+      </ng-container>
     </div>
-  </div>
   </div>
 </div>

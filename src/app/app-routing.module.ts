@@ -17,6 +17,7 @@ import { DevComponent } from './dev/dev.component';
 import { DevEquipComponent } from './dev-equip/dev-equip.component';
 import { EquipListComponent } from './equip-list/equip-list.component';
 import { EquipDetailComponent } from './equip-detail/equip-detail.component';
+import { DevCodetableComponent } from './dev-codetable/dev-codetable.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'index', pathMatch: 'full'},
@@ -34,6 +35,7 @@ const routes: Routes = [
   { path: 'dev', component:DevComponent},
   { path: 'dev/equip_recipe', component:DevEquipRecipieComponent},
   { path: 'dev/equip', component: DevEquipComponent},
+  { path: 'dev/codetable', component: DevCodetableComponent},
   { path: 'equip', component: EquipListComponent},
   { path: 'equip/:id', component:EquipDetailComponent}
 ];

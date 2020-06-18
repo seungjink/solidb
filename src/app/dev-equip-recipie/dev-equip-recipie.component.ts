@@ -24,6 +24,7 @@ export class DevEquipRecipieComponent implements OnInit {
   materialsList = [];
   recipeForm = this.fb.group({
     name: [''],
+    tier: [''],
     hour: [''],
     minute: [''],
     sec: [''],
