@@ -35,6 +35,7 @@ export class SoliProviderService implements OnDestroy{
   public hashItemToName     : Map<string, string>;
   public hashQuestIdToName  : Map<string, string>;
   public hashCocoonIdToName : Map<string, string>;
+  public hashEquipIdToName  : Map<string, string>;
  
   public getdataAgent() {
     return this.dataAgent
@@ -98,8 +99,8 @@ export class SoliProviderService implements OnDestroy{
       this.hashItemToName      = this.setMap(this.dataItemMaterial, "ID", "Name");
       this.hashQuestIdToName   = this.setMap(this.dataQuest,        "ID", "Name");
       this.hashCocoonIdToName  = this.setMap(this.dataCocoon,       "ID", "Name");
+      this.hashEquipIdToName   = this.setMap(this.dataEquip,        "ID", "name");
 
-      console.log(this.hashItemToName)
       resolve(true);
     })
     })

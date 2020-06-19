@@ -1,0 +1,113 @@
+<ng-container *ngIf="data">
+<div class="divTable">
+  <div class="divTableRow">
+    <div class="divTableCell cell-tc50">
+      <h2 class="subtitle">{{ equip1.name }}</h2>
+    </div>
+    <div class="divTableCell cell-tc50">
+      <h2 class="subtitle">{{ equip2.name }}</h2>
+    </div>
+  </div>
+</div>
+<hr class="hr90" />
+<ng-container *ngFor="let x of getBaseStat()">
+  <div class="divTable">
+    <div class="divTableRow">
+      <div class="divTableCell cell-tc40">{{ x[0] }}</div>
+      <div class="divTableCell cell-tc20" style="font-weight: bold;">
+        {{ x[1] }}
+      </div>
+      <div class="divTableCell cell-tc40">{{ x[2] }}</div>
+    </div>
+  </div>
+  <hr class="hr90 inTable" />
+</ng-container>
+<ng-container *ngFor="let x of getCritical()">
+  <div class="divTable">
+    <div class="divTableRow">
+      <div class="divTableCell cell-tc40">{{ x[0] }}</div>
+      <div class="divTableCell cell-tc20" style="font-weight: bold;">
+        {{ x[1] }}
+      </div>
+      <div class="divTableCell cell-tc40">{{ x[2] }}</div>
+    </div>
+  </div>
+  <hr class="hr90 inTable" />
+</ng-container>
+<ng-container *ngFor="let x of getFixed()">
+  <div class="divTable">
+    <div class="divTableRow">
+      <div class="divTableCell cell-tc40">{{ x[0] }}</div>
+      <div class="divTableCell cell-tc20" style="font-weight: bold;">
+        {{ x[1] }}
+      </div>
+      <div class="divTableCell cell-tc40">{{ x[2] }}</div>
+    </div>
+  </div>
+  <hr class="hr90 inTable" />
+</ng-container>
+<div class="section group">
+  <div class="col span_1_of_2" style="width: 49.2%;">
+    <ng-container *ngIf="equip1.textPlain">
+      <div class="divTable">
+        <div class="divTableRow" *ngFor="let x of parsePlain(equip1)">
+          <div class="divTableCell cell-listpadding" style="text-align: left;">
+            • {{ x }}
+          </div>
+        </div>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="equip1.textFormatted">
+      <div class="divTable">
+        <div class="divTableRow" *ngFor="let x of parseFormatted(equip1)">
+          <div class="divTableCell cell-listpadding" style="text-align: left;">
+            •
+            {{ x.head }}
+            <span style="color: seagreen; font-weight: bold;">{{ x.min }}</span>
+            ~
+            <span style="color: seagreen; font-weight: bold;">{{ x.max }}</span>
+            <span style="color: maroon;">
+              (품질에 따름)
+            </span>
+            {{ x.tail }}
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+  <div class="col span_1_of_2" style="width: 49.2%;">
+    <ng-container *ngIf="equip2.textPlain">
+      <div class="divTable">
+        <div class="divTableRow" *ngFor="let x of parsePlain(equip2)">
+          <div class="divTableCell cell-listpadding" style="text-align: left;">
+            • {{ x }}
+          </div>
+        </div>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="equip2.textFormatted">
+      <div class="divTable">
+        <div class="divTableRow" *ngFor="let x of parseFormatted(equip2)">
+          <div class="divTableCell cell-listpadding" style="text-align: left;">
+            •
+            {{ x.head }}
+            <span style="color: seagreen; font-weight: bold;">{{ x.min }}</span>
+            ~
+            <span style="color: seagreen; font-weight: bold;">{{ x.max }}</span>
+            <span style="color: maroon;">
+              (품질에 따름)
+            </span>
+            {{ x.tail }}
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>
+</ng-container>
+
+<ng-container *ngIf="!data">
+<div style="text-align: center;">
+장비를 모두 선택해주세요.
+</div>
+</ng-container>

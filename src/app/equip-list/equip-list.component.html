@@ -1,36 +1,115 @@
 <div class="contents">
   <div class="section group">
     <div class="col span_1_of_2" style="text-align: center;">
-      <span style="font-weight: bold">[표시할 정보]</span>
-      <form [formGroup]="equipForm">
-        <mat-checkbox formControlName="tier">티어 </mat-checkbox>
-        <mat-checkbox formControlName="atk">공 </mat-checkbox>
-        <mat-checkbox formControlName="def">방 </mat-checkbox>
-        <mat-checkbox formControlName="hp">체 </mat-checkbox>
-        <mat-checkbox formControlName="skill">스 </mat-checkbox><br />
-        <ng-container *ngFor="let res of resistAtkType">
-          <mat-checkbox formControlName="{{ res }}"
-            ><img class="inline15" src="assets/Etc/{{ res }}.png"
-          /></mat-checkbox>
-        </ng-container>
-        <br>
-        <mat-checkbox formControlName="atk_cri">공격치명 </mat-checkbox>
-        <mat-checkbox formControlName="skill_cri">스킬치명 </mat-checkbox>
-      </form>
-    </div>
-    <div class="col span_1_of_2" style="text-align: center;">
+      <mat-accordion>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              데이터 선택
+            </mat-panel-title>
+            <mat-panel-description>
+              표시할 정보를 선택
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <span style="font-weight: bold;">[표시할 정보]</span>
+          <form [formGroup]="equipForm">
+            <mat-checkbox formControlName="tier">티어 </mat-checkbox>
+            <mat-checkbox formControlName="atk">공 </mat-checkbox>
+            <mat-checkbox formControlName="def">방 </mat-checkbox>
+            <mat-checkbox formControlName="hp">체 </mat-checkbox>
+            <mat-checkbox formControlName="skill">스 </mat-checkbox><br />
+            <ng-container *ngFor="let res of resistAtkType">
+              <mat-checkbox formControlName="{{ res }}"
+                ><img class="inline15" src="assets/Etc/{{ res }}.png"
+              /></mat-checkbox>
+            </ng-container>
+            <br />
+            <mat-checkbox formControlName="atk_cri">공격치명 </mat-checkbox>
+            <mat-checkbox formControlName="skill_cri">스킬치명 </mat-checkbox>
+          </form>
+        </mat-expansion-panel>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              아이템 필터
+            </mat-panel-title>
+            <mat-panel-description>
+              필터링할 옵션을 선택
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+ 
       <span style="font-weight: bold;">[포지션]</span>
       <form [formGroup]="filterRowForm">
         <mat-checkbox formControlName="ChaPosition_Short">근접 </mat-checkbox>
         <mat-checkbox formControlName="ChaPosition_Tank">탱커 </mat-checkbox>
         <mat-checkbox formControlName="ChaPosition_Long">원거리 </mat-checkbox>
         <mat-checkbox formControlName="ChaPosition_Support">지원 </mat-checkbox>
-      <div formArrayName="Tier">
-      <br><span style="font-weight: bold;">[티어]</span><br>
-        <mat-checkbox [formControlName]="i" *ngFor="let val of Tier.controls; let i=index"> {{i+1}} &nbsp;</mat-checkbox>
-      </div>
-      </form>
+        <div formArrayName="Tier">
+          <br /><span style="font-weight: bold;">[티어]</span><br />
+          <mat-checkbox
+            [formControlName]="i"
+            *ngFor="let val of Tier.controls; let i = index"
+          >
+            {{ i + 1 }} &nbsp;</mat-checkbox
+          >
+          </div>
 
+      </form>
+        </mat-expansion-panel>
+ 
+     </mat-accordion>
+
+    </div>
+
+    <div class="col span_1_of_2" style="text-align: center;">
+        <mat-form-field style="width: 50%;">
+          <mat-label>첫번째 장비</mat-label>
+
+          <input
+            type="text"
+            matInput
+            [formControl]="itemControl1"
+            [matAutocomplete]="auto1"
+          />
+          <mat-autocomplete
+            autoActiveFirstOption
+            #auto1="matAutocomplete"
+            [displayWith]="displayFn"
+          >
+            <mat-option
+              *ngFor="let option of filteredOptions1 | async"
+              [value]="option"
+            >
+              {{ option[1] }}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+        <mat-form-field style="width: 50%;">
+          <mat-label>두번째 장비</mat-label>
+
+          <input
+            type="text"
+            matInput
+            [formControl]="itemControl2"
+            [matAutocomplete]="auto2"
+          />
+          <mat-autocomplete
+            autoActiveFirstOption
+            #auto2="matAutocomplete"
+            [displayWith]="displayFn"
+          >
+            <mat-option
+              *ngFor="let option of filteredOptions2 | async"
+              [value]="option"
+            >
+              {{ option[1] }}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+
+        <button mat-stroked-button color="primary" (click)="openDialog()">
+          비교하기
+        </button>
     </div>
   </div>
   <mat-table
@@ -45,14 +124,19 @@
         장비
       </mat-header-cell>
       <mat-cell *matCellDef="let row">
-        <img class="face" src="assets/Equipments/{{ row.ID | underbarEliminator}}.jpg" />
+        <img
+          class="face"
+          src="assets/Equipments/{{ row.ID | underbarEliminator }}.jpg"
+        />
         <span class="wordnonbreak">{{ row.name }}</span></mat-cell
       >
     </ng-container>
     <ng-container matColumnDef="tier">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> 티어 </mat-header-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-header>
+        티어
+      </mat-header-cell>
       <mat-cell *matCellDef="let row">
-          {{row.tier}}
+        {{ row.tier }}
       </mat-cell>
     </ng-container>
     <ng-container matColumnDef="atk">
@@ -88,19 +172,26 @@
       </ng-container>
     </ng-container>
     <ng-container matColumnDef="atk_cri">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> 공격치명 </mat-header-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-header>
+        공격치명
+      </mat-header-cell>
       <mat-cell *matCellDef="let row">
         {{ getMinMax(0, row.criAtkMin, row.criAtkMax) }}
       </mat-cell>
     </ng-container>
-     <ng-container matColumnDef="skill_cri">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> 스킬치명 </mat-header-cell>
+    <ng-container matColumnDef="skill_cri">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>
+        스킬치명
+      </mat-header-cell>
       <mat-cell *matCellDef="let row">
         {{ getMinMax(0, row.criSkillMin, row.criSkillMax) }}
       </mat-cell>
     </ng-container>
- 
+
     <mat-header-row *matHeaderRowDef="displayedColumn"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: displayedColumn;"  routerLink="/equip/{{row.ID}}"></mat-row>
+    <mat-row
+      *matRowDef="let row; columns: displayedColumn"
+      routerLink="/equip/{{ row.ID }}"
+    ></mat-row>
   </mat-table>
 </div>

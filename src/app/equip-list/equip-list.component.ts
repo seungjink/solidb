@@ -5,7 +5,10 @@ import { SoliProviderService } from '../shared/soli-provider.service';
 import { resistAtkType } from '../shared/soliHashTable';
 import { FormStateService } from '../shared/form-state/form-state.service';
 import { FormControl, FormBuilder, FormArray, FormGroup } from '@angular/forms';
-import { stringify } from 'querystring';
+import { Observable } from 'rxjs';
+import { map, startWith, filter } from 'rxjs/operators';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { EquipComparisonComponent } from '../equip-comparison/equip-comparison.component';
 
 @Component({
   selector: 'app-equip-list',
@@ -17,6 +20,7 @@ import { stringify } from 'querystring';
 })
 export class EquipListComponent implements OnInit, OnDestroy {
   rawdata: any;
+  rawdataEquipComparison: any;
   dataSource: any;
   equipForm = this.fb.group({
     ID: true,
@@ -45,10 +49,16 @@ export class EquipListComponent implements OnInit, OnDestroy {
   );
   appliedFilter: any;
 
+  filteredOptions1: Observable<any>;
+  filteredOptions2: Observable<any>;
+  itemControl1 = new FormControl();
+  itemControl2 = new FormControl();
+
   constructor(
     private soliProvider: SoliProviderService,
     private fb: FormBuilder,
-    private fs: FormStateService
+    private fs: FormStateService,
+    private dialog: MatDialog
   ) {
     this.filterRowForm = this.fb.group({
       ChaPosition_Short: [{ value: true, disabled: false }],
@@ -73,14 +83,25 @@ export class EquipListComponent implements OnInit, OnDestroy {
       this.filterRowForm = this.fs.equipListRowFilter;
       this.appliedFilter = this.filterRowForm.value;
     }
+    if (this.fs.equipListColFilter) {
+      this.equipForm = this.fs.equipListColFilter;
+      this.displayedColumn = Object.keys(this.equipForm.value).filter(
+        (k) => this.equipForm.value[k]
+      );
+    }
 
-    this.dataSource = new MatTableDataSource(this.soliProvider.getdataEquip());
+    this.rawdata = this.soliProvider.getdataEquip();
+    this.rawdataEquipComparison = Array.from(
+      this.soliProvider.hashEquipIdToName
+    );
+
+    this.dataSource = new MatTableDataSource(this.rawdata);
     this.dataSource.sort = this.sort;
 
     this.dataSource.sortingDataAccessor = (item, property) => {
       switch (property) {
         case 'ID':
-          return this.soliProvider.hashEquipList.get(item.ID)
+          return this.soliProvider.hashEquipList.get(item.ID);
         case 'atk':
           return item.atk + item.atk_max;
         case 'def':
@@ -93,7 +114,7 @@ export class EquipListComponent implements OnInit, OnDestroy {
           return item.criAtkMax;
         case 'skill_cri':
           return item.criSkillMax;
- 
+
         default:
           return item[property];
       }
@@ -118,12 +139,34 @@ export class EquipListComponent implements OnInit, OnDestroy {
     };
 
     this.applyFilter(this.appliedFilter);
+
+    this.filteredOptions1 = this.itemControl1.valueChanges.pipe(
+      startWith(''),
+      map((value) => (typeof value === 'string' ? value : value[1])),
+      map((name) =>
+        name ? this._filter(name) : this.rawdataEquipComparison.slice()
+      )
+    );
+    this.filteredOptions2 = this.itemControl2.valueChanges.pipe(
+      startWith(''),
+      map((value) => (typeof value === 'string' ? value : value[1])),
+      map((name) =>
+        name ? this._filter(name) : this.rawdataEquipComparison.slice()
+      )
+    );
+
+    if(this.fs.equipSorted){
+      this.dataSource.sort.active = this.fs.equipSorted["active"]
+      this.dataSource.sort._direction = this.fs.equipSorted["_direction"]
+    }
   }
 
   ngOnDestroy(): void {
     this.columnChanged.unsubscribe();
     this.filterChanged.unsubscribe();
     this.fs.equipListRowFilter = this.filterRowForm;
+    this.fs.equipListColFilter = this.equipForm;
+    this.fs.equipSorted = {active: this.dataSource.sort.active, _direction: this.dataSource.sort._direction}
   }
 
   applyFilter(filterValue: Object) {
@@ -136,5 +179,38 @@ export class EquipListComponent implements OnInit, OnDestroy {
 
   get Tier() {
     return this.filterRowForm.get('Tier') as FormArray;
+  }
+
+  displayFn(data): string {
+    return data && data ? data[1] : '';
+  }
+
+  private _filter(name: string) {
+    const filterValue = name.toLowerCase();
+
+    return this.rawdataEquipComparison.filter(
+      (option) => option[1].indexOf(filterValue) === 0
+    );
+  }
+
+  openDialog() {
+    const dialogConfig = new MatDialogConfig();
+
+    dialogConfig.disableClose = false;
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = '100%';
+    dialogConfig.maxHeight = '90vh';
+    if (this.itemControl1.value && this.itemControl2.value) {
+      dialogConfig.data = {
+        equip1: this.rawdata[
+          this.soliProvider.hashEquipList.get(this.itemControl1.value[0])
+        ],
+        equip2: this.rawdata[
+          this.soliProvider.hashEquipList.get(this.itemControl2.value[0])
+        ],
+      };
+    }
+
+    this.dialog.open(EquipComparisonComponent, dialogConfig);
   }
 }

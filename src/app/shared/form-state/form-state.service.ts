@@ -6,5 +6,7 @@ import { FormGroup } from '@angular/forms';
 })
 export class FormStateService {
   public equipListRowFilter: FormGroup;
+  public equipListColFilter: FormGroup;
+  public equipSorted: Object;
   constructor() { }
 }
