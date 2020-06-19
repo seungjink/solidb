@@ -56,7 +56,7 @@ export class DevEquipComponent implements OnInit {
     belonging: false,
     textPlain: this.fb.array([]),
     textFormatted: this.fb.array([]),
-  })
+  });
   INITIALFORM = this.equipForm.value;
   checkAll = false;
 
@@ -76,11 +76,11 @@ export class DevEquipComponent implements OnInit {
     );
   }
 
-  get textPlain(){
+  get textPlain() {
     return this.equipForm.get('textPlain') as FormArray;
   }
 
-  get textFormatted(){
+  get textFormatted() {
     return this.equipForm.get('textFormatted') as FormArray;
   }
 
@@ -99,19 +99,19 @@ export class DevEquipComponent implements OnInit {
     return res;
   }
 
-  removeTextFormatted(i:number){
-    this.textFormatted.removeAt(i)
+  removeTextFormatted(i: number) {
+    this.textFormatted.removeAt(i);
   }
 
-  addTextPlain(){
-    this.textPlain.push(this.fb.control(''))
+  addTextPlain() {
+    this.textPlain.push(this.fb.control(''));
   }
 
-  removeTextPlain(i:number){
-     this.textPlain.removeAt(i)
+  removeTextPlain(i: number) {
+    this.textPlain.removeAt(i);
   }
 
-  addTextFormatted(){
+  addTextFormatted() {
     this.textFormatted.push(
       this.fb.group({
         head: [''],
@@ -119,7 +119,7 @@ export class DevEquipComponent implements OnInit {
         max: [''],
         tail: [''],
       })
-    )
+    );
   }
 
   displayFn(data): string {
@@ -134,27 +134,27 @@ export class DevEquipComponent implements OnInit {
     );
   }
 
-  updatePosition(){
-    this.checkAll = !this.checkAll
-    this.equipForm.get('ChaPosition_Short').setValue(this.checkAll)
-    this.equipForm.get('ChaPosition_Tank').setValue(this.checkAll)
-    this.equipForm.get('ChaPosition_Long').setValue(this.checkAll)
-    this.equipForm.get('ChaPosition_Support').setValue(this.checkAll)
+  updatePosition() {
+    this.checkAll = !this.checkAll;
+    this.equipForm.get('ChaPosition_Short').setValue(this.checkAll);
+    this.equipForm.get('ChaPosition_Tank').setValue(this.checkAll);
+    this.equipForm.get('ChaPosition_Long').setValue(this.checkAll);
+    this.equipForm.get('ChaPosition_Support').setValue(this.checkAll);
   }
 
-  copyToClipboard(){
-    return JSON.stringify(this.equipForm.value)
+  copyToClipboard() {
+    return JSON.stringify(this.equipForm.value);
   }
 
-  updateNameRecipe(){
-    this.equipForm.get('name').setValue(this.itemControl.value.name)
-    this.equipForm.get('recipe').setValue(this.itemControl.value.recipeId)
+  updateNameRecipe() {
+    this.equipForm.get('name').setValue(this.itemControl.value.name);
+    this.equipForm.get('recipe').setValue(this.itemControl.value.recipeId);
   }
- 
-  reset(){
-    this.equipForm.reset(this.INITIALFORM)
-    this.textPlain.clear()
-    this.textFormatted.clear()
-    this.itemControl.reset('')
+
+  reset() {
+    this.equipForm.reset(this.INITIALFORM);
+    this.textPlain.clear();
+    this.textFormatted.clear();
+    this.itemControl.reset('');
   }
 }
