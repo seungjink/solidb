@@ -113,7 +113,13 @@
     <div class="col span_1_of_2" style="white-space: pre-wrap; word-break: keep-all;">
       <h2 class="subtitle">고유 효과</h2>
       <hr class="hr90" />
-      {{ gladia.Unique }}
+        <div class="divTable">
+          <div class="divTableRow" *ngFor="let x of getDescription()">
+            <div class="divTableCell cell-listpadding" style="text-align: left;">
+              • {{x}}
+            </div>
+          </div>
+        </div>
     </div>
     <div class="col span_1_of_2">
       <h2 class="subtitle">연관 글라디아</h2>

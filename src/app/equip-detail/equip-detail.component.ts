@@ -15,7 +15,7 @@ import { equipRecipe } from '../shared/model';
 export class EquipDetailComponent implements OnInit {
   public idEquip: string;
   public equip;
-  public equipRecipe: equipRecipe[] = [];
+  public equipRecipe: equipRecipe[];
 
 
   stats = [
@@ -49,15 +49,16 @@ export class EquipDetailComponent implements OnInit {
     this.route.params.subscribe((params) => {
       this.idEquip = params['id'];
       this.equip = this.soliProvider.getdataEquip()[
-        this.soliProvider.hashEquipList[this.idEquip]
+        this.soliProvider.hashEquipList.get(this.idEquip)
       ];
+      this.equipRecipe = [];
       this.equip.recipe
         .replace(/['"]+/g, '')
         .split(',')
         .forEach((val) => {
           this.equipRecipe.push(
             this.soliProvider.getdataRecipeEquip()[
-              this.soliProvider.hashRecipeEquipList[val]
+              this.soliProvider.hashRecipeEquipList.get(val)
             ]
           );
         });

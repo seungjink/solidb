@@ -26,7 +26,7 @@ export class GladiaDetailComponent implements OnInit {
   ngOnInit(): void {
     this.route.params.subscribe( params => {
     this.idItem = params["id"];
-    this.gladia= this.soliProvider.getdataGladia()[this.soliProvider.hashGladiaList[this.idItem]]
+    this.gladia= this.soliProvider.getdataGladia()[this.soliProvider.hashGladiaList.get(this.idItem)]
     });
   }
 
@@ -40,7 +40,7 @@ export class GladiaDetailComponent implements OnInit {
   getCocoon = (x:string): any => {
     let arr = [];
     for (let y of x.split(',')){
-      arr.push([y,this.soliProvider.hashCocoonIdToName[y]])
+      arr.push([y,this.soliProvider.hashCocoonIdToName.get(y)])
     }
     return arr
   }
@@ -53,11 +53,12 @@ export class GladiaDetailComponent implements OnInit {
       let resultArr = [];
 
       for(let id in parsed){
-        resultArr.push([id, parsed[id], this.soliProvider.hashItemToName[id]]);
+        resultArr.push([id, parsed[id], this.soliProvider.hashItemToName.get(id)]);
       }
       return resultArr
     }
   }
-
-
+  getDescription(){
+    return this.gladia.Unique.split("\n")
+  }
 }

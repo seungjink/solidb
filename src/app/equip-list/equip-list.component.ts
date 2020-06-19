@@ -79,6 +79,8 @@ export class EquipListComponent implements OnInit, OnDestroy {
 
     this.dataSource.sortingDataAccessor = (item, property) => {
       switch (property) {
+        case 'ID':
+          return this.soliProvider.hashEquipList.get(item.ID)
         case 'atk':
           return item.atk + item.atk_max;
         case 'def':

@@ -22,26 +22,30 @@ export class ItemMaterialsDetailComponent implements OnInit {
     this.route.params.subscribe((params) => {
       this.idItem = params['id'];
       this.data = this.soliProvider.getdataItemMaterial()[
-        this.soliProvider.hashItemList[this.idItem]
+        this.soliProvider.hashItemList.get(this.idItem)
       ];
     });
   }
 
-  getFixedDrop(): Array<object>{
-    let arr = []
-    let dropIdWithNum = JSON.parse(this.data.DropFixed)
-    for(let key in dropIdWithNum){
-      arr.push([this.soliProvider.hashQuestIdToName[key], dropIdWithNum[key], key])
+  getFixedDrop(): Array<object> {
+    let arr = [];
+    let dropIdWithNum = JSON.parse(this.data.DropFixed);
+    for (let key in dropIdWithNum) {
+      arr.push([
+        this.soliProvider.hashQuestIdToName.get(key),
+        dropIdWithNum[key],
+        key,
+      ]);
     }
-    return arr
+    return arr;
   }
 
-  getRandomDrop(): Array<object>{
-    let arr= []
-    let dropId = this.data.DropRandom.split(',')
-    for(let item of dropId){
-      arr.push([this.soliProvider.hashQuestIdToName[item], item])
+  getRandomDrop(): Array<object> {
+    let arr = [];
+    let dropId = this.data.DropRandom.split(',');
+    for (let item of dropId) {
+      arr.push([this.soliProvider.hashQuestIdToName.get(item), item]);
     }
-    return arr
+    return arr;
   }
 }

@@ -49,7 +49,7 @@
         <div class="divTableRow">
           <div class="divTableCell cell-tc20"></div>
           <div class="divTableCell cell-tc20"></div>
-          <div class="divTableCell cell-tc60">
+          <div class="divTableCell cell-tc60" *ngIf="equip.countRandomStat">
             ※랜덤 {{ equip.countRandomStat }}개 선택
           </div>
         </div>
@@ -181,7 +181,7 @@
       <ng-container *ngIf="equip.textPlain">
         <div class="divTable">
           <div class="divTableRow" *ngFor="let x of parsePlain()">
-            <div class="divTableCell" style="text-align: left;">{{ x }}</div>
+            <div class="divTableCell cell-listpadding" style="text-align:left">• {{ x }}</div>
           </div>
         </div>
       </ng-container>
@@ -189,7 +189,8 @@
       <ng-container *ngIf="equip.textFormatted">
         <div class="divTable">
           <div class="divTableRow" *ngFor="let x of parseFormatted()">
-            <div class="divTableCell" style="text-align: left;">
+            <div class="divTableCell cell-listpadding" style="text-align: left;">
+              • 
               {{ x.head }}
               <span style="color: seagreen; font-weight: bold;">{{
                 x.min
@@ -198,6 +199,11 @@
               <span style="color: seagreen; font-weight: bold;">{{
                 x.max
               }}</span>
+              <span style="color: maroon;">
+                (품질에 따름)
+              </span>
+
+
               {{ x.tail }}
             </div>
           </div>
@@ -234,7 +240,7 @@
               <div class="divTableCell tc-30">
                 <img
                   class="inline30"
-                  src="assets/Equipments/{{ x.ID }}.jpg | underbarEliminator"
+                  src="assets/Equipments/{{ x.ID | underbarEliminator}}.jpg"
                 />
               </div>
               <div class="divTableCell tc-40">

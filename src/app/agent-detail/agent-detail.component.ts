@@ -46,7 +46,7 @@ export class AgentDetailComponent implements OnInit {
   ngOnInit(): void {
     this.route.params.subscribe( params => {
     this.idItem = params["id"];
-    this.agent = this.soliProvider.getdataAgent()[this.soliProvider.hashAgentList[this.idItem]]
+    this.agent = this.soliProvider.getdataAgent()[this.soliProvider.hashAgentList.get(this.idItem)]
     })
   }
  

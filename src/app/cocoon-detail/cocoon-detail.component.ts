@@ -22,7 +22,7 @@ export class CocoonDetailComponent implements OnInit {
   ngOnInit(): void {
     this.route.params.subscribe( params => {
     this.idItem = params["id"];
-    this.cocoon= this.soliProvider.getdataCocoon()[this.soliProvider.hashCocoonList[this.idItem]]
+    this.cocoon= this.soliProvider.getdataCocoon()[this.soliProvider.hashCocoonList.get(this.idItem)]
     });
   }
 
@@ -30,7 +30,7 @@ export class CocoonDetailComponent implements OnInit {
    let id = y.split(",")
    var resultArr = [];
    for (let i = 0; i < id.length; i++) {
-       resultArr.push([this.soliProvider.hashQuestIdToName[id[i]], id[i]]);
+       resultArr.push([this.soliProvider.hashQuestIdToName.get(id[i]), id[i]]);
    };
    return resultArr  
  }

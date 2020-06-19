@@ -25,17 +25,17 @@ export class SoliProviderService implements OnDestroy{
   private dataRecipeEquip  : equipRecipe;
   private dataEquip        : Array<object>;
 
-  public hashAgentList      : object;
-  public hashCocoonList     : object;
-  public hashGladiaList     : object;
-  public hashItemList       : object;
-  public hashQuestList      : object;
-  public hashItemToName     : object;
-  public hashQuestIdToName  : object;
-  public hashCocoonIdToName : object;
-  public hashEquipList      : object;
-  public hashRecipeEquipList: object;
-
+  public hashAgentList      : Map<string, number>;
+  public hashCocoonList     : Map<string, number>;
+  public hashGladiaList     : Map<string, number>;
+  public hashItemList       : Map<string, number>;
+  public hashQuestList      : Map<string, number>;
+  public hashEquipList      : Map<string, number>;
+  public hashRecipeEquipList: Map<string, number>;
+  public hashItemToName     : Map<string, string>;
+  public hashQuestIdToName  : Map<string, string>;
+  public hashCocoonIdToName : Map<string, string>;
+ 
   public getdataAgent() {
     return this.dataAgent
   }
@@ -88,37 +88,52 @@ export class SoliProviderService implements OnDestroy{
       this.dataEquip        = this.papa.parse(response[6], {header:true, dynamicTyping: true}).data
  
 
-      this.hashAgentList = this.genArray(this.dataAgent, "ID")
-      this.hashCocoonList = this.genArray(this.dataCocoon, "ID")
-      this.hashGladiaList = this.genArray(this.dataGladia, "ID")
-      this.hashItemList = this.genArray(this.dataItemMaterial, "ID")
-      this.hashQuestList = this.genArray(this.dataQuest, "ID")
-      this.hashEquipList = this.genArray(this.dataEquip, "ID")
-      this.hashRecipeEquipList = this.genArray(this.dataRecipeEquip, "ID")
-      this.hashItemToName     =  this.genArray(this.dataItemMaterial,"ID","Name");
-      this.hashQuestIdToName  =  this.genArray(this.dataQuest,"ID","Name");
-      this.hashCocoonIdToName =  this.genArray(this.dataCocoon,"ID","Name");
+      this.hashAgentList       = this.setMap(this.dataAgent,        "ID")
+      this.hashCocoonList      = this.setMap(this.dataCocoon,       "ID")
+      this.hashGladiaList      = this.setMap(this.dataGladia,       "ID")
+      this.hashItemList        = this.setMap(this.dataItemMaterial, "ID")
+      this.hashQuestList       = this.setMap(this.dataQuest,        "ID")
+      this.hashEquipList       = this.setMap(this.dataEquip,        "ID")
+      this.hashRecipeEquipList = this.setMap(this.dataRecipeEquip,  "ID")
+      this.hashItemToName      = this.setMap(this.dataItemMaterial, "ID", "Name");
+      this.hashQuestIdToName   = this.setMap(this.dataQuest,        "ID", "Name");
+      this.hashCocoonIdToName  = this.setMap(this.dataCocoon,       "ID", "Name");
 
-      console.log("Loading completed.")
+      console.log(this.hashItemToName)
       resolve(true);
     })
     })
   }
 
-  genArray(data, key:string, value?:string){
-    let arr = {}
-    if (value){
-      for (let i in data){
-        arr[data[i][key]] = data[i][value];
+  setMap(data, key:string, value?:string){
+    let map = new Map()
+    if(value){
+      for (let idx=0; idx<data.length; idx++){
+         map.set(data[idx][key], data[idx][value])
       }
     }
     else{
-      for (let i in data){
-        arr[data[i][key]] = i;
+      for (let idx=0; idx<data.length; idx++){
+        map.set(data[idx][key], idx)
       }
     }
-   return arr;
+    return map
   }
+
+//  genArray(data, key:string, value?:string){
+//    let arr = {}
+//    if (value){
+//      for (let i in data){
+//        arr[data[i][key]] = data[i][value];
+//      }
+//    }
+//    else{
+//      for (let i in data){
+//        arr[data[i][key]] = i;
+//      }
+//    }
+//   return arr;
+//  }
 
   ngOnDestroy(): void{
     this.destroy$.next();
