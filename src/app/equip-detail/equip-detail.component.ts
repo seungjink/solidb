@@ -113,7 +113,8 @@ export class EquipDetailComponent implements OnInit {
     if (recipe.materials) {
       return JSON.parse(`[${recipe.materials}]`);
     } else {
-      return [{ name: '', ID: '', count: '' }];
+      return ''
+//      return [{ name: '', ID: '', count: '' }];
     }
   }
 

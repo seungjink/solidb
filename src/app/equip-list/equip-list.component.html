@@ -37,79 +37,93 @@
               필터링할 옵션을 선택
             </mat-panel-description>
           </mat-expansion-panel-header>
- 
-      <span style="font-weight: bold;">[포지션]</span>
-      <form [formGroup]="filterRowForm">
-        <mat-checkbox formControlName="ChaPosition_Short">근접 </mat-checkbox>
-        <mat-checkbox formControlName="ChaPosition_Tank">탱커 </mat-checkbox>
-        <mat-checkbox formControlName="ChaPosition_Long">원거리 </mat-checkbox>
-        <mat-checkbox formControlName="ChaPosition_Support">지원 </mat-checkbox>
-        <div formArrayName="Tier">
-          <br /><span style="font-weight: bold;">[티어]</span><br />
-          <mat-checkbox
-            [formControlName]="i"
-            *ngFor="let val of Tier.controls; let i = index"
-          >
-            {{ i + 1 }} &nbsp;</mat-checkbox
-          >
-          </div>
 
-      </form>
+          <span style="font-weight: bold;">[포지션]</span>
+          <form [formGroup]="filterRowForm">
+            <mat-form-field>
+              <mat-label>검색</mat-label>
+              <input
+                matInput
+                formControlName="Name"
+                placeholder="검색어 입력"
+              />
+            </mat-form-field>
+
+            <mat-checkbox formControlName="ChaPosition_Short"
+              >근접
+            </mat-checkbox>
+            <mat-checkbox formControlName="ChaPosition_Tank"
+              >탱커
+            </mat-checkbox>
+            <mat-checkbox formControlName="ChaPosition_Long"
+              >원거리
+            </mat-checkbox>
+            <mat-checkbox formControlName="ChaPosition_Support"
+              >지원
+            </mat-checkbox>
+            <div formArrayName="Tier">
+              <br /><span style="font-weight: bold;">[티어]</span><br />
+              <mat-checkbox
+                [formControlName]="i"
+                *ngFor="let val of Tier.controls; let i = index"
+              >
+                {{ i + 1 }} &nbsp;</mat-checkbox
+              >
+            </div>
+          </form>
         </mat-expansion-panel>
- 
-     </mat-accordion>
-
+      </mat-accordion>
     </div>
 
     <div class="col span_1_of_2" style="text-align: center;">
-        <mat-form-field style="width: 50%;">
-          <mat-label>첫번째 장비</mat-label>
+      <mat-form-field style="width: 50%;">
+        <mat-label>첫번째 장비</mat-label>
 
-          <input
-            type="text"
-            matInput
-            [formControl]="itemControl1"
-            [matAutocomplete]="auto1"
-          />
-          <mat-autocomplete
-            autoActiveFirstOption
-            #auto1="matAutocomplete"
-            [displayWith]="displayFn"
+        <input
+          type="text"
+          matInput
+          [formControl]="itemControl1"
+          [matAutocomplete]="auto1"
+        />
+        <mat-autocomplete
+          autoActiveFirstOption
+          #auto1="matAutocomplete"
+          [displayWith]="displayFn"
+        >
+          <mat-option
+            *ngFor="let option of filteredOptions1 | async"
+            [value]="option"
           >
-            <mat-option
-              *ngFor="let option of filteredOptions1 | async"
-              [value]="option"
-            >
-              {{ option[1] }}
-            </mat-option>
-          </mat-autocomplete>
-        </mat-form-field>
-        <mat-form-field style="width: 50%;">
-          <mat-label>두번째 장비</mat-label>
+            {{ option[1] }}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+      <mat-form-field style="width: 50%;">
+        <mat-label>두번째 장비</mat-label>
 
-          <input
-            type="text"
-            matInput
-            [formControl]="itemControl2"
-            [matAutocomplete]="auto2"
-          />
-          <mat-autocomplete
-            autoActiveFirstOption
-            #auto2="matAutocomplete"
-            [displayWith]="displayFn"
+        <input
+          type="text"
+          matInput
+          [formControl]="itemControl2"
+          [matAutocomplete]="auto2"
+        />
+        <mat-autocomplete
+          autoActiveFirstOption
+          #auto2="matAutocomplete"
+          [displayWith]="displayFn"
+        >
+          <mat-option
+            *ngFor="let option of filteredOptions2 | async"
+            [value]="option"
           >
-            <mat-option
-              *ngFor="let option of filteredOptions2 | async"
-              [value]="option"
-            >
-              {{ option[1] }}
-            </mat-option>
-          </mat-autocomplete>
-        </mat-form-field>
+            {{ option[1] }}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
 
-        <button mat-stroked-button color="primary" (click)="openDialog()">
-          비교하기
-        </button>
+      <button mat-stroked-button color="primary" (click)="openDialog()">
+        비교하기
+      </button>
     </div>
   </div>
   <mat-table

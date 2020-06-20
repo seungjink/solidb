@@ -21,17 +21,12 @@ import { ItemMaterialsComponent } from './item-materials/item-materials.componen
 
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatTableModule } from "@angular/material/table";
-import { MatGridListModule} from '@angular/material/grid-list';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTabsModule } from '@angular/material/tabs'; 
 import { MatSortModule } from '@angular/material/sort'; 
 import { MatFormFieldModule } from '@angular/material/form-field'; 
 import { MatInputModule } from '@angular/material/input';
-import { MatMenuModule } from '@angular/material/menu';
-import { MatListModule } from '@angular/material/list'; 
-import { MatCardModule } from '@angular/material/card'; 
 import { MatDividerModule } from '@angular/material/divider'; 
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner'; 
 import { SoliProviderService } from './shared/soli-provider.service';
 import { ItemMaterialsDetailComponent } from './item-materials-detail/item-materials-detail.component';
 import { QuestDetailComponent } from './quest-detail/quest-detail.component';
@@ -41,7 +36,6 @@ import { GladiaListComponent } from './gladia-list/gladia-list.component';
 import { GladiaDetailComponent } from './gladia-detail/gladia-detail.component';
 import {MatCheckboxModule} from '@angular/material/checkbox'; 
 import { ReactiveFormsModule } from '@angular/forms';
-import {MatSelectModule} from '@angular/material/select';
 import { CocoonListComponent } from './cocoon-list/cocoon-list.component';
 import { CocoonDetailComponent } from './cocoon-detail/cocoon-detail.component';
 import { IndexComponent } from './index/index.component';
@@ -51,7 +45,6 @@ import { DevEquipRecipieComponent } from './dev-equip-recipie/dev-equip-recipie.
 import { DevComponent } from './dev/dev.component';
 import { DevEquipComponent } from './dev-equip/dev-equip.component';
 import { EquipListComponent } from './equip-list/equip-list.component';  
-import {MatRadioModule} from '@angular/material/radio';
 import { EquipDetailComponent } from './equip-detail/equip-detail.component'; 
 import {MatExpansionModule} from '@angular/material/expansion';
 import { DevCodetableComponent } from './dev-codetable/dev-codetable.component';
@@ -93,25 +86,18 @@ export function soliProviderFactory(provider: SoliProviderService) {
     BrowserAnimationsModule,
     MatDialogModule,
     MatTableModule,
-    MatGridListModule,
     MatButtonModule,
     MatTabsModule,
     MatSortModule,
     MatFormFieldModule,
     MatInputModule,
-    MatMenuModule,
-    MatListModule,
-    MatCardModule,
     MatDividerModule,
     HttpClientModule,
-    MatProgressSpinnerModule,
     FormsModule,
     MatCheckboxModule,
     ReactiveFormsModule,
-    MatSelectModule,
     MatAutocompleteModule,
     ClipboardModule,
-    MatRadioModule,
     MatExpansionModule,
   ],
   providers: [

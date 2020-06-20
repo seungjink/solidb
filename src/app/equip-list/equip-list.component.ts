@@ -74,6 +74,7 @@ export class EquipListComponent implements OnInit, OnDestroy {
         { value: true, disabled: false },
         { value: true, disabled: false },
       ]),
+      Name: ['']
     });
   }
 
@@ -134,7 +135,8 @@ export class EquipListComponent implements OnInit, OnDestroy {
           (data.ChaPosition_Long && filter.ChaPosition_Long) ||
           (data.ChaPosition_Support && filter.ChaPosition_Support) ||
           (data.ChaPosition_Tank && filter.ChaPosition_Tank)) &&
-        filter.Tier[data.tier - 1]
+        filter.Tier[data.tier - 1] &&
+        (data.name.includes(filter.Name))
       );
     };
 

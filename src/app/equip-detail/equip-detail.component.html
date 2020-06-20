@@ -181,7 +181,12 @@
       <ng-container *ngIf="equip.textPlain">
         <div class="divTable">
           <div class="divTableRow" *ngFor="let x of parsePlain()">
-            <div class="divTableCell cell-listpadding" style="text-align:left">• {{ x }}</div>
+            <div
+              class="divTableCell cell-listpadding"
+              style="text-align: left;"
+            >
+              • {{ x }}
+            </div>
           </div>
         </div>
       </ng-container>
@@ -189,8 +194,11 @@
       <ng-container *ngIf="equip.textFormatted">
         <div class="divTable">
           <div class="divTableRow" *ngFor="let x of parseFormatted()">
-            <div class="divTableCell cell-listpadding" style="text-align: left;">
-              • 
+            <div
+              class="divTableCell cell-listpadding"
+              style="text-align: left;"
+            >
+              •
               {{ x.head }}
               <span style="color: seagreen; font-weight: bold;">{{
                 x.min
@@ -202,7 +210,6 @@
               <span style="color: maroon;">
                 (품질에 따름)
               </span>
-
 
               {{ x.tail }}
             </div>
@@ -222,25 +229,24 @@
                 >조합식 {{ i + 1 }}</span
               >
             </div>
-           <div class="divTableCell tc-40">
+            <div class="divTableCell tc-40">
               <span style="font-weight: bold; font-size: 1.1rem;">{{
                 recipe.Name
               }}</span>
             </div>
             <div class="divTableCell tc-30">
-              <span>{{
-              parseTime(recipe) }}</span></div>
+              <span>{{ parseTime(recipe) }}</span>
+            </div>
           </div>
-          </div>
+        </div>
         <hr class="hr90 inTable" />
         <div class="divTable">
- 
           <ng-container *ngIf="recipe.baseEquip">
             <div class="divTableRow" *ngFor="let x of parseBaseEquip(recipe)">
               <div class="divTableCell tc-30">
                 <img
                   class="inline30"
-                  src="assets/Equipments/{{ x.ID | underbarEliminator}}.jpg"
+                  src="assets/Equipments/{{ x.ID | underbarEliminator }}.jpg"
                 />
               </div>
               <div class="divTableCell tc-40">
@@ -251,6 +257,7 @@
               <div class="divTableCell tc-30">1</div>
             </div>
           </ng-container>
+
           <div class="divTableRow" *ngFor="let x of parseRsc(recipe)">
             <div class="divTableCell tc-30">
               <img class="inline30" src="assets/Etc/{{ x[0] }}.png" />
@@ -258,20 +265,22 @@
             <div class="divTableCell tc-40">{{ x[1] }}</div>
             <div class="divTableCell tc-30">{{ x[2] }}</div>
           </div>
-          <div class="divTableRow" *ngFor="let x of parseMaterial(recipe)">
-            <div class="divTableCell tc-30">
-              <img
-                class="inline30"
-                src="assets/ItemsMaterials/{{ x.ID }}.jpg"
-              />
+          <ng-container *ngFor="let x of parseMaterial(recipe)">
+            <div class="divTableRow" *ngIf="x">
+              <div class="divTableCell tc-30">
+                <img
+                  class="inline30"
+                  src="assets/ItemsMaterials/{{ x.ID }}.jpg"
+                />
+              </div>
+              <div class="divTableCell tc-40">
+                <a class="highlight" routerLink="/items/{{ x.ID }}">{{
+                  x.name
+                }}</a>
+              </div>
+              <div class="divTableCell tc-30">{{ x.count }}</div>
             </div>
-            <div class="divTableCell tc-40">
-              <a class="highlight" routerLink="/items/{{ x.ID }}">{{
-                x.name
-              }}</a>
-            </div>
-            <div class="divTableCell tc-30">{{ x.count }}</div>
-          </div>
+          </ng-container>
         </div>
         <hr style="width: 80%;" />
       </ng-container>
