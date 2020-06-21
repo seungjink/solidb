@@ -38,6 +38,14 @@ export class EquipDetailComponent implements OnInit {
     ['MA90016', '제로스톤 진액'],
   ];
 
+  sigilColor = {
+    "폭": "red",
+    "창": "darkgoldenrod",
+    "축": "steelblue",
+    "강": "gold",
+    "조": "forestgreen",
+  }
+
   resistAtkType: Array<string> = resistAtkType;
 
   constructor(
@@ -138,5 +146,15 @@ export class EquipDetailComponent implements OnInit {
       time = `${time} ${recipe.Sec}초`;
     }
     return time;
+  }
+
+  parseSigil(){
+    if (this.equip.textSigil) {
+      return JSON.parse(`[${this.equip.textSigil}]`);
+    }
+
+    else{
+      return ""
+    }
   }
 }

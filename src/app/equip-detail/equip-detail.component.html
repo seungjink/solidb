@@ -216,6 +216,39 @@
           </div>
         </div>
       </ng-container>
+
+      <br>
+    <ng-container *ngIf="equip.textSigil">
+      <h2 class="subtitle">각인</h2>
+      <hr class="hr90" />
+        <div class="divTable">
+          <div class="divTableRow" *ngFor="let x of parseSigil()">
+            <div class="divTableCell tc-15"><span [style.color]="sigilColor[x.name]" style="font-weight: bold;"> {{x.name}}</span></div>
+            <div class="divTableCell tc-85" style="text-align: left;">
+              {{x.head}}
+
+              <ng-container *ngIf="x.min">
+              <span style="color: seagreen; font-weight: bold;">{{
+                x.min
+              }}</span>
+              ~
+              <span style="color: seagreen; font-weight: bold;">{{
+                x.max
+              }}</span>
+              <span style="color: maroon;">
+                (품질에 따름)
+              </span>
+
+              {{ x.tail }}
+ 
+
+              </ng-container>
+              
+            </div>
+          </div>
+        </div>
+    </ng-container>
+
     </div>
     <div class="col span_1_of_2">
       <h2 class="subtitle">조합정보</h2>
