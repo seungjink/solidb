@@ -38,9 +38,8 @@
             </mat-panel-description>
           </mat-expansion-panel-header>
 
-          <span style="font-weight: bold;">[포지션]</span>
           <form [formGroup]="filterRowForm">
-            <mat-form-field>
+            <mat-form-field style="width: 10rem;">
               <mat-label>검색</mat-label>
               <input
                 matInput
@@ -48,7 +47,9 @@
                 placeholder="검색어 입력"
               />
             </mat-form-field>
+            <br>
 
+          <span style="font-weight: bold;">[포지션]</span><br>
             <mat-checkbox formControlName="ChaPosition_Short"
               >근접
             </mat-checkbox>
@@ -62,7 +63,7 @@
               >지원
             </mat-checkbox>
             <div formArrayName="Tier">
-              <br /><span style="font-weight: bold;">[티어]</span><br />
+              <span style="font-weight: bold;">[티어]</span><br />
               <mat-checkbox
                 [formControlName]="i"
                 *ngFor="let val of Tier.controls; let i = index"

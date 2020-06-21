@@ -247,6 +247,48 @@
 
           </div>
         </div>
+
+        <div formArrayName="textSigil">
+          <button
+            mat-stroked-button
+            color="accent"
+            type="button"
+            (click)="addTextSigil()"
+          >
+            각인 추가
+          </button>
+          <div *ngFor="let item of textSigil.controls; let i = index">
+            <div [formGroupName]="i">
+              <mat-form-field style="width: 10%;">
+                <input matInput placeholder="각인" formControlName="name" />
+              </mat-form-field>
+               <mat-form-field style="width: 35%;">
+                <input matInput placeholder="설명. ex)데미지를" formControlName="head" />
+              </mat-form-field>
+               <mat-form-field style="width: 10%;">
+                <input matInput placeholder="최소" formControlName="min" />
+              </mat-form-field>
+                <mat-form-field style="width: 10%;">
+                <input matInput placeholder="최대" formControlName="max" />
+              </mat-form-field>
+                <mat-form-field style="width: 35%;">
+                <input matInput placeholder="설명. ex)줍니다" formControlName="tail" />
+              </mat-form-field>
+ 
+            <button
+              mat-stroked-button
+              color="primary"
+              type="button"
+              (click)="removeTextSigil(i)"
+            >
+              제거
+            </button>
+            </div>
+
+          </div>
+        </div>
+ 
+
       </div>
     </div>
 

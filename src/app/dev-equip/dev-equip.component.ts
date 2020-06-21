@@ -56,6 +56,7 @@ export class DevEquipComponent implements OnInit {
     belonging: false,
     textPlain: this.fb.array([]),
     textFormatted: this.fb.array([]),
+    textSigil: this.fb.array([]),
   });
   INITIALFORM = this.equipForm.value;
   checkAll = false;
@@ -84,6 +85,11 @@ export class DevEquipComponent implements OnInit {
     return this.equipForm.get('textFormatted') as FormArray;
   }
 
+  get textSigil() {
+    return this.equipForm.get('textSigil') as FormArray;
+  }
+
+
   getEquipFromRecipe(equipRecipe: any): Array<object> {
     let res = [];
     for (let row of equipRecipe) {
@@ -103,6 +109,11 @@ export class DevEquipComponent implements OnInit {
     this.textFormatted.removeAt(i);
   }
 
+  removeTextSigil(i: number) {
+    this.textSigil.removeAt(i);
+  }
+
+
   addTextPlain() {
     this.textPlain.push(this.fb.control(''));
   }
@@ -120,6 +131,18 @@ export class DevEquipComponent implements OnInit {
         tail: [''],
       })
     );
+  }
+  
+  addTextSigil(){
+    this.textSigil.push(
+      this.fb.group({
+        name: [''],
+        head: [''],
+        min: [''],
+        max: [''],
+        tail: [''],
+      })
+    )
   }
 
   displayFn(data): string {
@@ -155,6 +178,9 @@ export class DevEquipComponent implements OnInit {
     this.equipForm.reset(this.INITIALFORM);
     this.textPlain.clear();
     this.textFormatted.clear();
+    this.textSigil.clear();
     this.itemControl.reset('');
   }
+
+
 }

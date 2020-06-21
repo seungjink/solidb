@@ -218,7 +218,7 @@
       </ng-container>
     </div>
     <div class="col span_1_of_2">
-      <h2 class="sub title">조합정보</h2>
+      <h2 class="subtitle">조합정보</h2>
       <hr class="hr90" />
 
       <ng-container *ngFor="let recipe of equipRecipe; let i = index">
@@ -270,7 +270,7 @@
               <div class="divTableCell tc-30">
                 <img
                   class="inline30"
-                  src="assets/ItemsMaterials/{{ x.ID }}.jpg"
+                  src="assets/ItemsMaterials/{{ x.ID | underbarEliminator}}.jpg"
                 />
               </div>
               <div class="divTableCell tc-40">
