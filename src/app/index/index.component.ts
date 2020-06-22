@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SoliProviderService } from '../shared/soli-provider.service'
 
 @Component({
   selector: 'app-index',
@@ -8,11 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IndexComponent implements OnInit {
   public num:number;
+  public notice;
 
-  constructor() { }
+  constructor(
+
+    private soliProvider: SoliProviderService
+  ) { }
 
   ngOnInit(): void {
     this.num = Math.floor(Math.random() *4)+1
+    this.notice = this.soliProvider.getdataNotice()
+  }
+
+  getNotice() {
+    let arr = [];
+    for(let i=1; i<6; i++){
+      arr.push(this.notice[this.notice.length-i])
+    }
+    return arr
   }
 
 }

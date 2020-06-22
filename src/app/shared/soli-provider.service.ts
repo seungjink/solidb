@@ -24,6 +24,7 @@ export class SoliProviderService implements OnDestroy{
   private dataCocoon       : Array<object>;
   private dataRecipeEquip  : equipRecipe;
   private dataEquip        : Array<object>;
+  private dataNotice        : Array<object>;
 
   public hashAgentList      : Map<string, number>;
   public hashCocoonList     : Map<string, number>;
@@ -58,6 +59,9 @@ export class SoliProviderService implements OnDestroy{
   public getdataEquip() {
     return this.dataEquip
   }
+  public getdataNotice() {
+    return this.dataNotice
+  }
 
   sheetUrlAgent:        string = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQxYfMrORo8jx12o1X0131u0OORd6aSE4Z8YPzBXCrwQurnUNpHR1XsLfapdSEYJEmqfRO5ISnlrEzP/pub?output=csv'; 
   sheetUrlItemMaterial: string = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSKFLmOd7RKXok2-W1ykDjONAMg3IUnYsjxbGsfSF7xFb_weA7qM-4mmVQfrSTUgFBDqBmLmgMgQhek/pub?output=csv';
@@ -66,6 +70,7 @@ export class SoliProviderService implements OnDestroy{
   sheetUrlCocoon      : string = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSX6pSJ_pPlXoRi_AsrvKHXuPzZWRc2v2hs1FayVhlFL8QdOOGsWZqwQ-rAZL3DTwpOAmYNAfTSEHoQ/pub?output=csv';
   sheetUrlRecipeEquip : string = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRFFBlB361q-jDLZsNiKhvLtlIhREO4Hb2jTWWIOIyFKvitNL5nzI0oEZD5DX_NL8nq38jcscDbjxOT/pub?output=csv';
   sheetUrlEquip       : string = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRZMGmBY3yePQI2p9LKr-hohXIpQPsagoRcaj9T8BRtL7ljLYXAUNQGisNGcnO7-btW1tLP63oSJGYO/pub?output=csv';
+  sheetUrlNotice      : string = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQvDYog6KuqNDF2BlsJFZBh1rP6pVK5tSLupcPSyJNM5DMgSjTorEgH-lKoxFhqk9XWtwI3mkF2No4P/pub?output=csv';
 
   load(){
     console.log("Loading data...")
@@ -77,7 +82,8 @@ export class SoliProviderService implements OnDestroy{
       this.http.get(this.sheetUrlGladia,       {responseType:'text'}).pipe(map(res => res)),
       this.http.get(this.sheetUrlCocoon,       {responseType:'text'}).pipe(map(res => res)),
       this.http.get(this.sheetUrlRecipeEquip,  {responseType:'text'}).pipe(map(res => res)),
-      this.http.get(this.sheetUrlEquip,        {responseType:'text'}).pipe(map(res => res))
+      this.http.get(this.sheetUrlEquip,        {responseType:'text'}).pipe(map(res => res)),
+      this.http.get(this.sheetUrlNotice,       {responseType:'text'}).pipe(map(res => res))
     ])
     .subscribe(response => {
       this.dataAgent        = this.papa.parse(response[0], {header:true}).data
@@ -87,6 +93,7 @@ export class SoliProviderService implements OnDestroy{
       this.dataCocoon       = this.papa.parse(response[4], {header:true}).data
       this.dataRecipeEquip  = this.papa.parse(response[5], {header:true}).data
       this.dataEquip        = this.papa.parse(response[6], {header:true, dynamicTyping: true}).data
+      this.dataNotice       = this.papa.parse(response[7], {header:true}).data
  
 
       this.hashAgentList       = this.setMap(this.dataAgent,        "ID")
@@ -120,21 +127,6 @@ export class SoliProviderService implements OnDestroy{
     }
     return map
   }
-
-//  genArray(data, key:string, value?:string){
-//    let arr = {}
-//    if (value){
-//      for (let i in data){
-//        arr[data[i][key]] = data[i][value];
-//      }
-//    }
-//    else{
-//      for (let i in data){
-//        arr[data[i][key]] = i;
-//      }
-//    }
-//   return arr;
-//  }
 
   ngOnDestroy(): void{
     this.destroy$.next();
