@@ -66,7 +66,8 @@ export class SoliProviderService implements OnDestroy{
   sheetUrlAgent:        string = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQxYfMrORo8jx12o1X0131u0OORd6aSE4Z8YPzBXCrwQurnUNpHR1XsLfapdSEYJEmqfRO5ISnlrEzP/pub?output=csv'; 
   sheetUrlItemMaterial: string = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSKFLmOd7RKXok2-W1ykDjONAMg3IUnYsjxbGsfSF7xFb_weA7qM-4mmVQfrSTUgFBDqBmLmgMgQhek/pub?output=csv';
   sheetUrlQuest       : string = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQFoM20vM0fBrbr0_8t1O7j31xF-HdpL8eKUdR37HqEMqGeWLff7h_CiPBN5A0934032Bb0x-yKdhKQ/pub?output=csv';
-  sheetUrlGladia      : string = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTaafPLh57OeldvUOgniBokurK5PHNWu5HPobB1n35utMwebEEvwTiiqgzMCxG04Y5sbJPxnto694YB/pub?output=csv';
+//  sheetUrlGladia      : string = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTaafPLh57OeldvUOgniBokurK5PHNWu5HPobB1n35utMwebEEvwTiiqgzMCxG04Y5sbJPxnto694YB/pub?output=csv';
+  sheetUrlGladia      : string = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vT5wF9Ut2l6CIAPZjfhpoBcwgfpwywUMMncSW9e2BKSNgpcwQyQywQCe6VPggfc-7tTd8sPwbdTggfO/pub?output=csv';
   sheetUrlCocoon      : string = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSX6pSJ_pPlXoRi_AsrvKHXuPzZWRc2v2hs1FayVhlFL8QdOOGsWZqwQ-rAZL3DTwpOAmYNAfTSEHoQ/pub?output=csv';
   sheetUrlRecipeEquip : string = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRFFBlB361q-jDLZsNiKhvLtlIhREO4Hb2jTWWIOIyFKvitNL5nzI0oEZD5DX_NL8nq38jcscDbjxOT/pub?output=csv';
   sheetUrlEquip       : string = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRZMGmBY3yePQI2p9LKr-hohXIpQPsagoRcaj9T8BRtL7ljLYXAUNQGisNGcnO7-btW1tLP63oSJGYO/pub?output=csv';
@@ -79,21 +80,21 @@ export class SoliProviderService implements OnDestroy{
       this.http.get(this.sheetUrlAgent,        {responseType:'text'}).pipe(map(res => res)),
       this.http.get(this.sheetUrlItemMaterial, {responseType:'text'}).pipe(map(res => res)),
       this.http.get(this.sheetUrlQuest,        {responseType:'text'}).pipe(map(res => res)),
-      this.http.get(this.sheetUrlGladia,       {responseType:'text'}).pipe(map(res => res)),
       this.http.get(this.sheetUrlCocoon,       {responseType:'text'}).pipe(map(res => res)),
       this.http.get(this.sheetUrlRecipeEquip,  {responseType:'text'}).pipe(map(res => res)),
       this.http.get(this.sheetUrlEquip,        {responseType:'text'}).pipe(map(res => res)),
-      this.http.get(this.sheetUrlNotice,       {responseType:'text'}).pipe(map(res => res))
+      this.http.get(this.sheetUrlNotice,       {responseType:'text'}).pipe(map(res => res)),
+      this.http.get(this.sheetUrlGladia,       {responseType:'text'}).pipe(map(res => res)),
     ])
     .subscribe(response => {
       this.dataAgent        = this.papa.parse(response[0], {header:true}).data
       this.dataItemMaterial = this.papa.parse(response[1], {header:true}).data
       this.dataQuest        = this.papa.parse(response[2], {header:true}).data
-      this.dataGladia       = this.papa.parse(response[3], {header:true}).data
-      this.dataCocoon       = this.papa.parse(response[4], {header:true}).data
-      this.dataRecipeEquip  = this.papa.parse(response[5], {header:true}).data
-      this.dataEquip        = this.papa.parse(response[6], {header:true, dynamicTyping: true}).data
-      this.dataNotice       = this.papa.parse(response[7], {header:true}).data
+      this.dataCocoon       = this.papa.parse(response[3], {header:true}).data
+      this.dataRecipeEquip  = this.papa.parse(response[4], {header:true}).data
+      this.dataEquip        = this.papa.parse(response[5], {header:true, dynamicTyping: true}).data
+      this.dataNotice       = this.papa.parse(response[6], {header:true}).data
+      this.dataGladia       = this.papa.parse(response[7], {header:true}).data
  
 
       this.hashAgentList       = this.setMap(this.dataAgent,        "ID")
