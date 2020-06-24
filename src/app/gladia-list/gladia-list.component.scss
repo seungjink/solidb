@@ -11,7 +11,7 @@
 }
 
 @include mat-table-columns((
-    ID:       (minwidth: 3.5rem, flex-direction: column)
+    ID:       (minwidth: 3rem, maxwidth:6rem, flex-direction: column),
 ));
 
 mat-header-cell {

@@ -3,6 +3,7 @@ import { MatSort } from '@angular/material/sort'
 import { SoliProviderService } from '../shared/soli-provider.service'
 import { MatTableDataSource } from '@angular/material/table';
 
+
 @Component({
   selector: 'app-gladia-list',
   templateUrl: './gladia-list.component.html',
@@ -27,5 +28,4 @@ export class GladiaListComponent implements OnInit {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
-
 }

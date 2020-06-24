@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DevEquipRecipieComponent } from './dev-equip-recipie.component';
+import { ItemMaterialsListComponent } from './item-materials-list.component';
 
-describe('DevEquipRecipieComponent', () => {
-  let component: DevEquipRecipieComponent;
-  let fixture: ComponentFixture<DevEquipRecipieComponent>;
+describe('ItemMaterialsListComponent', () => {
+  let component: ItemMaterialsListComponent;
+  let fixture: ComponentFixture<ItemMaterialsListComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DevEquipRecipieComponent ]
+      declarations: [ ItemMaterialsListComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DevEquipRecipieComponent);
+    fixture = TestBed.createComponent(ItemMaterialsListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -4,15 +4,16 @@ import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
 import { SoliProviderService } from '../shared/soli-provider.service';
 
+
 @Component({
-  selector: 'app-dev-equip-recipie',
-  templateUrl: './dev-equip-recipie.component.html',
+  selector: 'app-dev-equip-recipe',
+  templateUrl: './dev-equip-recipe.component.html',
   styleUrls: [
-    './dev-equip-recipie.component.scss',
+    './dev-equip-recipe.component.scss',
     '../../assets/style/base-detail.component.scss',
   ],
 })
-export class DevEquipRecipieComponent implements OnInit {
+export class DevEquipRecipeComponent implements OnInit {
   filteredOptions: Observable<any>;
   filteredEquip: Observable<any>;
   itemControl = new FormControl();

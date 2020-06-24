@@ -11,7 +11,6 @@ import { MatTableDataSource } from '@angular/material/table';
 export class AgentListComponent implements OnInit {
   rawdata : any ;
   dataSource : any;
-  passedObject = this;
   displayedColumns: string[] = ['ID', 'Position', 'Type',
     'ChaAtkType_1' ,'ChaAtkType_2' ,'ChaAtkType_3' ,'ChaAtkType_4' ,'ChaAtkType_5' ,'ChaAtkType_6' ,'ChaAtkType_7'];
 

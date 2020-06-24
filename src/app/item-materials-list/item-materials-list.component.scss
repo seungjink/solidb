@@ -1,3 +1,4 @@
+
 @import '../../styles.scss';
 
 @media screen and (min-width: 800px) {
@@ -11,7 +12,7 @@
 }
 
 @include mat-table-columns((
-    ID  : (maxwidth: 10rem, minwidth:4rem, flex-direction: column),
+    ID  : (minwidth: 4rem, maxwidth:6rem, flex-direction: column),
     Name: (minwidth: 6rem),
     Tier: (minwidth: 2rem, maxwidth: 6rem),
     Sell: (minwidth: 2rem, maxwidth: 6rem, flex-direction: column),

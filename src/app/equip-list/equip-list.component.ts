@@ -6,9 +6,10 @@ import { resistAtkType } from '../shared/soliHashTable';
 import { FormStateService } from '../shared/form-state/form-state.service';
 import { FormControl, FormBuilder, FormArray, FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs';
-import { map, startWith, filter } from 'rxjs/operators';
+import { map, startWith} from 'rxjs/operators';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { EquipComparisonComponent } from '../equip-comparison/equip-comparison.component';
+
 
 @Component({
   selector: 'app-equip-list',

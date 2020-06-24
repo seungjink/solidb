@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormBuilder, FormArray } from '@angular/forms';
+import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-etc',
@@ -19,7 +19,6 @@ export class EtcComponent implements OnInit {
     def: [''],
     lvl: [''],
   });
-
 
   constructor(private fb: FormBuilder) {}
 

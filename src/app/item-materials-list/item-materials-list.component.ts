@@ -1,17 +1,16 @@
+
 import { Component, OnInit, ViewChild} from '@angular/core';
 import { MatSort } from '@angular/material/sort'
 import { SoliProviderService } from '../shared/soli-provider.service'
 import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
-  selector: 'app-item-materials',
-  templateUrl: './item-materials.component.html',
-  styleUrls: ['./item-materials.component.scss']
+  selector: 'app-item-materials-list',
+  templateUrl: './item-materials-list.component.html',
+  styleUrls: ['./item-materials-list.component.scss']
 })
-export class ItemMaterialsComponent implements OnInit {
+export class ItemMaterialsListComponent implements OnInit {
   dataSource : any;
-
-
   displayedColumns: string[] = ['ID', 'Name', 'Tier','Sell', 'Buy'];
 
   constructor(

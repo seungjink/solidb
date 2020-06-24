@@ -5,13 +5,18 @@ import { map } from 'rxjs/operators';
 import { forkJoin, Subject} from 'rxjs';
 import { Agent } from './agent';
 import { equipRecipe } from './model'
+import data from '../../assets/RawData/data.json';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class SoliProviderService implements OnDestroy{
   private destroy$: Subject<void> = new Subject<void>();
-
+public headerDict = {
+  'Content-Type': 'text/csv',
+}
+ 
   constructor(
     private http:HttpClient,
     private papa: Papa
@@ -62,29 +67,27 @@ export class SoliProviderService implements OnDestroy{
   public getdataNotice() {
     return this.dataNotice
   }
-
-  sheetUrlAgent:        string = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQxYfMrORo8jx12o1X0131u0OORd6aSE4Z8YPzBXCrwQurnUNpHR1XsLfapdSEYJEmqfRO5ISnlrEzP/pub?output=csv'; 
-  sheetUrlItemMaterial: string = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSKFLmOd7RKXok2-W1ykDjONAMg3IUnYsjxbGsfSF7xFb_weA7qM-4mmVQfrSTUgFBDqBmLmgMgQhek/pub?output=csv';
-  sheetUrlQuest       : string = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQFoM20vM0fBrbr0_8t1O7j31xF-HdpL8eKUdR37HqEMqGeWLff7h_CiPBN5A0934032Bb0x-yKdhKQ/pub?output=csv';
-//  sheetUrlGladia      : string = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTaafPLh57OeldvUOgniBokurK5PHNWu5HPobB1n35utMwebEEvwTiiqgzMCxG04Y5sbJPxnto694YB/pub?output=csv';
-  sheetUrlGladia      : string = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vT5wF9Ut2l6CIAPZjfhpoBcwgfpwywUMMncSW9e2BKSNgpcwQyQywQCe6VPggfc-7tTd8sPwbdTggfO/pub?output=csv';
-  sheetUrlCocoon      : string = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSX6pSJ_pPlXoRi_AsrvKHXuPzZWRc2v2hs1FayVhlFL8QdOOGsWZqwQ-rAZL3DTwpOAmYNAfTSEHoQ/pub?output=csv';
-  sheetUrlRecipeEquip : string = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRFFBlB361q-jDLZsNiKhvLtlIhREO4Hb2jTWWIOIyFKvitNL5nzI0oEZD5DX_NL8nq38jcscDbjxOT/pub?output=csv';
-  sheetUrlEquip       : string = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRZMGmBY3yePQI2p9LKr-hohXIpQPsagoRcaj9T8BRtL7ljLYXAUNQGisNGcnO7-btW1tLP63oSJGYO/pub?output=csv';
-  sheetUrlNotice      : string = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQvDYog6KuqNDF2BlsJFZBh1rP6pVK5tSLupcPSyJNM5DMgSjTorEgH-lKoxFhqk9XWtwI3mkF2No4P/pub?output=csv';
+  sheetUrlAgent:        string = 'https://docs.google.com/spreadsheets/d/e/' + data.SheetID +'/pub?gid=' + data.Agent        +'&single=true&output=csv'; 
+  sheetUrlItemMaterial: string = 'https://docs.google.com/spreadsheets/d/e/' + data.SheetID +'/pub?gid=' + data.ItemMaterial +'&single=true&output=csv';
+  sheetUrlQuest       : string = 'https://docs.google.com/spreadsheets/d/e/' + data.SheetID +'/pub?gid=' + data.Quest        +'&single=true&output=csv';
+  sheetUrlGladia      : string = 'https://docs.google.com/spreadsheets/d/e/' + data.SheetID +'/pub?gid=' + data.Gladia       +'&single=true&output=csv';
+  sheetUrlCocoon      : string = 'https://docs.google.com/spreadsheets/d/e/' + data.SheetID +'/pub?gid=' + data.Cocoon       +'&single=true&output=csv';
+  sheetUrlRecipeEquip : string = 'https://docs.google.com/spreadsheets/d/e/' + data.SheetID +'/pub?gid=' + data.RecipeEquip  +'&single=true&output=csv';
+  sheetUrlEquip       : string = 'https://docs.google.com/spreadsheets/d/e/' + data.SheetID +'/pub?gid=' + data.Equip        +'&single=true&output=csv';
+  sheetUrlNotice      : string = 'https://docs.google.com/spreadsheets/d/e/' + data.SheetID +'/pub?gid=' + data.Notice       +'&single=true&output=csv';
 
   load(){
     console.log("Loading data...")
     return new Promise((resolve, reject) => {
     forkJoin([
-      this.http.get(this.sheetUrlAgent,        {responseType:'text'}).pipe(map(res => res)),
-      this.http.get(this.sheetUrlItemMaterial, {responseType:'text'}).pipe(map(res => res)),
-      this.http.get(this.sheetUrlQuest,        {responseType:'text'}).pipe(map(res => res)),
-      this.http.get(this.sheetUrlCocoon,       {responseType:'text'}).pipe(map(res => res)),
-      this.http.get(this.sheetUrlRecipeEquip,  {responseType:'text'}).pipe(map(res => res)),
-      this.http.get(this.sheetUrlEquip,        {responseType:'text'}).pipe(map(res => res)),
-      this.http.get(this.sheetUrlNotice,       {responseType:'text'}).pipe(map(res => res)),
-      this.http.get(this.sheetUrlGladia,       {responseType:'text'}).pipe(map(res => res)),
+      this.http.get(this.sheetUrlAgent,        {headers: this.headerDict, responseType:'text'}).pipe(map(res => res)),
+      this.http.get(this.sheetUrlItemMaterial, {headers: this.headerDict, responseType:'text'}).pipe(map(res => res)),
+      this.http.get(this.sheetUrlQuest,        {headers: this.headerDict, responseType:'text'}).pipe(map(res => res)),
+      this.http.get(this.sheetUrlCocoon,       {headers: this.headerDict, responseType:'text'}).pipe(map(res => res)),
+      this.http.get(this.sheetUrlRecipeEquip,  {headers: this.headerDict, responseType:'text'}).pipe(map(res => res)),
+      this.http.get(this.sheetUrlEquip,        {headers: this.headerDict, responseType:'text'}).pipe(map(res => res)),
+      this.http.get(this.sheetUrlNotice,       {headers: this.headerDict, responseType:'text'}).pipe(map(res => res)),
+      this.http.get(this.sheetUrlGladia,       {headers: this.headerDict, responseType:'text'}).pipe(map(res => res)),
     ])
     .subscribe(response => {
       this.dataAgent        = this.papa.parse(response[0], {header:true}).data
