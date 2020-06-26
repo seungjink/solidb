@@ -67,14 +67,14 @@ public headerDict = {
   public getdataNotice() {
     return this.dataNotice
   }
-  sheetUrlAgent:        string = 'https://docs.google.com/spreadsheets/d/e/' + data.SheetID +'/pub?gid=' + data.Agent        +'&single=true&output=csv'; 
-  sheetUrlItemMaterial: string = 'https://docs.google.com/spreadsheets/d/e/' + data.SheetID +'/pub?gid=' + data.ItemMaterial +'&single=true&output=csv';
-  sheetUrlQuest       : string = 'https://docs.google.com/spreadsheets/d/e/' + data.SheetID +'/pub?gid=' + data.Quest        +'&single=true&output=csv';
-  sheetUrlGladia      : string = 'https://docs.google.com/spreadsheets/d/e/' + data.SheetID +'/pub?gid=' + data.Gladia       +'&single=true&output=csv';
-  sheetUrlCocoon      : string = 'https://docs.google.com/spreadsheets/d/e/' + data.SheetID +'/pub?gid=' + data.Cocoon       +'&single=true&output=csv';
-  sheetUrlRecipeEquip : string = 'https://docs.google.com/spreadsheets/d/e/' + data.SheetID +'/pub?gid=' + data.RecipeEquip  +'&single=true&output=csv';
-  sheetUrlEquip       : string = 'https://docs.google.com/spreadsheets/d/e/' + data.SheetID +'/pub?gid=' + data.Equip        +'&single=true&output=csv';
-  sheetUrlNotice      : string = 'https://docs.google.com/spreadsheets/d/e/' + data.SheetID +'/pub?gid=' + data.Notice       +'&single=true&output=csv';
+  sheetUrlAgent:        string = 'assets/RawData/Agent.csv' //'https://docs.google.com/spreadsheets/d/e/' + data.SheetID +'/pub?gid=' + data.Agent        +'&single=true&output=csv'; 
+  sheetUrlItemMaterial: string = 'assets/RawData/ItemMaterial.csv' //'https://docs.google.com/spreadsheets/d/e/' + data.SheetID +'/pub?gid=' + data.ItemMaterial +'&single=true&output=csv';
+  sheetUrlQuest       : string = 'assets/RawData/Quest.csv' //'https://docs.google.com/spreadsheets/d/e/' + data.SheetID +'/pub?gid=' + data.Quest        +'&single=true&output=csv';
+  sheetUrlGladia      : string = 'assets/RawData/Gladia.csv' //'https://docs.google.com/spreadsheets/d/e/' + data.SheetID +'/pub?gid=' + data.Gladia       +'&single=true&output=csv';
+  sheetUrlCocoon      : string = 'assets/RawData/Cocoon.csv' //'https://docs.google.com/spreadsheets/d/e/' + data.SheetID +'/pub?gid=' + data.Cocoon       +'&single=true&output=csv';
+  sheetUrlRecipeEquip : string = 'assets/RawData/RecipeEquip.csv' //'https://docs.google.com/spreadsheets/d/e/' + data.SheetID +'/pub?gid=' + data.RecipeEquip  +'&single=true&output=csv';
+  sheetUrlEquip       : string = 'assets/RawData/Equip.csv' //'https://docs.google.com/spreadsheets/d/e/' + data.SheetID +'/pub?gid=' + data.Equip        +'&single=true&output=csv';
+  sheetUrlNotice      : string = 'assets/RawData/Notice.csv' //'https://docs.google.com/spreadsheets/d/e/' + data.SheetID +'/pub?gid=' + data.Notice       +'&single=true&output=csv';
 
   load(){
     console.log("Loading data...")
