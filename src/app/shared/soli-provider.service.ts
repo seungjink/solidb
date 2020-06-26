@@ -67,14 +67,27 @@ public headerDict = {
   public getdataNotice() {
     return this.dataNotice
   }
-  sheetUrlAgent:        string = 'assets/RawData/Agent.csv' //'https://docs.google.com/spreadsheets/d/e/' + data.SheetID +'/pub?gid=' + data.Agent        +'&single=true&output=csv'; 
-  sheetUrlItemMaterial: string = 'assets/RawData/ItemMaterial.csv' //'https://docs.google.com/spreadsheets/d/e/' + data.SheetID +'/pub?gid=' + data.ItemMaterial +'&single=true&output=csv';
-  sheetUrlQuest       : string = 'assets/RawData/Quest.csv' //'https://docs.google.com/spreadsheets/d/e/' + data.SheetID +'/pub?gid=' + data.Quest        +'&single=true&output=csv';
-  sheetUrlGladia      : string = 'assets/RawData/Gladia.csv' //'https://docs.google.com/spreadsheets/d/e/' + data.SheetID +'/pub?gid=' + data.Gladia       +'&single=true&output=csv';
-  sheetUrlCocoon      : string = 'assets/RawData/Cocoon.csv' //'https://docs.google.com/spreadsheets/d/e/' + data.SheetID +'/pub?gid=' + data.Cocoon       +'&single=true&output=csv';
-  sheetUrlRecipeEquip : string = 'assets/RawData/RecipeEquip.csv' //'https://docs.google.com/spreadsheets/d/e/' + data.SheetID +'/pub?gid=' + data.RecipeEquip  +'&single=true&output=csv';
-  sheetUrlEquip       : string = 'assets/RawData/Equip.csv' //'https://docs.google.com/spreadsheets/d/e/' + data.SheetID +'/pub?gid=' + data.Equip        +'&single=true&output=csv';
-  sheetUrlNotice      : string = 'assets/RawData/Notice.csv' //'https://docs.google.com/spreadsheets/d/e/' + data.SheetID +'/pub?gid=' + data.Notice       +'&single=true&output=csv';
+
+  sheetUrlAgent:        string = 'https://cors-anywhere.herokuapp.com/' + 'https://docs.google.com/spreadsheets/d/e/' + data.SheetID +'/pub?gid=' + data.Agent        +'&single=true&output=csv'; 
+  sheetUrlItemMaterial: string = 'https://cors-anywhere.herokuapp.com/' + 'https://docs.google.com/spreadsheets/d/e/' + data.SheetID +'/pub?gid=' + data.ItemMaterial +'&single=true&output=csv';
+  sheetUrlQuest       : string = 'https://cors-anywhere.herokuapp.com/' + 'https://docs.google.com/spreadsheets/d/e/' + data.SheetID +'/pub?gid=' + data.Quest        +'&single=true&output=csv';
+  sheetUrlGladia      : string = 'https://cors-anywhere.herokuapp.com/' + 'https://docs.google.com/spreadsheets/d/e/' + data.SheetID +'/pub?gid=' + data.Gladia       +'&single=true&output=csv';
+  sheetUrlCocoon      : string = 'https://cors-anywhere.herokuapp.com/' + 'https://docs.google.com/spreadsheets/d/e/' + data.SheetID +'/pub?gid=' + data.Cocoon       +'&single=true&output=csv';
+  sheetUrlRecipeEquip : string = 'https://cors-anywhere.herokuapp.com/' + 'https://docs.google.com/spreadsheets/d/e/' + data.SheetID +'/pub?gid=' + data.RecipeEquip  +'&single=true&output=csv';
+  sheetUrlEquip       : string = 'https://cors-anywhere.herokuapp.com/' + 'https://docs.google.com/spreadsheets/d/e/' + data.SheetID +'/pub?gid=' + data.Equip        +'&single=true&output=csv';
+  sheetUrlNotice      : string = 'https://cors-anywhere.herokuapp.com/' + 'https://docs.google.com/spreadsheets/d/e/' + data.SheetID +'/pub?gid=' + data.Notice       +'&single=true&output=csv';
+
+//  http request for google sheet produces CORS error sometimes. Why??
+//  Until resolving this issue, we need to use proxy strategy.
+//
+//  sheetUrlAgent:        string = 'assets/RawData/Agent.csv' //'https://docs.google.com/spreadsheets/d/e/' + data.SheetID +'/pub?gid=' + data.Agent        +'&single=true&output=csv'; 
+//  sheetUrlItemMaterial: string = 'assets/RawData/ItemMaterial.csv' //'https://docs.google.com/spreadsheets/d/e/' + data.SheetID +'/pub?gid=' + data.ItemMaterial +'&single=true&output=csv';
+//  sheetUrlQuest       : string = 'assets/RawData/Quest.csv' //'https://docs.google.com/spreadsheets/d/e/' + data.SheetID +'/pub?gid=' + data.Quest        +'&single=true&output=csv';
+//  sheetUrlGladia      : string = 'assets/RawData/Gladia.csv' //'https://docs.google.com/spreadsheets/d/e/' + data.SheetID +'/pub?gid=' + data.Gladia       +'&single=true&output=csv';
+//  sheetUrlCocoon      : string = 'assets/RawData/Cocoon.csv' //'https://docs.google.com/spreadsheets/d/e/' + data.SheetID +'/pub?gid=' + data.Cocoon       +'&single=true&output=csv';
+//  sheetUrlRecipeEquip : string = 'assets/RawData/RecipeEquip.csv' //'https://docs.google.com/spreadsheets/d/e/' + data.SheetID +'/pub?gid=' + data.RecipeEquip  +'&single=true&output=csv';
+//  sheetUrlEquip       : string = 'assets/RawData/Equip.csv' //'https://docs.google.com/spreadsheets/d/e/' + data.SheetID +'/pub?gid=' + data.Equip        +'&single=true&output=csv';
+//  sheetUrlNotice      : string = 'assets/RawData/Notice.csv' //'https://docs.google.com/spreadsheets/d/e/' + data.SheetID +'/pub?gid=' + data.Notice       +'&single=true&output=csv';
 
   load(){
     console.log("Loading data...")
@@ -98,7 +111,6 @@ public headerDict = {
       this.dataEquip        = this.papa.parse(response[5], {header:true, dynamicTyping: true}).data
       this.dataNotice       = this.papa.parse(response[6], {header:true}).data
       this.dataGladia       = this.papa.parse(response[7], {header:true}).data
- 
 
       this.hashAgentList       = this.setMap(this.dataAgent,        "ID")
       this.hashCocoonList      = this.setMap(this.dataCocoon,       "ID")
@@ -112,6 +124,7 @@ public headerDict = {
       this.hashCocoonIdToName  = this.setMap(this.dataCocoon,       "ID", "Name");
       this.hashEquipIdToName   = this.setMap(this.dataEquip,        "ID", "name");
 
+      console.log("Loading Completed.")
       resolve(true);
     })
     })
