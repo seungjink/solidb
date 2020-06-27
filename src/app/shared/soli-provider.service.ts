@@ -5,8 +5,7 @@ import { map } from 'rxjs/operators';
 import { forkJoin, Subject} from 'rxjs';
 import { Agent } from './agent';
 import { equipRecipe } from './model'
-import data from '../../assets/RawData/data.json';
-
+import data from '../../assets/RawData/Ddata.json';
 
 @Injectable({
   providedIn: 'root'
@@ -68,14 +67,23 @@ public headerDict = {
     return this.dataNotice
   }
 
-  sheetUrlAgent:        string = 'https://cors-anywhere.herokuapp.com/' + 'https://docs.google.com/spreadsheets/d/e/' + data.SheetID +'/pub?gid=' + data.Agent        +'&single=true&output=csv'; 
-  sheetUrlItemMaterial: string = 'https://cors-anywhere.herokuapp.com/' + 'https://docs.google.com/spreadsheets/d/e/' + data.SheetID +'/pub?gid=' + data.ItemMaterial +'&single=true&output=csv';
-  sheetUrlQuest       : string = 'https://cors-anywhere.herokuapp.com/' + 'https://docs.google.com/spreadsheets/d/e/' + data.SheetID +'/pub?gid=' + data.Quest        +'&single=true&output=csv';
-  sheetUrlGladia      : string = 'https://cors-anywhere.herokuapp.com/' + 'https://docs.google.com/spreadsheets/d/e/' + data.SheetID +'/pub?gid=' + data.Gladia       +'&single=true&output=csv';
-  sheetUrlCocoon      : string = 'https://cors-anywhere.herokuapp.com/' + 'https://docs.google.com/spreadsheets/d/e/' + data.SheetID +'/pub?gid=' + data.Cocoon       +'&single=true&output=csv';
-  sheetUrlRecipeEquip : string = 'https://cors-anywhere.herokuapp.com/' + 'https://docs.google.com/spreadsheets/d/e/' + data.SheetID +'/pub?gid=' + data.RecipeEquip  +'&single=true&output=csv';
-  sheetUrlEquip       : string = 'https://cors-anywhere.herokuapp.com/' + 'https://docs.google.com/spreadsheets/d/e/' + data.SheetID +'/pub?gid=' + data.Equip        +'&single=true&output=csv';
-  sheetUrlNotice      : string = 'https://cors-anywhere.herokuapp.com/' + 'https://docs.google.com/spreadsheets/d/e/' + data.SheetID +'/pub?gid=' + data.Notice       +'&single=true&output=csv';
+  sheetUrlAgent        : string ='https://dl.dropbox.com/s/'+ data.Agent +'/Agent.csv?dl=1'
+  sheetUrlItemMaterial : string ='https://dl.dropbox.com/s/'+ data.ItemMaterial +'/Item_Materials.csv?dl=1'
+  sheetUrlQuest        : string ='https://dl.dropbox.com/s/'+ data.Quest +'/Quest.csv?dl=1'
+  sheetUrlGladia       : string ='https://dl.dropbox.com/s/'+ data.Gladia +'/Gladia.csv?dl=1'
+  sheetUrlCocoon       : string ='https://dl.dropbox.com/s/'+ data.Cocoon +'/Cocoon.csv?dl=1'
+  sheetUrlRecipeEquip  : string ='https://dl.dropbox.com/s/'+ data.RecipeEquip +'/RecipeEquip.csv?dl=1'
+  sheetUrlNotice       : string ='https://dl.dropbox.com/s/'+ data.Notice +'/Notice.csv?dl=1'
+  sheetUrlEquip        : string ='https://dl.dropbox.com/s/'+ data.Equip+'/Equip.csv?dl=1'
+
+//  sheetUrlAgent       : string = 'https://docs.google.com/spreadsheets/d/e/' + gdata.SheetID +'/pub?gid=' + data.Agent        +'&single=true&output=csv'; 
+ // sheetUrlItemMaterial: string = 'https://docs.google.com/spreadsheets/d/e/' + data.SheetID +'/pub?gid=' + data.ItemMaterial +'&single=true&output=csv';
+ // sheetUrlQuest       : string = 'https://docs.google.com/spreadsheets/d/e/' + data.SheetID +'/pub?gid=' + data.Quest        +'&single=true&output=csv';
+ // sheetUrlGladia      : string = 'https://docs.google.com/spreadsheets/d/e/' + data.SheetID +'/pub?gid=' + data.Gladia       +'&single=true&output=csv';
+ // sheetUrlCocoon      : string = 'https://docs.google.com/spreadsheets/d/e/' + data.SheetID +'/pub?gid=' + data.Cocoon       +'&single=true&output=csv';
+ // sheetUrlRecipeEquip : string = 'https://docs.google.com/spreadsheets/d/e/' + data.SheetID +'/pub?gid=' + data.RecipeEquip  +'&single=true&output=csv';
+ // sheetUrlEquip       : string = 'https://docs.google.com/spreadsheets/d/e/' + data.SheetID +'/pub?gid=' + data.Equip        +'&single=true&output=csv';
+ // sheetUrlNotice      : string = 'https://docs.google.com/spreadsheets/d/e/' + data.SheetID +'/pub?gid=' + data.Notice       +'&single=true&output=csv';
 
 //  http request for google sheet produces CORS error sometimes. Why??
 //  Until resolving this issue, we need to use proxy strategy.
@@ -92,15 +100,16 @@ public headerDict = {
   load(){
     console.log("Loading data...")
     return new Promise((resolve, reject) => {
+    
     forkJoin([
-      this.http.get(this.sheetUrlAgent,        {headers: this.headerDict, responseType:'text'}).pipe(map(res => res)),
-      this.http.get(this.sheetUrlItemMaterial, {headers: this.headerDict, responseType:'text'}).pipe(map(res => res)),
-      this.http.get(this.sheetUrlQuest,        {headers: this.headerDict, responseType:'text'}).pipe(map(res => res)),
-      this.http.get(this.sheetUrlCocoon,       {headers: this.headerDict, responseType:'text'}).pipe(map(res => res)),
-      this.http.get(this.sheetUrlRecipeEquip,  {headers: this.headerDict, responseType:'text'}).pipe(map(res => res)),
-      this.http.get(this.sheetUrlEquip,        {headers: this.headerDict, responseType:'text'}).pipe(map(res => res)),
-      this.http.get(this.sheetUrlNotice,       {headers: this.headerDict, responseType:'text'}).pipe(map(res => res)),
-      this.http.get(this.sheetUrlGladia,       {headers: this.headerDict, responseType:'text'}).pipe(map(res => res)),
+      this.http.get(this.sheetUrlAgent,        {responseType:'text'}).pipe(map(res => res)),
+      this.http.get(this.sheetUrlItemMaterial, {responseType:'text'}).pipe(map(res => res)),
+      this.http.get(this.sheetUrlQuest,        {responseType:'text'}).pipe(map(res => res)),
+      this.http.get(this.sheetUrlCocoon,       {responseType:'text'}).pipe(map(res => res)),
+      this.http.get(this.sheetUrlRecipeEquip,  {responseType:'text'}).pipe(map(res => res)),
+      this.http.get(this.sheetUrlEquip,        {responseType:'text'}).pipe(map(res => res)),
+      this.http.get(this.sheetUrlNotice,       {responseType:'text'}).pipe(map(res => res)),
+      this.http.get(this.sheetUrlGladia,       {responseType:'text'}).pipe(map(res => res)),
     ])
     .subscribe(response => {
       this.dataAgent        = this.papa.parse(response[0], {header:true}).data
