@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, APP_INITIALIZER } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { PathLocationStrategy, LocationStrategy } from '@angular/common';
 
 // For Scrolling Issue////////////////////////
 import {Router, Scroll} from '@angular/router';
@@ -61,7 +61,7 @@ export function soliProviderFactory(provider: SoliProviderService) {
   ],
 
   providers: [
-    {provide: LocationStrategy, useClass: HashLocationStrategy},
+    {provide: LocationStrategy, useClass: PathLocationStrategy},
     SoliProviderService, 
     { provide: APP_INITIALIZER, useFactory: soliProviderFactory, deps: [SoliProviderService], multi: true }
   ],
