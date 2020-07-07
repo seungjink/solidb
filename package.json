@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --prod=true --sourceMap=false --base-href=https://solidb.xyz",
+    "build": "ng build --prod=true --base-href=https://solidb.xyz",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
