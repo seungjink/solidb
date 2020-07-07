@@ -1,13 +1,14 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, APP_INITIALIZER } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import { PathLocationStrategy, LocationStrategy } from '@angular/common';
+
 
 // For Scrolling Issue////////////////////////
 import {Router, Scroll} from '@angular/router';
 import {ViewportScroller} from '@angular/common'
 import { filter } from 'rxjs/operators';
 //////////////////////////////////////////////
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -27,7 +28,7 @@ import { DevComponent } from './dev/dev.component';
 import { EquipDetailComponent } from './equip-detail/equip-detail.component'; 
 import { DevCodetableComponent } from './dev-codetable/dev-codetable.component';
 import { EquipComparisonComponent } from './equip-comparison/equip-comparison.component'; 
-import { MatTabsModule } from '@angular/material/tabs'; 
+import {MatTabsModule} from '@angular/material/tabs'; 
 import { SharedModule } from './shared/shared.module';
 
 export function soliProviderFactory(provider: SoliProviderService) {
@@ -61,7 +62,6 @@ export function soliProviderFactory(provider: SoliProviderService) {
   ],
 
   providers: [
-    {provide: LocationStrategy, useClass: PathLocationStrategy},
     SoliProviderService, 
     { provide: APP_INITIALIZER, useFactory: soliProviderFactory, deps: [SoliProviderService], multi: true }
   ],
