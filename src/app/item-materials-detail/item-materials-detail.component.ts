@@ -7,7 +7,7 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './item-materials-detail.component.html',
   styleUrls: [
     './item-materials-detail.component.scss',
-    '../../assets/style/base-detail.component.scss',
+    '/assets/style/base-detail.component.scss',
   ],
 })
 export class ItemMaterialsDetailComponent implements OnInit {
