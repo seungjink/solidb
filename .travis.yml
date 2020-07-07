@@ -1,0 +1,25 @@
+dist: xenial
+
+language: node_js
+node_js:
+  - "12"
+
+cache:
+  directories:
+     - ./node_modules
+
+install:
+  - npm install
+
+script:
+  - npm run-script build
+
+deploy:
+  provider: pages
+  strategy: git
+  skip_cleanup: true
+  fqdn: solidb.xyz
+  github_token: $GITHUB_TOKEN
+  local_dir: dist/solidb
+  on:
+    branch: master
