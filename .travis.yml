@@ -1,4 +1,5 @@
 dist: xenial
+os: linux
 
 language: node_js
 node_js:
@@ -12,7 +13,7 @@ install:
   - npm install
 
 script:
-  - npm run-script build
+  - npm run-script travis
 
 deploy:
   provider: pages
