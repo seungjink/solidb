@@ -1,32 +1,54 @@
 <div class="basecanvas">
-<br>
-<fieldset>
-  <legend><h2>솔리더스 최신 업데이트</h2></legend>
-        <div class="divTable">
-          <div class="divTableRow" *ngFor="let x of getNotice()">
-            <div class="divTableCell" style="text-align: center;width:4rem">
-              {{x.date | date:'yyyy-MM-dd'}}
-            </div>
-            <div class="divTableCell" style="text-align: left">
-              <a class="nohighlight" target="_blank" href="https://cafe.naver.com/solidus/{{x.id}}">{{x.title}}</a>
-              </div>
-              </div>
-              </div>
- 
+  <br />
+  <fieldset>
+    <legend><h2>솔리더스 최신 업데이트</h2></legend>
+    <div class="divTable">
+      <div class="divTableRow" *ngFor="let x of getNotice()">
+        <div class="divTableCell" style="text-align: center; width: 4rem;">
+          {{ x.date | date: "MM-dd" }}
+        </div>
+        <div class="divTableCell" style="text-align: left;">
+          <a
+            class="nohighlight"
+            style="text-decoration: none;"
+            target="_blank"
+            href="https://cafe.naver.com/solidus/{{ x.id }}"
+            >{{ x.title }}</a
+          >
+        </div>
+      </div>
+    </div>
+  </fieldset>
 
-</fieldset>
-
-<fieldset>
-  <legend><h2>링크</h2></legend>
-<div class="section group">
-  <div class="col span_2_of_2" style="text-align: center;">
-    <a href="https://cafe.naver.com/solidus" target="_blank"><img src="assets/IndexPage/logo1.png" class="imgBox" style="width: 80%; height: auto; margin:auto"></a>
-  </div>
-  <div class="col span_2_of_2" style="text-align: center;">
-    <a href="https://gall.dcinside.com/mgallery/board/lists/?id=solidus" target="_blank"><img src="assets/IndexPage/logo2.png" class="imgBox" style="width: 80%; height: auto; margin:auto"></a>
-  </div>
-  <div class="col span_2_of_2" style="text-align: center;">
-    <a href="http://unleashed.iustice.net/" target="_blank"><img src="assets/IndexPage/logo3.png" class="imgBox" style="width: 80%; height: auto; margin:auto"></a>
-  </div>
+  <fieldset>
+    <legend><h2>링크</h2></legend>
+    <div class="section group">
+      <div class="col span_2_of_2" style="text-align: center;">
+        <a href="https://cafe.naver.com/solidus" target="_blank"
+          ><img
+            src="assets/IndexPage/logo1.png"
+            class="imgBox"
+            style="width: 80%; height: auto; margin: auto;"
+        /></a>
+      </div>
+      <div class="col span_2_of_2" style="text-align: center;">
+        <a
+          href="https://gall.dcinside.com/mgallery/board/lists/?id=solidus"
+          target="_blank"
+          ><img
+            src="assets/IndexPage/logo2.png"
+            class="imgBox"
+            style="width: 80%; height: auto; margin: auto;"
+        /></a>
+      </div>
+      <div class="col span_2_of_2" style="text-align: center;">
+        <a href="http://unleashed.iustice.net/" target="_blank"
+          ><img
+            src="assets/IndexPage/logo3.png"
+            class="imgBox"
+            style="width: 80%; height: auto; margin: auto;"
+        /></a>
+      </div>
+    </div>
+  </fieldset>
 </div>
-</fieldset>
