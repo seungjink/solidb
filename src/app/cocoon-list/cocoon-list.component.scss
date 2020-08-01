@@ -12,8 +12,6 @@
 
 @include mat-table-columns((
     Name: (maxwidth: 8rem, minwidth:5rem, flex-direction: column),
-    Tier: (maxwidth: 4rem),
-    Time: (maxwidth: 4rem)
 ));
 
 mat-header-cell {
@@ -22,6 +20,7 @@ mat-header-cell {
 }
 mat-cell{
   justify-content: center;
+  line-height: 170%;
 }
 
 img.face {

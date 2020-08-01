@@ -13,7 +13,7 @@ export class CocoonListComponent implements OnInit {
   rawdata : any ;
   dataSource : any;
   passedObject = this;
-  displayedColumns: string[] = ['Name', 'Tier', 'Time', 'Desc']
+  displayedColumns: string[] = ['Name', 'Agents', 'Gladia']
 
   constructor(
     private soliProvider: SoliProviderService
@@ -28,5 +28,10 @@ export class CocoonListComponent implements OnInit {
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
+  getNamelist(names: string){
+    let arr = names.replace(/['"]+/g, '').split(",")
+    return arr
   }
 }

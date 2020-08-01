@@ -67,14 +67,14 @@ export class EquipComparisonComponent implements OnInit {
     let arr = [];
     for (let stat of this.displayStat) {
       let s1 = this.getMinMax(
-        this.equip1[stat[0]],
         this.equip1[stat[1]],
-        this.equip1[stat[2]]
+        this.equip1[stat[2]],
+        this.equip1[stat[0]]
       );
       let s2 = this.getMinMax(
-        this.equip2[stat[0]],
         this.equip2[stat[1]],
-        this.equip2[stat[2]]
+        this.equip2[stat[2]],
+        this.equip2[stat[0]]
       );
       arr.push([s1, stat[3], s2]);
     }
@@ -98,6 +98,7 @@ export class EquipComparisonComponent implements OnInit {
       let x0 = xfixed ? xfixed : 0;
       let x1 = xmin ? xmin : 0;
       let x2 = xmax ? xmax : 0;
+      console.log(x0, x1, x2)
       return `${x0 + x1} ~ ${x0 + x2}`;
     } else {
       return '';

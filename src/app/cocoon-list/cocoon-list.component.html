@@ -11,19 +11,22 @@
     <mat-cell *matCellDef="let row"> <img class="face" src="assets/Cocoon/{{row.ID | underbarEliminator }}.jpg"> {{row.Name}} </mat-cell>
   </ng-container>
 
-  <ng-container matColumnDef="Tier">
-    <mat-header-cell *matHeaderCellDef mat-sort-header> 티어 </mat-header-cell>
-    <mat-cell *matCellDef="let row"> {{row.Tier}} </mat-cell>
+  <ng-container matColumnDef="Agents">
+    <mat-header-cell *matHeaderCellDef>요원 </mat-header-cell>
+    <mat-cell *matCellDef="let row">
+    <ng-container *ngFor="let name of getNamelist(row.Agents)">
+      {{name}}<br>
+    </ng-container>
+    </mat-cell>
   </ng-container>
 
-  <ng-container matColumnDef="Time">
-    <mat-header-cell *matHeaderCellDef mat-sort-header> 해제시간 </mat-header-cell>
-    <mat-cell *matCellDef="let row"> {{row.Time}} 분 </mat-cell>
-  </ng-container>
-
-  <ng-container matColumnDef="Desc">
-    <mat-header-cell *matHeaderCellDef> 정보 </mat-header-cell>
-    <mat-cell *matCellDef="let row"> {{row.Desc}} </mat-cell>
+  <ng-container matColumnDef="Gladia">
+    <mat-header-cell *matHeaderCellDef> 글라디아 </mat-header-cell>
+    <mat-cell *matCellDef="let row">
+    <ng-container *ngFor="let name of getNamelist(row.Gladia)">
+      {{name}}<br>
+    </ng-container>
+    </mat-cell>
   </ng-container>
 
   <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
