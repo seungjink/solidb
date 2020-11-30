@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { ItemMaterialsDetailComponent } from './item-materials-detail/item-materials-detail.component';
 import { QuestDetailComponent } from './quest-detail/quest-detail.component';
 import { AgentDetailComponent } from './agent-detail/agent-detail.component';
+import { BossDetailComponent } from './boss-detail/boss-detail.component';
 import { GladiaDetailComponent } from './gladia-detail/gladia-detail.component';
 import { CocoonDetailComponent } from './cocoon-detail/cocoon-detail.component';
 import { IndexComponent } from './index/index.component';
@@ -19,6 +20,8 @@ const routes: Routes = [
   { path: 'index', component: IndexComponent},
   { path: 'agents', loadChildren: () => import('./agent-list/agent-list.module').then(m => m.AgentListModule) },
   { path: 'agents/:id', component: AgentDetailComponent},
+  { path: 'boss', loadChildren: () => import('./boss-list/boss-list.module').then(m => m.BossListModule) },
+  { path: 'boss/:id', component: BossDetailComponent},
   { path: 'materials', loadChildren: () => import('./item-materials-list/item-materials-list.module').then(m => m.ItemMaterialsListModule) },
   { path: 'materials/:id', component: ItemMaterialsDetailComponent},
   { path: 'quest', loadChildren: () => import('./quest-list/quest-list.module').then(m => m.QuestListModule) },

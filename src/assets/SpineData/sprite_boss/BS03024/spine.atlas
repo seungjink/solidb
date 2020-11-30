@@ -1,0 +1,349 @@
+
+spine.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+berna_arm_L_01
+  rotate: false
+  xy: 636, 126
+  size: 71, 106
+  orig: 71, 106
+  offset: 0, 0
+  index: -1
+berna_arm_L_02
+  rotate: false
+  xy: 709, 152
+  size: 79, 92
+  orig: 79, 92
+  offset: 0, 0
+  index: -1
+berna_arm_L_03
+  rotate: true
+  xy: 431, 2
+  size: 61, 59
+  orig: 61, 59
+  offset: 0, 0
+  index: -1
+berna_arm_L_04
+  rotate: true
+  xy: 120, 9
+  size: 20, 47
+  orig: 20, 47
+  offset: 0, 0
+  index: -1
+berna_arm_L_05
+  rotate: false
+  xy: 580, 42
+  size: 35, 44
+  orig: 35, 44
+  offset: 0, 0
+  index: -1
+berna_arm_L_06
+  rotate: true
+  xy: 508, 447
+  size: 36, 44
+  orig: 36, 44
+  offset: 0, 0
+  index: -1
+berna_arm_L_07
+  rotate: false
+  xy: 2, 2
+  size: 116, 100
+  orig: 116, 100
+  offset: 0, 0
+  index: -1
+berna_arm_L_08
+  rotate: true
+  xy: 709, 109
+  size: 41, 64
+  orig: 41, 64
+  offset: 0, 0
+  index: -1
+berna_arm_R_01
+  rotate: true
+  xy: 994, 963
+  size: 59, 28
+  orig: 59, 28
+  offset: 0, 0
+  index: -1
+berna_arm_R_02
+  rotate: false
+  xy: 617, 8
+  size: 35, 35
+  orig: 35, 35
+  offset: 0, 0
+  index: -1
+berna_arm_R_03
+  rotate: true
+  xy: 580, 2
+  size: 38, 35
+  orig: 38, 35
+  offset: 0, 0
+  index: -1
+berna_arm_R_04
+  rotate: false
+  xy: 790, 154
+  size: 77, 87
+  orig: 77, 87
+  offset: 0, 0
+  index: -1
+berna_arm_R_05
+  rotate: true
+  xy: 547, 17
+  size: 46, 31
+  orig: 46, 31
+  offset: 0, 0
+  index: -1
+berna_arm_R_06
+  rotate: false
+  xy: 540, 145
+  size: 94, 87
+  orig: 94, 87
+  offset: 0, 0
+  index: -1
+berna_arm_R_07
+  rotate: false
+  xy: 492, 3
+  size: 53, 60
+  orig: 53, 60
+  offset: 0, 0
+  index: -1
+berna_arm_R_08
+  rotate: true
+  xy: 635, 81
+  size: 43, 49
+  orig: 43, 49
+  offset: 0, 0
+  index: -1
+berna_body_01
+  rotate: true
+  xy: 697, 648
+  size: 374, 295
+  orig: 374, 295
+  offset: 0, 0
+  index: -1
+berna_body_02
+  rotate: false
+  xy: 2, 104
+  size: 439, 162
+  orig: 439, 162
+  offset: 0, 0
+  index: -1
+berna_body_03
+  rotate: true
+  xy: 431, 81
+  size: 21, 10
+  orig: 21, 10
+  offset: 0, 0
+  index: -1
+berna_body_04
+  rotate: false
+  xy: 686, 114
+  size: 19, 10
+  orig: 19, 10
+  offset: 0, 0
+  index: -1
+berna_body_05
+  rotate: false
+  xy: 700, 246
+  size: 122, 47
+  orig: 122, 47
+  offset: 0, 0
+  index: -1
+berna_body_06
+  rotate: false
+  xy: 824, 243
+  size: 122, 47
+  orig: 122, 47
+  offset: 0, 0
+  index: -1
+berna_head_01
+  rotate: false
+  xy: 120, 31
+  size: 191, 71
+  orig: 191, 71
+  offset: 0, 0
+  index: -1
+berna_head_02
+  rotate: false
+  xy: 554, 651
+  size: 63, 19
+  orig: 63, 19
+  offset: 0, 0
+  index: -1
+berna_head_03
+  rotate: true
+  xy: 950, 179
+  size: 63, 53
+  orig: 63, 53
+  offset: 0, 0
+  index: -1
+berna_head_04
+  rotate: true
+  xy: 443, 65
+  size: 73, 76
+  orig: 73, 76
+  offset: 0, 0
+  index: -1
+berna_head_05
+  rotate: true
+  xy: 443, 241
+  size: 25, 23
+  orig: 25, 23
+  offset: 0, 0
+  index: -1
+berna_head_06
+  rotate: false
+  xy: 994, 907
+  size: 15, 15
+  orig: 15, 15
+  offset: 0, 0
+  index: -1
+berna_head_07
+  rotate: true
+  xy: 989, 337
+  size: 37, 31
+  orig: 37, 31
+  offset: 0, 0
+  index: -1
+berna_head_08
+  rotate: false
+  xy: 578, 88
+  size: 55, 55
+  orig: 55, 55
+  offset: 0, 0
+  index: -1
+berna_leg_L_01
+  rotate: true
+  xy: 836, 292
+  size: 110, 151
+  orig: 110, 151
+  offset: 0, 0
+  index: -1
+berna_leg_L_02
+  rotate: false
+  xy: 443, 140
+  size: 95, 92
+  orig: 95, 92
+  offset: 0, 0
+  index: -1
+berna_leg_L_03
+  rotate: false
+  xy: 617, 45
+  size: 37, 34
+  orig: 37, 34
+  offset: 0, 0
+  index: -1
+berna_leg_L_04
+  rotate: true
+  xy: 950, 143
+  size: 34, 46
+  orig: 34, 46
+  offset: 0, 0
+  index: -1
+berna_leg_L_05
+  rotate: false
+  xy: 948, 244
+  size: 50, 46
+  orig: 50, 46
+  offset: 0, 0
+  index: -1
+berna_leg_L_06
+  rotate: true
+  xy: 521, 65
+  size: 59, 55
+  orig: 59, 55
+  offset: 0, 0
+  index: -1
+berna_leg_R_01
+  rotate: true
+  xy: 313, 26
+  size: 76, 116
+  orig: 76, 116
+  offset: 0, 0
+  index: -1
+berna_leg_R_02
+  rotate: true
+  xy: 869, 159
+  size: 82, 79
+  orig: 82, 79
+  offset: 0, 0
+  index: -1
+berna_leg_R_03
+  rotate: false
+  xy: 994, 924
+  size: 28, 37
+  orig: 28, 37
+  offset: 0, 0
+  index: -1
+berna_leg_R_04
+  rotate: false
+  xy: 989, 376
+  size: 33, 26
+  orig: 33, 26
+  offset: 0, 0
+  index: -1
+berna_wing_L_01
+  rotate: false
+  xy: 2, 838
+  size: 693, 184
+  orig: 693, 184
+  offset: 0, 0
+  index: -1
+berna_wing_L_02
+  rotate: false
+  xy: 2, 268
+  size: 465, 215
+  orig: 465, 215
+  offset: 0, 0
+  index: -1
+berna_wing_L_03
+  rotate: false
+  xy: 554, 446
+  size: 284, 200
+  orig: 284, 200
+  offset: 0, 0
+  index: -1
+berna_wing_L_04
+  rotate: false
+  xy: 2, 485
+  size: 550, 185
+  orig: 550, 185
+  offset: 0, 0
+  index: -1
+berna_wing_L_05
+  rotate: false
+  xy: 840, 404
+  size: 167, 242
+  orig: 167, 242
+  offset: 0, 0
+  index: -1
+berna_wing_L_06
+  rotate: false
+  xy: 700, 295
+  size: 134, 149
+  orig: 134, 149
+  offset: 0, 0
+  index: -1
+berna_wung_R_01
+  rotate: false
+  xy: 2, 672
+  size: 687, 164
+  orig: 687, 164
+  offset: 0, 0
+  index: -1
+berna_wung_R_02
+  rotate: true
+  xy: 469, 234
+  size: 210, 229
+  orig: 210, 229
+  offset: 0, 0
+  index: -1
+ef_01
+  rotate: false
+  xy: 469, 446
+  size: 37, 37
+  orig: 37, 37
+  offset: 0, 0
+  index: -1

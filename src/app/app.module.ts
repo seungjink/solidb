@@ -30,6 +30,7 @@ import { DevCodetableComponent } from './dev-codetable/dev-codetable.component';
 import { EquipComparisonComponent } from './equip-comparison/equip-comparison.component'; 
 import {MatTabsModule} from '@angular/material/tabs'; 
 import { SharedModule } from './shared/shared.module';
+import { BossDetailComponent } from './boss-detail/boss-detail.component';
 
 export function soliProviderFactory(provider: SoliProviderService) {
   return () => provider.load();
@@ -39,6 +40,7 @@ export function soliProviderFactory(provider: SoliProviderService) {
   declarations: [
     AppComponent,
     AgentDetailComponent,
+    BossDetailComponent,
     ItemMaterialsDetailComponent,
     QuestDetailComponent,
     AgentMotionComponent,

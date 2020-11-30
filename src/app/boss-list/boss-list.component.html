@@ -1,0 +1,29 @@
+<div class="contents">
+<mat-form-field>
+  <mat-label>검색</mat-label>
+  <input matInput (keyup)="applyFilter($event)" placeholder="검색어 입력">
+</mat-form-field>
+
+<mat-table [dataSource]="dataSource" matSort matSortActive="ID" matSortDirection="desc" class="mat-elevation-z8">
+
+  <ng-container matColumnDef="ID">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> 보스 </mat-header-cell>
+    <mat-cell *matCellDef="let row">
+      <p>{{row.Name}}</p>
+      <a routerLink="/boss/{{row.Sprite}}">모션</a>
+    </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="Info">
+    <mat-header-cell *matHeaderCellDef> 정보 </mat-header-cell>
+    <mat-cell *matCellDef="let row">
+      <h4>퀘스트 :&nbsp; </h4> <p>{{row.Quest}}</p><br>
+      <h4>공경/방어/레벨 :&nbsp; </h4> <p>{{row.Quest}}</p>
+
+    </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;" ></mat-row>
+</mat-table>
+</div>
