@@ -1,0 +1,53 @@
+@import '../../styles.scss';
+
+@media screen and (min-width: 800px) {
+  .contents { width: 80%;}
+}
+
+.contents {
+	clear: both;
+	padding: 0px;
+  margin: auto;
+}
+
+@include mat-table-columns((
+    ID:       (minwidth: 6rem, maxwidth:10rem, flex-direction: column),
+    Type:     (minwidth: 1rem),
+    Position: (minwidth: 2rem)
+));
+
+mat-header-cell {
+  justify-content: center;
+}
+
+img.face {
+  object-fit: contain;
+  width: 100%;
+  height: auto;
+  margin: 0;
+}
+
+mat-cell{
+  text-align: left;
+}
+
+span.wordnonbreak {
+  word-break: keep-all;
+  text-align: center;
+}
+
+p{
+  margin:0;
+}
+span.atk{
+  color:#a8204e;
+  font-weight:bold;
+}
+span.def{
+  color:#282f85;
+  font-weight:bold;
+}
+span.level{
+  color:#8f918a;
+  font-weight:bold;
+}

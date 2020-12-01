@@ -1,0 +1,550 @@
+
+spine.png
+size: 2048,2048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+shadow
+  rotate: true
+  xy: 1676, 1670
+  size: 375, 364
+  orig: 375, 364
+  offset: 0, 0
+  index: -1
+shadow2
+  rotate: true
+  xy: 1676, 1293
+  size: 375, 364
+  orig: 375, 364
+  offset: 0, 0
+  index: -1
+shadow3
+  rotate: true
+  xy: 1672, 916
+  size: 375, 364
+  orig: 375, 364
+  offset: 0, 0
+  index: -1
+기본머리
+  rotate: false
+  xy: 2, 1290
+  size: 266, 376
+  orig: 266, 376
+  offset: 0, 0
+  index: -1
+뒷머리
+  rotate: false
+  xy: 2, 912
+  size: 266, 376
+  orig: 266, 376
+  offset: 0, 0
+  index: -1
+등 s1
+  rotate: false
+  xy: 2, 534
+  size: 266, 376
+  orig: 266, 376
+  offset: 0, 0
+  index: -1
+등 s2
+  rotate: false
+  xy: 2, 156
+  size: 266, 376
+  orig: 266, 376
+  offset: 0, 0
+  index: -1
+등 s3
+  rotate: false
+  xy: 270, 1290
+  size: 266, 376
+  orig: 266, 376
+  offset: 0, 0
+  index: -1
+등 s4
+  rotate: false
+  xy: 274, 1669
+  size: 266, 376
+  orig: 266, 376
+  offset: 0, 0
+  index: -1
+등 s5
+  rotate: false
+  xy: 270, 912
+  size: 266, 376
+  orig: 266, 376
+  offset: 0, 0
+  index: -1
+등 s6
+  rotate: false
+  xy: 270, 534
+  size: 266, 376
+  orig: 266, 376
+  offset: 0, 0
+  index: -1
+등 s7
+  rotate: false
+  xy: 270, 156
+  size: 266, 376
+  orig: 266, 376
+  offset: 0, 0
+  index: -1
+머리
+  rotate: true
+  xy: 542, 1779
+  size: 266, 376
+  orig: 266, 376
+  offset: 0, 0
+  index: -1
+머리 s1
+  rotate: true
+  xy: 920, 1779
+  size: 266, 376
+  orig: 266, 376
+  offset: 0, 0
+  index: -1
+머리 s2
+  rotate: true
+  xy: 1298, 1779
+  size: 266, 376
+  orig: 266, 376
+  offset: 0, 0
+  index: -1
+머리 s3
+  rotate: true
+  xy: 542, 1511
+  size: 266, 376
+  orig: 266, 376
+  offset: 0, 0
+  index: -1
+머리 s4
+  rotate: true
+  xy: 920, 1511
+  size: 266, 376
+  orig: 266, 376
+  offset: 0, 0
+  index: -1
+머리2
+  rotate: false
+  xy: 2, 1668
+  size: 270, 377
+  orig: 270, 377
+  offset: 0, 0
+  index: -1
+목옷
+  rotate: true
+  xy: 1298, 1511
+  size: 266, 376
+  orig: 266, 376
+  offset: 0, 0
+  index: -1
+몸
+  rotate: true
+  xy: 538, 1243
+  size: 266, 376
+  orig: 266, 376
+  offset: 0, 0
+  index: -1
+몸 s1
+  rotate: true
+  xy: 916, 1243
+  size: 266, 376
+  orig: 266, 376
+  offset: 0, 0
+  index: -1
+몸 s2
+  rotate: true
+  xy: 1294, 1243
+  size: 266, 376
+  orig: 266, 376
+  offset: 0, 0
+  index: -1
+몸 s3
+  rotate: false
+  xy: 538, 538
+  size: 266, 376
+  orig: 266, 376
+  offset: 0, 0
+  index: -1
+앞머리 s
+  rotate: true
+  xy: 1294, 975
+  size: 266, 376
+  orig: 266, 376
+  offset: 0, 0
+  index: -1
+앞머리1
+  rotate: true
+  xy: 538, 975
+  size: 266, 376
+  orig: 266, 376
+  offset: 0, 0
+  index: -1
+앞머리2
+  rotate: false
+  xy: 538, 160
+  size: 266, 376
+  orig: 266, 376
+  offset: 0, 0
+  index: -1
+앞머리3
+  rotate: true
+  xy: 916, 975
+  size: 266, 376
+  orig: 266, 376
+  offset: 0, 0
+  index: -1
+옆머리L
+  rotate: true
+  xy: 806, 707
+  size: 266, 376
+  orig: 266, 376
+  offset: 0, 0
+  index: -1
+옆머리R
+  rotate: true
+  xy: 1184, 707
+  size: 266, 376
+  orig: 266, 376
+  offset: 0, 0
+  index: -1
+오른다리
+  rotate: true
+  xy: 1562, 648
+  size: 266, 376
+  orig: 266, 376
+  offset: 0, 0
+  index: -1
+오른발
+  rotate: false
+  xy: 806, 270
+  size: 266, 376
+  orig: 266, 376
+  offset: 0, 0
+  index: -1
+오른발 s1
+  rotate: true
+  xy: 806, 2
+  size: 266, 376
+  orig: 266, 376
+  offset: 0, 0
+  index: -1
+오른발 s2
+  rotate: true
+  xy: 1184, 439
+  size: 266, 376
+  orig: 266, 376
+  offset: 0, 0
+  index: -1
+오른발 s3
+  rotate: false
+  xy: 1184, 61
+  size: 266, 376
+  orig: 266, 376
+  offset: 0, 0
+  index: -1
+오른발목  s1
+  rotate: false
+  xy: 1452, 61
+  size: 266, 376
+  orig: 266, 376
+  offset: 0, 0
+  index: -1
+오른발목  s2
+  rotate: false
+  xy: 1720, 270
+  size: 266, 376
+  orig: 266, 376
+  offset: 0, 0
+  index: -1
+
+spine2.png
+size: 2048,2048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+오른발목  s3
+  rotate: false
+  xy: 2, 1610
+  size: 266, 376
+  orig: 266, 376
+  offset: 0, 0
+  index: -1
+오른손  s1
+  rotate: false
+  xy: 2, 1232
+  size: 266, 376
+  orig: 266, 376
+  offset: 0, 0
+  index: -1
+오른손 s2
+  rotate: false
+  xy: 2, 854
+  size: 266, 376
+  orig: 266, 376
+  offset: 0, 0
+  index: -1
+오른손 s3
+  rotate: false
+  xy: 2, 476
+  size: 266, 376
+  orig: 266, 376
+  offset: 0, 0
+  index: -1
+오른손 s4
+  rotate: false
+  xy: 2, 98
+  size: 266, 376
+  orig: 266, 376
+  offset: 0, 0
+  index: -1
+오른팔
+  rotate: true
+  xy: 270, 1720
+  size: 266, 376
+  orig: 266, 376
+  offset: 0, 0
+  index: -1
+오른팔 s1
+  rotate: true
+  xy: 648, 1720
+  size: 266, 376
+  orig: 266, 376
+  offset: 0, 0
+  index: -1
+오른팔 s2
+  rotate: true
+  xy: 1026, 1720
+  size: 266, 376
+  orig: 266, 376
+  offset: 0, 0
+  index: -1
+오른팔 s3
+  rotate: true
+  xy: 1404, 1720
+  size: 266, 376
+  orig: 266, 376
+  offset: 0, 0
+  index: -1
+오른팔 s4
+  rotate: false
+  xy: 270, 1342
+  size: 266, 376
+  orig: 266, 376
+  offset: 0, 0
+  index: -1
+오른팔 s5
+  rotate: false
+  xy: 270, 964
+  size: 266, 376
+  orig: 266, 376
+  offset: 0, 0
+  index: -1
+오른팔 s6
+  rotate: false
+  xy: 270, 586
+  size: 266, 376
+  orig: 266, 376
+  offset: 0, 0
+  index: -1
+옷1
+  rotate: false
+  xy: 270, 208
+  size: 266, 376
+  orig: 266, 376
+  offset: 0, 0
+  index: -1
+옷2
+  rotate: true
+  xy: 538, 1452
+  size: 266, 376
+  orig: 266, 376
+  offset: 0, 0
+  index: -1
+옷털아래
+  rotate: true
+  xy: 916, 1452
+  size: 266, 376
+  orig: 266, 376
+  offset: 0, 0
+  index: -1
+옷털위
+  rotate: true
+  xy: 1294, 1452
+  size: 266, 376
+  orig: 266, 376
+  offset: 0, 0
+  index: -1
+왼다리
+  rotate: false
+  xy: 1672, 1342
+  size: 266, 376
+  orig: 266, 376
+  offset: 0, 0
+  index: -1
+왼발
+  rotate: true
+  xy: 538, 1184
+  size: 266, 376
+  orig: 266, 376
+  offset: 0, 0
+  index: -1
+왼발 s1
+  rotate: true
+  xy: 916, 1184
+  size: 266, 376
+  orig: 266, 376
+  offset: 0, 0
+  index: -1
+왼발 s2
+  rotate: true
+  xy: 1294, 1184
+  size: 266, 376
+  orig: 266, 376
+  offset: 0, 0
+  index: -1
+왼발 s3
+  rotate: false
+  xy: 1672, 964
+  size: 266, 376
+  orig: 266, 376
+  offset: 0, 0
+  index: -1
+왼발목 s
+  rotate: true
+  xy: 538, 916
+  size: 266, 376
+  orig: 266, 376
+  offset: 0, 0
+  index: -1
+왼손 s1
+  rotate: true
+  xy: 916, 916
+  size: 266, 376
+  orig: 266, 376
+  offset: 0, 0
+  index: -1
+왼손 s2
+  rotate: true
+  xy: 1294, 916
+  size: 266, 376
+  orig: 266, 376
+  offset: 0, 0
+  index: -1
+왼손 s3
+  rotate: false
+  xy: 1672, 586
+  size: 266, 376
+  orig: 266, 376
+  offset: 0, 0
+  index: -1
+왼손 s4
+  rotate: false
+  xy: 538, 208
+  size: 266, 376
+  orig: 266, 376
+  offset: 0, 0
+  index: -1
+왼종아리 s
+  rotate: true
+  xy: 538, 648
+  size: 266, 376
+  orig: 266, 376
+  offset: 0, 0
+  index: -1
+왼팔
+  rotate: false
+  xy: 806, 270
+  size: 266, 376
+  orig: 266, 376
+  offset: 0, 0
+  index: -1
+왼팔 s1
+  rotate: true
+  xy: 916, 648
+  size: 266, 376
+  orig: 266, 376
+  offset: 0, 0
+  index: -1
+왼팔 s2
+  rotate: true
+  xy: 1294, 648
+  size: 266, 376
+  orig: 266, 376
+  offset: 0, 0
+  index: -1
+왼팔 s3
+  rotate: true
+  xy: 806, 2
+  size: 266, 376
+  orig: 266, 376
+  offset: 0, 0
+  index: -1
+왼팔 s4
+  rotate: false
+  xy: 1074, 270
+  size: 266, 376
+  orig: 266, 376
+  offset: 0, 0
+  index: -1
+왼팔 s5
+  rotate: false
+  xy: 1342, 270
+  size: 266, 376
+  orig: 266, 376
+  offset: 0, 0
+  index: -1
+왼팔 s6
+  rotate: true
+  xy: 1610, 318
+  size: 266, 376
+  orig: 266, 376
+  offset: 0, 0
+  index: -1
+왼팔올림
+  rotate: true
+  xy: 1610, 50
+  size: 266, 376
+  orig: 266, 376
+  offset: 0, 0
+  index: -1
+턱 s1
+  rotate: true
+  xy: 1184, 2
+  size: 266, 376
+  orig: 266, 376
+  offset: 0, 0
+  index: -1
+
+spine3.png
+size: 2048,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+턱 s2
+  rotate: false
+  xy: 2, 2
+  size: 266, 376
+  orig: 266, 376
+  offset: 0, 0
+  index: -1
+허리끈
+  rotate: false
+  xy: 270, 2
+  size: 266, 376
+  orig: 266, 376
+  offset: 0, 0
+  index: -1
+허리끈1
+  rotate: false
+  xy: 538, 2
+  size: 266, 376
+  orig: 266, 376
+  offset: 0, 0
+  index: -1
+허리끈2
+  rotate: false
+  xy: 806, 2
+  size: 266, 376
+  orig: 266, 376
+  offset: 0, 0
+  index: -1

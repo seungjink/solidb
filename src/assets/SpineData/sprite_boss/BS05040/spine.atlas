@@ -1,0 +1,279 @@
+
+spine.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Body_b
+  rotate: false
+  xy: 463, 789
+  size: 367, 233
+  orig: 367, 233
+  offset: 0, 0
+  index: -1
+Body_f
+  rotate: false
+  xy: 78, 420
+  size: 289, 257
+  orig: 289, 257
+  offset: 0, 0
+  index: -1
+L_Back_leg_1
+  rotate: true
+  xy: 309, 47
+  size: 153, 213
+  orig: 153, 213
+  offset: 0, 0
+  index: -1
+L_Front_Leg
+  rotate: false
+  xy: 78, 116
+  size: 229, 302
+  orig: 229, 302
+  offset: 0, 0
+  index: -1
+L_back_leg_2
+  rotate: true
+  xy: 809, 299
+  size: 129, 157
+  orig: 129, 157
+  offset: 0, 0
+  index: -1
+Layer 1
+  rotate: true
+  xy: 2, 20
+  size: 657, 74
+  orig: 657, 74
+  offset: 0, 0
+  index: -1
+R_Back_leg_1
+  rotate: true
+  xy: 737, 602
+  size: 185, 210
+  orig: 185, 210
+  offset: 0, 0
+  index: -1
+R_Back_leg_2
+  rotate: false
+  xy: 678, 257
+  size: 116, 105
+  orig: 116, 105
+  offset: 0, 0
+  index: -1
+R_Back_leg_3
+  rotate: false
+  xy: 577, 207
+  size: 99, 146
+  orig: 99, 146
+  offset: 0, 0
+  index: -1
+R_Front_leg
+  rotate: true
+  xy: 369, 355
+  size: 232, 258
+  orig: 232, 258
+  offset: 0, 0
+  index: -1
+Shoulder_Guard
+  rotate: true
+  xy: 832, 862
+  size: 160, 190
+  orig: 160, 190
+  offset: 0, 0
+  index: -1
+Tail_blade
+  rotate: false
+  xy: 2, 679
+  size: 459, 343
+  orig: 459, 343
+  offset: 0, 0
+  index: -1
+eye_red
+  rotate: false
+  xy: 372, 14
+  size: 31, 31
+  orig: 31, 31
+  offset: 0, 0
+  index: -1
+eye_white
+  rotate: false
+  xy: 832, 791
+  size: 19, 19
+  orig: 19, 19
+  offset: 0, 0
+  index: -1
+head_B
+  rotate: false
+  xy: 796, 158
+  size: 143, 139
+  orig: 143, 139
+  offset: 0, 0
+  index: -1
+head_B jaw_b
+  rotate: true
+  xy: 678, 163
+  size: 92, 110
+  orig: 92, 110
+  offset: 0, 0
+  index: -1
+head_B jaw_b_tooth
+  rotate: true
+  xy: 405, 21
+  size: 24, 37
+  orig: 24, 37
+  offset: 0, 0
+  index: -1
+head_B jaw_f
+  rotate: true
+  xy: 170, 11
+  size: 103, 124
+  orig: 103, 124
+  offset: 0, 0
+  index: -1
+head_B jaw_f tooth
+  rotate: false
+  xy: 337, 6
+  size: 33, 39
+  orig: 33, 39
+  offset: 0, 0
+  index: -1
+head_B tooth
+  rotate: false
+  xy: 887, 79
+  size: 47, 31
+  orig: 47, 31
+  offset: 0, 0
+  index: -1
+head_B_neck
+  rotate: true
+  xy: 629, 364
+  size: 223, 178
+  orig: 223, 178
+  offset: 0, 0
+  index: -1
+head_F
+  rotate: false
+  xy: 809, 430
+  size: 153, 170
+  orig: 153, 170
+  offset: 0, 0
+  index: -1
+head_F Neck
+  rotate: true
+  xy: 309, 202
+  size: 151, 266
+  orig: 151, 266
+  offset: 0, 0
+  index: -1
+head_F jaw tooth_b
+  rotate: false
+  xy: 296, 6
+  size: 39, 39
+  orig: 39, 39
+  offset: 0, 0
+  index: -1
+head_F jaw tooth_f copy
+  rotate: false
+  xy: 887, 112
+  size: 50, 44
+  orig: 50, 44
+  offset: 0, 0
+  index: -1
+head_F jaw_b
+  rotate: false
+  xy: 655, 53
+  size: 79, 108
+  orig: 79, 108
+  offset: 0, 0
+  index: -1
+head_F jaw_f
+  rotate: false
+  xy: 78, 2
+  size: 90, 112
+  orig: 90, 112
+  offset: 0, 0
+  index: -1
+head_F tooth_up
+  rotate: false
+  xy: 832, 812
+  size: 47, 48
+  orig: 47, 48
+  offset: 0, 0
+  index: -1
+head_F_ear_f
+  rotate: true
+  xy: 941, 132
+  size: 72, 77
+  orig: 72, 77
+  offset: 0, 0
+  index: -1
+head_F_tongue
+  rotate: false
+  xy: 309, 365
+  size: 50, 53
+  orig: 50, 53
+  offset: 0, 0
+  index: -1
+head_M
+  rotate: false
+  xy: 524, 38
+  size: 129, 162
+  orig: 129, 162
+  offset: 0, 0
+  index: -1
+head_M jaw_b
+  rotate: false
+  xy: 941, 206
+  size: 79, 91
+  orig: 79, 91
+  offset: 0, 0
+  index: -1
+head_M jaw_b tooth
+  rotate: false
+  xy: 934, 820
+  size: 44, 40
+  orig: 44, 40
+  offset: 0, 0
+  index: -1
+head_M jaw_f
+  rotate: false
+  xy: 369, 589
+  size: 84, 88
+  orig: 84, 88
+  offset: 0, 0
+  index: -1
+head_M jaw_f tooth
+  rotate: false
+  xy: 881, 820
+  size: 51, 40
+  orig: 51, 40
+  offset: 0, 0
+  index: -1
+head_M tooth
+  rotate: false
+  xy: 980, 821
+  size: 40, 39
+  orig: 40, 39
+  offset: 0, 0
+  index: -1
+head_M_neck
+  rotate: true
+  xy: 463, 589
+  size: 198, 272
+  orig: 198, 272
+  offset: 0, 0
+  index: -1
+head_ear_b
+  rotate: false
+  xy: 736, 73
+  size: 75, 83
+  orig: 75, 83
+  offset: 0, 0
+  index: -1
+toe
+  rotate: false
+  xy: 813, 82
+  size: 72, 74
+  orig: 72, 74
+  offset: 0, 0
+  index: -1

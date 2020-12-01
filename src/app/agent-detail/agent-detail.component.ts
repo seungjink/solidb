@@ -34,10 +34,6 @@ export class AgentDetailComponent implements OnInit {
     ["ps2icon", "ps2", "ps2rank", "ps2context"]
   ]
 
-  gridData: any = [
-    {"text": this.agent}
-  ]
-
  constructor(
     private soliProvider: SoliProviderService,
     private route: ActivatedRoute
