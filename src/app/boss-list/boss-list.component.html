@@ -17,9 +17,19 @@
   <ng-container matColumnDef="Info">
     <mat-header-cell *matHeaderCellDef> 정보 </mat-header-cell>
     <mat-cell *matCellDef="let row">
-      <h4>퀘스트 :&nbsp; </h4> <p>{{row.Quest}}</p><br>
-      <h4>공경/방어/레벨 :&nbsp; </h4> <p>{{row.Quest}}</p>
-
+      <span class="boss-subtitle">퀘스트 : </span> <span>{{row.Quest}}</span><br>
+      <span class="boss-subtitle">공/방/렙 : </span>
+      <span class="atk">{{row.Atk}}</span> /
+      <span class="def">{{row.Def}}</span> / 
+      <span class="level">{{row.Level}}</span><br>
+      <span class="boss-subtitle">저항 : </span>
+      <span class="res1">{{row.ChaAtkType_1}}</span> / 
+      <span class="res2">{{row.ChaAtkType_2}}</span> / 
+      <span class="res3">{{row.ChaAtkType_3}}</span> / 
+      <span class="res4">{{row.ChaAtkType_4}}</span> / 
+      <span class="res5">{{row.ChaAtkType_5}}</span> / 
+      <span class="res6">{{row.ChaAtkType_6}}</span> / 
+      <span class="res7">{{row.ChaAtkType_7}}</span>
     </mat-cell>
   </ng-container>
 

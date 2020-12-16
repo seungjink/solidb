@@ -11,7 +11,7 @@
 }
 
 @include mat-table-columns((
-    ID:       (minwidth: 6rem, maxwidth:10rem, flex-direction: column),
+    ID:       (minwidth: 4rem, maxwidth:6rem, flex-direction: column),
     Type:     (minwidth: 1rem),
     Position: (minwidth: 2rem)
 ));
@@ -34,6 +34,16 @@ mat-cell{
 span.wordnonbreak {
   word-break: keep-all;
   text-align: center;
+}
+
+span.boss-subtitle {
+  display:inline-block;
+  width:4rem;
+  font-weight: bold;
+}
+
+mat-cell{
+  display:block;
 }
 
 p{
