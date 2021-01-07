@@ -1,48 +1,60 @@
 <div class="contents">
-<mat-form-field>
-  <mat-label>검색</mat-label>
-  <input matInput (keyup)="applyFilter($event)" placeholder="검색어 입력">
-</mat-form-field>
+  <mat-form-field>
+    <mat-label>검색</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="검색어 입력" />
+  </mat-form-field>
 
-<mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
-
-  <!-- Id name Definition -->
-  <ng-container matColumnDef="ID">
-    <mat-header-cell *matHeaderCellDef mat-sort-header>소재</mat-header-cell>
-    <mat-cell *matCellDef="let row"> <img class="face" src="assets/ItemsMaterials/{{row.ID | underbarEliminator}}.jpg"> </mat-cell>
-  </ng-container>
-
-  <ng-container matColumnDef="Name">
-    <mat-header-cell *matHeaderCellDef mat-sort-header>이름</mat-header-cell>
-    <mat-cell *matCellDef="let row"> <span class="wordnonbreak">{{row.Name}}</span></mat-cell>
-  </ng-container>
-
-  <ng-container matColumnDef="Tier">
-    <mat-header-cell *matHeaderCellDef mat-sort-header>티어</mat-header-cell>
-    <mat-cell *matCellDef="let row"> {{row.Tier}} </mat-cell>
-  </ng-container>
-
-  <ng-container matColumnDef="Sell">
-    <mat-header-cell *matHeaderCellDef mat-sort-header>판매</mat-header-cell>
-    <mat-cell *matCellDef="let row"> <img src="assets/Etc/nyang.png" class="trade">{{row.Sell}} </mat-cell>
-  </ng-container>
-
-  <ng-container matColumnDef="Buy">
-    <mat-header-cell *matHeaderCellDef mat-sort-header>구매</mat-header-cell>
-    <mat-cell *matCellDef="let row">
-      <ng-container *ngIf="row.Buy[0] == 's'">
-        <img src="assets/Etc/sphere.png" class="trade">
-        {{row.Buy.slice(1,row.Buy.length)}}
-       </ng-container>
-       <ng-container *ngIf="row.Buy[0] !== 's'">
-       <img src="assets/Etc/nyang.png" class="trade">
-        {{row.Buy}}
-      </ng-container>
-    </mat-cell>
+  <mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+    <!-- Id name Definition -->
+    <ng-container matColumnDef="ID">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>소재</mat-header-cell>
+      <mat-cell *matCellDef="let row">
+        <img
+          class="face"
+          loading="lazy"
+          src="assets/ItemsMaterials/{{ row.ID | underbarEliminator }}.jpg"
+        />
+      </mat-cell>
     </ng-container>
 
-  <!-- Header and Row Declarations -->
-  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-  <mat-row *matRowDef="let row; columns: displayedColumns;" routerLink="/materials/{{row.ID}}"></mat-row>
-</mat-table>
+    <ng-container matColumnDef="Name">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>이름</mat-header-cell>
+      <mat-cell *matCellDef="let row">
+        <span class="wordnonbreak">{{ row.Name }}</span></mat-cell
+      >
+    </ng-container>
+
+    <ng-container matColumnDef="Tier">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>티어</mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{ row.Tier }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="Sell">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>판매</mat-header-cell>
+      <mat-cell *matCellDef="let row">
+        <img src="assets/Etc/nyang.png" class="trade" />{{ row.Sell }}
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="Buy">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>구매</mat-header-cell>
+      <mat-cell *matCellDef="let row">
+        <ng-container *ngIf="row.Buy[0] == 's'">
+          <img src="assets/Etc/sphere.png" class="trade" />
+          {{ row.Buy.slice(1, row.Buy.length) }}
+        </ng-container>
+        <ng-container *ngIf="row.Buy[0] !== 's'">
+          <img src="assets/Etc/nyang.png" class="trade" />
+          {{ row.Buy }}
+        </ng-container>
+      </mat-cell>
+    </ng-container>
+
+    <!-- Header and Row Declarations -->
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row
+      *matRowDef="let row; columns: displayedColumns"
+      routerLink="/materials/{{ row.ID }}"
+    ></mat-row>
+  </mat-table>
 </div>

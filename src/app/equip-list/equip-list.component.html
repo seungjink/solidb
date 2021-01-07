@@ -1,17 +1,13 @@
 <div class="contents">
   <div class="section group">
-    <div class="col span_1_of_2" style="text-align: center;">
+    <div class="col span_1_of_2" style="text-align: center">
       <mat-accordion>
         <mat-expansion-panel>
           <mat-expansion-panel-header>
-            <mat-panel-title>
-              데이터 선택
-            </mat-panel-title>
-            <mat-panel-description>
-              표시할 정보를 선택
-            </mat-panel-description>
+            <mat-panel-title> 데이터 선택 </mat-panel-title>
+            <mat-panel-description> 표시할 정보를 선택 </mat-panel-description>
           </mat-expansion-panel-header>
-          <span style="font-weight: bold;">[표시할 정보]</span>
+          <span style="font-weight: bold">[표시할 정보]</span>
           <form [formGroup]="equipForm">
             <mat-checkbox formControlName="tier">티어 </mat-checkbox>
             <mat-checkbox formControlName="atk">공 </mat-checkbox>
@@ -30,16 +26,14 @@
         </mat-expansion-panel>
         <mat-expansion-panel>
           <mat-expansion-panel-header>
-            <mat-panel-title>
-              아이템 필터
-            </mat-panel-title>
+            <mat-panel-title> 아이템 필터 </mat-panel-title>
             <mat-panel-description>
               필터링할 옵션을 선택
             </mat-panel-description>
           </mat-expansion-panel-header>
 
           <form [formGroup]="filterRowForm">
-            <mat-form-field style="width: 10rem;">
+            <mat-form-field style="width: 10rem">
               <mat-label>검색</mat-label>
               <input
                 matInput
@@ -47,9 +41,9 @@
                 placeholder="검색어 입력"
               />
             </mat-form-field>
-            <br>
+            <br />
 
-          <span style="font-weight: bold;">[포지션]</span><br>
+            <span style="font-weight: bold">[포지션]</span><br />
             <mat-checkbox formControlName="ChaPosition_Short"
               >근접
             </mat-checkbox>
@@ -63,7 +57,7 @@
               >지원
             </mat-checkbox>
             <div formArrayName="Tier">
-              <span style="font-weight: bold;">[티어]</span><br />
+              <span style="font-weight: bold">[티어]</span><br />
               <mat-checkbox
                 [formControlName]="i"
                 *ngFor="let val of Tier.controls; let i = index"
@@ -76,8 +70,8 @@
       </mat-accordion>
     </div>
 
-    <div class="col span_1_of_2" style="text-align: center;">
-      <mat-form-field style="width: 50%;">
+    <div class="col span_1_of_2" style="text-align: center">
+      <mat-form-field style="width: 50%">
         <mat-label>첫번째 장비</mat-label>
 
         <input
@@ -99,7 +93,7 @@
           </mat-option>
         </mat-autocomplete>
       </mat-form-field>
-      <mat-form-field style="width: 50%;">
+      <mat-form-field style="width: 50%">
         <mat-label>두번째 장비</mat-label>
 
         <input
@@ -142,6 +136,7 @@
         <img
           class="face"
           src="assets/Equipments/{{ row.ID | underbarEliminator }}.jpg"
+          loading="lazy"
         />
         <span class="wordnonbreak">{{ row.name }}</span></mat-cell
       >
