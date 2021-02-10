@@ -1,0 +1,146 @@
+
+spine.png
+size: 1894,1422
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+arm
+  rotate: true
+  xy: 1435, 534
+  size: 470, 441
+  orig: 472, 447
+  offset: 2, 0
+  index: -1
+body_bottom
+  rotate: false
+  xy: 2, 492
+  size: 1431, 512
+  orig: 1431, 513
+  offset: 0, 1
+  index: -1
+body_top
+  rotate: false
+  xy: 2, 1006
+  size: 1887, 414
+  orig: 1891, 415
+  offset: 0, 0
+  index: -1
+bottom_teeth
+  rotate: true
+  xy: 1722, 179
+  size: 353, 165
+  orig: 353, 166
+  offset: 0, 1
+  index: -1
+bottom_teeth_back
+  rotate: false
+  xy: 2, 7
+  size: 343, 130
+  orig: 344, 132
+  offset: 0, 1
+  index: -1
+eye
+  rotate: false
+  xy: 784, 212
+  size: 97, 97
+  orig: 98, 98
+  offset: 0, 0
+  index: -1
+gum
+  rotate: false
+  xy: 255, 310
+  size: 412, 180
+  orig: 412, 184
+  offset: 0, 0
+  index: -1
+rock
+  rotate: true
+  xy: 942, 28
+  size: 201, 150
+  orig: 1128, 184
+  offset: 0, 34
+  index: -1
+rock1
+  rotate: true
+  xy: 1144, 300
+  size: 190, 129
+  orig: 280, 226
+  offset: 67, 97
+  index: -1
+rock2
+  rotate: false
+  xy: 1722, 4
+  size: 170, 173
+  orig: 179, 200
+  offset: 0, 26
+  index: -1
+rock3
+  rotate: false
+  xy: 600, 205
+  size: 182, 103
+  orig: 182, 113
+  offset: 0, 9
+  index: -1
+rock4
+  rotate: false
+  xy: 669, 311
+  size: 220, 179
+  orig: 224, 196
+  offset: 0, 17
+  index: -1
+rock5
+  rotate: false
+  xy: 891, 231
+  size: 251, 259
+  orig: 261, 277
+  offset: 0, 17
+  index: -1
+rock6
+  rotate: true
+  xy: 1094, 44
+  size: 185, 153
+  orig: 185, 173
+  offset: 0, 20
+  index: -1
+rock7
+  rotate: false
+  xy: 1249, 150
+  size: 152, 148
+  orig: 154, 186
+  offset: 0, 38
+  index: -1
+rock8
+  rotate: false
+  xy: 717, 43
+  size: 223, 160
+  orig: 230, 161
+  offset: 7, 0
+  index: -1
+tale
+  rotate: true
+  xy: 1435, 5
+  size: 527, 285
+  orig: 538, 288
+  offset: 6, 3
+  index: -1
+tongue
+  rotate: false
+  xy: 255, 186
+  size: 343, 122
+  orig: 343, 122
+  offset: 0, 0
+  index: -1
+top_teeth
+  rotate: true
+  xy: 2, 139
+  size: 351, 251
+  orig: 352, 251
+  offset: 0, 0
+  index: -1
+top_teeth_back
+  rotate: false
+  xy: 347, 2
+  size: 368, 182
+  orig: 368, 183
+  offset: 0, 1
+  index: -1

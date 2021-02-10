@@ -1,0 +1,167 @@
+
+spine.png
+size: 256,128
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+M1_tooth_d1
+  rotate: false
+  xy: 89, 6
+  size: 15, 6
+  orig: 15, 6
+  offset: 0, 0
+  index: -1
+M1_tooth_d10
+  rotate: true
+  xy: 121, 2
+  size: 6, 4
+  orig: 6, 4
+  offset: 0, 0
+  index: -1
+M1_tooth_d11
+  rotate: false
+  xy: 53, 6
+  size: 19, 6
+  orig: 19, 6
+  offset: 0, 0
+  index: -1
+M1_tooth_d12
+  rotate: false
+  xy: 101, 30
+  size: 7, 11
+  orig: 7, 11
+  offset: 0, 0
+  index: -1
+M1_tooth_d2
+  rotate: false
+  xy: 121, 10
+  size: 5, 7
+  orig: 5, 7
+  offset: 0, 0
+  index: -1
+M1_tooth_d3
+  rotate: false
+  xy: 110, 19
+  size: 7, 9
+  orig: 7, 9
+  offset: 0, 0
+  index: -1
+M1_tooth_d4
+  rotate: true
+  xy: 80, 14
+  size: 11, 9
+  orig: 11, 9
+  offset: 0, 0
+  index: -1
+M1_tooth_d5
+  rotate: false
+  xy: 90, 32
+  size: 9, 9
+  orig: 9, 9
+  offset: 0, 0
+  index: -1
+M1_tooth_d6
+  rotate: false
+  xy: 91, 20
+  size: 8, 10
+  orig: 8, 10
+  offset: 0, 0
+  index: -1
+M1_tooth_d7
+  rotate: true
+  xy: 118, 30
+  size: 11, 5
+  orig: 11, 5
+  offset: 0, 0
+  index: -1
+M1_tooth_d8
+  rotate: true
+  xy: 119, 19
+  size: 9, 6
+  orig: 9, 6
+  offset: 0, 0
+  index: -1
+M1_tooth_d9
+  rotate: true
+  xy: 114, 6
+  size: 11, 5
+  orig: 11, 5
+  offset: 0, 0
+  index: -1
+M1_tooth_u1
+  rotate: true
+  xy: 91, 14
+  size: 4, 8
+  orig: 4, 8
+  offset: 0, 0
+  index: -1
+M1_tooth_u2
+  rotate: false
+  xy: 106, 5
+  size: 6, 11
+  orig: 6, 11
+  offset: 0, 0
+  index: -1
+M1_tooth_u3
+  rotate: true
+  xy: 36, 4
+  size: 8, 15
+  orig: 8, 15
+  offset: 0, 0
+  index: -1
+M1_tooth_u4
+  rotate: false
+  xy: 110, 30
+  size: 6, 11
+  orig: 6, 11
+  offset: 0, 0
+  index: -1
+M1_tooth_u5
+  rotate: false
+  xy: 101, 18
+  size: 7, 10
+  orig: 7, 10
+  offset: 0, 0
+  index: -1
+M1_tooth_u6
+  rotate: false
+  xy: 125, 33
+  size: 6, 8
+  orig: 6, 8
+  offset: 0, 0
+  index: -1
+M1_tooth_u7
+  rotate: true
+  xy: 74, 3
+  size: 9, 13
+  orig: 9, 13
+  offset: 0, 0
+  index: -1
+M1_tooth_u8
+  rotate: false
+  xy: 80, 27
+  size: 8, 14
+  orig: 8, 14
+  offset: 0, 0
+  index: -1
+M1toes1
+  rotate: false
+  xy: 36, 14
+  size: 42, 27
+  orig: 42, 27
+  offset: 0, 0
+  index: -1
+M1toes2
+  rotate: true
+  xy: 2, 5
+  size: 36, 32
+  orig: 36, 32
+  offset: 0, 0
+  index: -1
+footM1_mouth
+  rotate: false
+  xy: 2, 43
+  size: 236, 83
+  orig: 236, 83
+  offset: 0, 0
+  index: -1

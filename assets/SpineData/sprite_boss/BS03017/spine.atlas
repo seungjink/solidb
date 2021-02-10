@@ -1,0 +1,230 @@
+
+spine.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+arm 01
+  rotate: false
+  xy: 474, 487
+  size: 87, 143
+  orig: 87, 143
+  offset: 0, 0
+  index: -1
+arm 02
+  rotate: true
+  xy: 2, 2
+  size: 48, 97
+  orig: 48, 97
+  offset: 0, 0
+  index: -1
+atk_ef_01
+  rotate: false
+  xy: 2, 625
+  size: 277, 392
+  orig: 277, 392
+  offset: 0, 0
+  index: -1
+back 01
+  rotate: true
+  xy: 226, 323
+  size: 83, 123
+  orig: 83, 123
+  offset: 0, 0
+  index: -1
+body 01
+  rotate: false
+  xy: 590, 664
+  size: 121, 121
+  orig: 121, 121
+  offset: 0, 0
+  index: -1
+body 02
+  rotate: false
+  xy: 713, 670
+  size: 111, 115
+  orig: 111, 115
+  offset: 0, 0
+  index: -1
+body 03
+  rotate: false
+  xy: 856, 892
+  size: 163, 125
+  orig: 163, 125
+  offset: 0, 0
+  index: -1
+body 03_1
+  rotate: true
+  xy: 403, 475
+  size: 147, 69
+  orig: 147, 69
+  offset: 0, 0
+  index: -1
+chest 01
+  rotate: false
+  xy: 483, 423
+  size: 76, 62
+  orig: 76, 62
+  offset: 0, 0
+  index: -1
+ear 01
+  rotate: true
+  xy: 589, 787
+  size: 112, 246
+  orig: 112, 246
+  offset: 0, 0
+  index: -1
+ear 02
+  rotate: false
+  xy: 226, 408
+  size: 91, 214
+  orig: 91, 214
+  offset: 0, 0
+  index: -1
+eye 01
+  rotate: true
+  xy: 398, 347
+  size: 36, 45
+  orig: 36, 45
+  offset: 0, 0
+  index: -1
+face 01
+  rotate: false
+  xy: 2, 166
+  size: 202, 203
+  orig: 202, 203
+  offset: 0, 0
+  index: -1
+face 02
+  rotate: false
+  xy: 303, 200
+  size: 65, 121
+  orig: 65, 121
+  offset: 0, 0
+  index: -1
+head 01
+  rotate: false
+  xy: 247, 63
+  size: 49, 49
+  orig: 49, 49
+  offset: 0, 0
+  index: -1
+helm 01
+  rotate: false
+  xy: 206, 208
+  size: 95, 113
+  orig: 95, 113
+  offset: 0, 0
+  index: -1
+helm 02
+  rotate: true
+  xy: 192, 3
+  size: 47, 48
+  orig: 47, 48
+  offset: 0, 0
+  index: -1
+helm 03
+  rotate: false
+  xy: 483, 378
+  size: 46, 43
+  orig: 46, 43
+  offset: 0, 0
+  index: -1
+helmet 01
+  rotate: false
+  xy: 2, 371
+  size: 222, 252
+  orig: 222, 252
+  offset: 0, 0
+  index: -1
+helmet 01_1
+  rotate: true
+  xy: 461, 632
+  size: 130, 127
+  orig: 130, 127
+  offset: 0, 0
+  index: -1
+helmet 02
+  rotate: false
+  xy: 456, 764
+  size: 131, 253
+  orig: 131, 253
+  offset: 0, 0
+  index: -1
+horn 01
+  rotate: false
+  xy: 281, 756
+  size: 173, 261
+  orig: 173, 261
+  offset: 0, 0
+  index: -1
+horn 02
+  rotate: true
+  xy: 2, 52
+  size: 112, 243
+  orig: 112, 243
+  offset: 0, 0
+  index: -1
+horn 03
+  rotate: true
+  xy: 281, 624
+  size: 130, 178
+  orig: 130, 178
+  offset: 0, 0
+  index: -1
+horn 04
+  rotate: true
+  xy: 837, 806
+  size: 84, 153
+  orig: 84, 153
+  offset: 0, 0
+  index: -1
+neck 01
+  rotate: true
+  xy: 247, 114
+  size: 55, 47
+  orig: 55, 47
+  offset: 0, 0
+  index: -1
+neck 02
+  rotate: false
+  xy: 101, 9
+  size: 89, 41
+  orig: 89, 41
+  offset: 0, 0
+  index: -1
+neck 03
+  rotate: true
+  xy: 351, 344
+  size: 62, 45
+  orig: 62, 45
+  offset: 0, 0
+  index: -1
+ob 01
+  rotate: false
+  xy: 403, 385
+  size: 78, 88
+  orig: 78, 88
+  offset: 0, 0
+  index: -1
+ob 02
+  rotate: true
+  xy: 206, 171
+  size: 35, 86
+  orig: 35, 86
+  offset: 0, 0
+  index: -1
+wing 01
+  rotate: true
+  xy: 589, 901
+  size: 116, 265
+  orig: 116, 265
+  offset: 0, 0
+  index: -1
+wing 02
+  rotate: false
+  xy: 319, 408
+  size: 82, 214
+  orig: 82, 214
+  offset: 0, 0
+  index: -1
