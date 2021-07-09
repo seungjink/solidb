@@ -5,6 +5,7 @@ import { EtcRoutingModule } from './etc-routing.module';
 import { EtcComponent } from './etc.component';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import {MatSelectModule} from '@angular/material/select';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatInput, MatInputModule } from '@angular/material/input';
 
@@ -16,6 +17,7 @@ import { MatInput, MatInputModule } from '@angular/material/input';
     EtcRoutingModule,
     MatTabsModule,
     MatFormFieldModule,
+    MatSelectModule,
     ReactiveFormsModule,
     MatInputModule
   ]

@@ -41,6 +41,47 @@
         )
       }}
     </mat-tab>
+
+    <mat-tab label="스피어 강화비용 계산기">
+      <form [formGroup]="sphereForm">
+        <mat-form-field style="width: 15rem;">
+          <mat-label>아이템 레어도</mat-label>
+            <mat-select formControlName="grade" >
+              <mat-option *ngFor="let grade of grades; let i = index" [value]="grades[i].id">
+                {{grade.name}}
+              </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <br>
+        <mat-form-field style="width: 15rem;">
+          <mat-label>현재 등급</mat-label>
+            <mat-select formControlName="init" >
+              <mat-option *ngFor="let level of levels; let i = index" [value]="levels[i].id">
+                {{level.name}}
+              </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <br>
+        <mat-form-field style="width: 15rem;">
+          <mat-label>목표 등급</mat-label>
+            <mat-select formControlName="final" >
+              <mat-option *ngFor="let level of levels; let i = index" [value]="levels[i].id">
+                {{levels[i].name}}
+              </mat-option>
+            </mat-select>
+        </mat-form-field>
+      </form>
+      <br>
+
+      <span style="font-weight: bold;">필요 스피어 : </span>
+      {{ getSphereTotal(sphereForm.value.grade, sphereForm.value.init, sphereForm.value.final) }}
+      <br><br><br><br>
+
+      <span style="font-weight: bold;">&#8251;아이템 레어도 </span><br>
+      <div><span>주황 : </span> <img src="assets/Etc/e_0.png" style="vertical-align: middle;"></div><br>
+      <div><span>보라 : </span> <img src="assets/Etc/e_1.png" style="vertical-align: middle;"></div><br>
+      <div><span>파랑 : </span> <img src="assets/Etc/e_2.png" style="vertical-align: middle;"></div><br>
+   </mat-tab>
   </mat-tab-group>
   <br>
 </div>

@@ -67,11 +67,11 @@ export class EquipListComponent implements OnInit, OnDestroy {
       ChaPosition_Long: [{ value: true, disabled: false }],
       ChaPosition_Support: [{ value: true, disabled: false }],
       Tier: this.fb.array([
-        { value: true, disabled: false },
-        { value: true, disabled: false },
-        { value: true, disabled: false },
-        { value: true, disabled: false },
-        { value: true, disabled: false },
+        { value: false, disabled: false },
+        { value: false, disabled: false },
+        { value: false, disabled: false },
+        { value: false, disabled: false },
+        { value: false, disabled: false },
         { value: true, disabled: false },
         { value: true, disabled: false },
       ]),
@@ -81,9 +81,9 @@ export class EquipListComponent implements OnInit, OnDestroy {
 
   @ViewChild(MatSort, { static: true }) sort: MatSort;
   ngOnInit(): void {
+    this.appliedFilter = this.filterRowForm.value;
     if (this.fs.equipListRowFilter) {
       this.filterRowForm = this.fs.equipListRowFilter;
-      this.appliedFilter = this.filterRowForm.value;
     }
     if (this.fs.equipListColFilter) {
       this.equipForm = this.fs.equipListColFilter;
