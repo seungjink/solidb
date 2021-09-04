@@ -57,9 +57,9 @@ export class AgentDetailComponent implements OnInit {
     this.route.params.subscribe( params => {
     this.idItem = params["id"];
     this.agent = this.soliProvider.getdataAgent()[this.soliProvider.hashAgentList.get(this.idItem)]
-    })
     this.httpClient.get("assets/Texts/AgentDialog/"+this.idItem+".json").subscribe(data =>{
       this.agentDialog = data['dialogs'];
+    })
     })
   }
  
