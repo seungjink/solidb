@@ -9,6 +9,6 @@
 { "type" : "upgrade" , "text" : "전장을 넘어서." } , 
 { "type" : "add_slot" , "text" : "이 두 자루 칼의 움직임에 방해만 안 된다면, 뭐든지 좋아." } , 
 { "type" : "add_stat" , "text" : "지금 나는, 조금 전까지의 나를 넘어섰어." } , 
-{ "type" : "get" , "text" : "나는 %NAME%. %USER%, 너의 검이야." } , 
+{ "type" : "get" , "text" : "나는 %NAME%. %USER%, 너의 검이야." } 
 
 ]}

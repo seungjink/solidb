@@ -9,6 +9,6 @@
 { "type" : "upgrade" , "text" : "나… %USER%, 너와의 열매를 맺은 것 같아…" } , 
 { "type" : "add_slot" , "text" : "응… 네 선물들, … 내 보물들, 더 많이… 에헤헤." } , 
 { "type" : "add_stat" , "text" : "어쩐지, 머리가 가벼워…" } , 
-{ "type" : "get" , "text" : "%NAME%…? %NAME%… 응, 이름 붙여줘서 고마워…!" } , 
+{ "type" : "get" , "text" : "%NAME%…? %NAME%… 응, 이름 붙여줘서 고마워…!" } 
 
 ]}

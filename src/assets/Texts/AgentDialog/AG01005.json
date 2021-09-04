@@ -9,6 +9,6 @@
 { "type" : "upgrade" , "text" : "나는 불사조! 불 속에서 다시 태어나지!" } , 
 { "type" : "add_slot" , "text" : "그치그치. 불을 키우려면 우선 연료를 넣어야지! 왕창! 더 왕창!" } , 
 { "type" : "add_stat" , "text" : "혁명이란 불꽃과 함께하는 법." } , 
-{ "type" : "get" , "text" : "%USER%? 오케이. 나는 %NAME%. 뜨겁게 놀아보자구!" } , 
+{ "type" : "get" , "text" : "%USER%? 오케이. 나는 %NAME%. 뜨겁게 놀아보자구!" } 
 
 ]}

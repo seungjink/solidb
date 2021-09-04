@@ -9,6 +9,6 @@
 { "type" : "upgrade" , "text" : "얼음은 녹아 물이 되고, 물은 끓어 구름이 되지요." } , 
 { "type" : "add_slot" , "text" : "한 벌 더, 걸칠 옷이 늘어나겠네요." } , 
 { "type" : "add_stat" , "text" : "빙하 속의 화석이 드러나는 것처럼." } , 
-{ "type" : "get" , "text" : "저는 %NAME%. 당신은 %USER%. 부디 이관계가 만년설과 같기를." } , 
+{ "type" : "get" , "text" : "저는 %NAME%. 당신은 %USER%. 부디 이관계가 만년설과 같기를." } 
 
 ]}
