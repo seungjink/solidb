@@ -1,4 +1,5 @@
 <nav mat-tab-nav-bar mat-align-tabs="center" color=warn>
+  <a mat-tab-link routerLink="/" routerLinkActive #homeTab="routerLinkActive">Home</a>
   <a mat-tab-link routerLink="/agents" routerLinkActive #agentsTab="routerLinkActive" [active]="agentsTab.isActive">요원</a>
 <!--  <a mat-tab-link routerLink="/boss" routerLinkActive #bossTab="routerLinkActive" [active]="bossTab.isActive">보스</a> -->
   <a mat-tab-link routerLink="/materials" routerLinkActive #materialsTab="routerLinkActive" [active]="materialsTab.isActive">소재</a>

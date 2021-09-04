@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { SoliProviderService } from '../shared/soli-provider.service';
 import { resistAtkType } from '../shared/soliHashTable'
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-gladia-detail',
@@ -15,11 +16,18 @@ export class GladiaDetailComponent implements OnInit {
 
   public idItem: string;
   public gladia;
+  gladiaDialog: object;
+  dialogType = {
+    "view" : "정보창",
+    "get" : "획득",
+    "error" : "None"
+  }
   resistAtkType:Array<string> = resistAtkType;
 
   constructor(
     private soliProvider: SoliProviderService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private httpClient: HttpClient
   ) {
   }
 
@@ -28,6 +36,12 @@ export class GladiaDetailComponent implements OnInit {
     this.idItem = params["id"];
     this.gladia= this.soliProvider.getdataGladia()[this.soliProvider.hashGladiaList.get(this.idItem)]
     });
+    this.httpClient.get("assets/Texts/GladiaDialog/"+this.idItem+".json").subscribe(data =>{
+      this.gladiaDialog = data['dialogs'];
+    },
+    err => {
+      this.gladiaDialog = [{"type" : "error", "text":"대사가 입력되어있지 않음"}];
+    })
   }
 
   getGladiaAttr = (x: string): any => {

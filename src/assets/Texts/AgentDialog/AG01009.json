@@ -1,0 +1,14 @@
+{ "tid" : "AG01009" , "dialogs" : [
+
+{ "type" : "order" , "text" : "오늘도 신을 찬양하는 노래가 엠페럴에 울려퍼지기를." } , 
+{ "type" : "order" , "text" : "나 바라노니, %USER%, 축복 있으라." } , 
+{ "type" : "order_hurt" , "text" : "이, 이 정도 고행은, 아무것도 아닙니다. 세상에는 더, 고통받는, 사람들이." } , 
+{ "type" : "view" , "text" : "%USER%, 신을 믿으시나요? " } , 
+{ "type" : "view_hurt" , "text" : "%NAME%, 회개합니다. 신이시여, 부디 저와 이 헤이븐에 은혜를 내려주소서…" } , 
+{ "type" : "lv_up" , "text" : "저의 신념은 한층 굳건해졌습니다." } , 
+{ "type" : "upgrade" , "text" : "언젠가 신과 하나가 될 수 있기를." } , 
+{ "type" : "add_slot" , "text" : "재물이 하나 쌓일 때마다, 시련도 하나 늘어나지요." } , 
+{ "type" : "add_stat" , "text" : "오늘, 저 안의 신을 만났습니다." } , 
+{ "type" : "get" , "text" : "%NAME%, 신의 종. %USER%, 당신에게 인사드립니다." } 
+
+]}

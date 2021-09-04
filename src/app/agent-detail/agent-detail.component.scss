@@ -30,3 +30,9 @@ img.agimg {
   max-width: 100%;
   height: auto;
 }
+
+.table-stripped .divTableRow:nth-child(even){
+  .divTableCell{
+    background-color: #EFEFEF;
+  }
+}

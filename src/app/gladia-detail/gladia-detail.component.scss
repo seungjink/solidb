@@ -7,6 +7,7 @@ h1.subtitle {
 h2.subtitle {
   font-size:1.5rem;
   line-height: 0.5em;
+  text-align:center;
 }
 
 /* End of Font Properties */
@@ -32,4 +33,10 @@ img.inline25 {
   display: inline-block;
   vertical-align: middle;
   width: 4.0rem;
+}
+
+.table-stripped .divTableRow:nth-child(even){
+  .divTableCell{
+    background-color: #EFEFEF;
+  }
 }

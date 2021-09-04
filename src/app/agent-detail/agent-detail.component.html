@@ -1,134 +1,187 @@
 <div class="mat-elevation-z8 basecanvas">
-<div class="section group">
-  <div class="col span_2_of_2"><h1 class="subtitle">{{agent.Name}}</h1><hr class="hr90"></div>
-</div>
-
-<div class="section group">
-  <div class="col span_1_of_2" style="text-align: center;">
-    <img class="agimg" src="assets/Agents/{{agent.ID}}.png">
+  <div class="section group">
+    <div class="col span_2_of_2">
+      <h1 class="subtitle">{{ agent.Name }}</h1>
+      <hr>
+    </div>
   </div>
-  <div class="col span_1_of_2">
 
-    <div class="divTable">
-      <div class="divTableRow">
-        <div class="divTableCell cell-tc40">칭호</div>
-        <div class="divTableCell cell-tc60">{{agent.Title}}</div>
-      </div>
+  <div class="section group">
+    <div class="col span_1_of_2" style="text-align: center">
+      <img class="agimg" src="assets/Agents/{{ agent.ID }}.png" />
     </div>
-    <hr class="hr90">
+    <div class="col span_1_of_2">
+      <div class="divTable">
+        <div class="divTableRow">
+          <div class="divTableCell cell-tc40 font-weight-bold">칭호</div>
+          <div class="divTableCell cell-tc60">{{ agent.Title }}</div>
+        </div>
+      </div>
+      <hr class="hr90" />
 
-    <div class="divTable">
-      <div class="divTableRow">
-        <div class="divTableCell cell-tc40">속성</div>
-        <div class="divTableCell cell-tc60" style="line-height: 0;"><img class="inline20" *ngFor="let x of getAtkTypeMulti(agent.Type)" src="assets/Etc/{{x}}.png"></div>
+      <div class="divTable">
+        <div class="divTableRow">
+          <div class="divTableCell cell-tc40 font-weight-bold">속성</div>
+          <div class="divTableCell cell-tc60" style="line-height: 0">
+            <img
+              class="inline20"
+              *ngFor="let x of getAtkTypeMulti(agent.Type)"
+              src="assets/Etc/{{ x }}.png"
+            />
+          </div>
+        </div>
       </div>
-    </div>
-    <hr class="hr90">
+      <hr class="hr90" />
 
-    <div class="divTable">
-      <div class="divTableRow">
-        <div class="divTableCell cell-tc40">포지션</div>
-        <div class="divTableCell cell-tc60">{{agent.Position}}</div>
+      <div class="divTable">
+        <div class="divTableRow">
+          <div class="divTableCell cell-tc40 font-weight-bold">포지션</div>
+          <div class="divTableCell cell-tc60">{{ agent.Position }}</div>
+        </div>
       </div>
-    </div>
-    <hr class="hr90">
+      <hr class="hr90" />
 
-    <div class="divTable">
-      <div class="divTableRow">
-        <div class="divTableCell cell-tc40">성별</div>
-        <div class="divTableCell cell-tc60">{{agent.Gender}}</div>
+      <div class="divTable">
+        <div class="divTableRow">
+          <div class="divTableCell cell-tc40 font-weight-bold">성별</div>
+          <div class="divTableCell cell-tc60">{{ agent.Gender }}</div>
+        </div>
       </div>
-    </div>
-    <hr class="hr90">
+      <hr class="hr90" />
 
-    <div class="divTable">
-      <div class="divTableRow">
-        <div class="divTableCell cell-tc40">종족</div>
-        <div class="divTableCell cell-tc60">{{agent.Race}}</div>
+      <div class="divTable">
+        <div class="divTableRow">
+          <div class="divTableCell cell-tc40 font-weight-bold">종족</div>
+          <div class="divTableCell cell-tc60">{{ agent.Race }}</div>
+        </div>
       </div>
+      <hr class="hr90" />
     </div>
-    <hr class="hr90">
   </div>
-</div>
 
-<div class="section group">
-  <div class="col span_2_of_2">
-  <app-agent-motion></app-agent-motion>
+  <div class="section group">
+    <div class="col span_2_of_2">
+      <app-agent-motion></app-agent-motion>
+    </div>
   </div>
-</div>
 
-<div class="section group">
-  <div class="col span_2_of_2">
-  <h2 class="subtitle" > 속성 저항 </h2>
-  <hr class="hr90">
-    <div class="divTable" style="table-layout: fixed">
-      <div class="divTableRow">
-        <div class="divTableCell" *ngFor="let res of resistAtkType" style="width:100%;">
-          <img class="inline20" src="assets/Etc/{{res}}.png">
+  <div class="section group">
+    <div class="col span_2_of_2">
+      <h2 class="subtitle">요원 대사</h2>
+      <hr>
+      <div class="divTable table-stripped">
+        <ng-container *ngFor="let data of agentDialog">
+          <div class="divTableRow">
+            <div class="divTableCell cell-tc20">
+              <span class="font-weight-bold">{{
+                dialogType[data["type"]]
+              }}</span>
+            </div>
+            <div
+              class="divTableCell cell-tc85"
+              style="text-align: left; white-space: pre-line"
+            >
+              <span>{{ data["text"] }}</span>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+
+  <div class="section group">
+    <div class="col span_2_of_2">
+      <h2 class="subtitle">속성 저항</h2>
+      <hr>
+      <div class="divTable" style="table-layout: fixed">
+        <div class="divTableRow">
+          <div
+            class="divTableCell"
+            *ngFor="let res of resistAtkType"
+            style="width: 100%"
+          >
+            <img class="inline20" src="assets/Etc/{{ res }}.png" />
+          </div>
+        </div>
+      </div>
+      <hr>
+
+      <div class="divTable" style="table-layout: fixed">
+        <div class="divTableRow">
+          <div
+            class="divTableCell"
+            *ngFor="let res of resistAtkType"
+            style="width: 100%"
+          >
+            {{ getAgentAttr(res) }}
+          </div>
         </div>
       </div>
     </div>
-    <hr class="hr90">
-
-    <div class="divTable" style="table-layout: fixed">
-      <div class="divTableRow">
-        <div class="divTableCell" *ngFor="let res of resistAtkType" style="width:100%;">
-          {{getAgentAttr(res)}}
-        </div>
-      </div>
-    </div>
   </div>
-</div>
 
-<div class="section group">
-  <h2 class="subtitle" style="text-align: left;" > 액티브 스킬 </h2>
+  <div class="section group">
+    <h2 class="subtitle" style="text-align: left">액티브 스킬</h2>
     <ng-container *ngFor="let sk of skillActive">
-
-    <div class="divTable">
-      <div class="divTableRow">
-        <div class="divTableCell" style="width:100%;">
-          <span class="sk">{{getAgentAttr(sk[1])}}</span>
+      <div class="divTable">
+        <div class="divTableRow">
+          <div class="divTableCell" style="width: 100%">
+            <span class="sk">{{ getAgentAttr(sk[1]) }}</span>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="divTable">
-      <div class="divTableRow">
-        <div class="divTableCell cell-tc15">
-          <img src="assets/Skill/{{getAgentAttr(sk[0])}}.png" class="inline40">
-        </div>
-        <div class="divTableCell cell-tc85"  style="text-align: left;white-space: pre-line;">
-          {{getAgentAttr(sk[2])}}<br>
-          <span class="skCoolMsg">재사용 대기시간 </span>:<span class="skCool"> {{getAgentAttr(sk[3])}}</span> 초
+      <div class="divTable">
+        <div class="divTableRow">
+          <div class="divTableCell cell-tc15">
+            <img
+              src="assets/Skill/{{ getAgentAttr(sk[0]) }}.png"
+              class="inline40"
+            />
+          </div>
+          <div
+            class="divTableCell cell-tc85"
+            style="text-align: left; white-space: pre-line"
+          >
+            {{ getAgentAttr(sk[2]) }}<br />
+            <span class="skCoolMsg">재사용 대기시간 </span>:<span
+              class="skCool"
+            >
+              {{ getAgentAttr(sk[3]) }}</span
+            >
+            초
+          </div>
         </div>
       </div>
-    </div>
     </ng-container>
-</div>
+  </div>
 
-<div class="section group">
-  <h2 class="subtitle" style="text-align: left"> 패시브 스킬 </h2>
-    <ng-container *ngFor="let sk of skillPassive" >
-
-    <div class="divTable">
-      <div class="divTableRow">
-        <div class="divTableCell" style="width:100%;">
-          <span class="sk">{{getAgentAttr(sk[1])}}</span>
+  <div class="section group">
+    <h2 class="subtitle" style="text-align: left">패시브 스킬</h2>
+    <ng-container *ngFor="let sk of skillPassive">
+      <div class="divTable">
+        <div class="divTableRow">
+          <div class="divTableCell" style="width: 100%">
+            <span class="sk">{{ getAgentAttr(sk[1]) }}</span>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="divTable">
-      <div class="divTableRow">
-        <div class="divTableCell cell-tc15">
-          <img src="assets/Skill/{{getAgentAttr(sk[0])}}.png" class="inline40">
-        </div>
-        <div class="divTableCell cell-tc85" style="text-align: left;">
-          <span class="skCoolMsg">등급</span> : {{getAgentAttr(sk[2])}}<br>
-          <span style="white-space: pre-line;">{{getAgentAttr(sk[3])}}</span>
+      <div class="divTable">
+        <div class="divTableRow">
+          <div class="divTableCell cell-tc15">
+            <img
+              src="assets/Skill/{{ getAgentAttr(sk[0]) }}.png"
+              class="inline40"
+            />
+          </div>
+          <div class="divTableCell cell-tc85" style="text-align: left">
+            <span class="skCoolMsg">등급</span> : {{ getAgentAttr(sk[2])
+            }}<br />
+            <span style="white-space: pre-line">{{ getAgentAttr(sk[3]) }}</span>
+          </div>
         </div>
       </div>
-    </div>
     </ng-container>
-</div>
+  </div>
 </div>

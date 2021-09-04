@@ -2,7 +2,7 @@
   <div class="section group">
     <div class="col span_2_of_2">
       <h1 class="subtitle">{{ gladia.Name }}</h1>
-      <hr class="hr90" />
+      <hr>
     </div>
   </div>
 
@@ -80,8 +80,35 @@
         </div>
         <hr class="hr90" />
       </ng-container>
+      </div>
 
-      <div style="text-align: center;">속성 저항</div>
+  <div class="section group">
+    <div class="col span_2_of_2">
+      <h2 class="subtitle">글라디아 대사</h2>
+      <hr>
+      <div class="divTable table-stripped">
+        <ng-container *ngFor="let data of gladiaDialog">
+          <div class="divTableRow">
+            <div class="divTableCell cell-tc20">
+              <span class="font-weight-bold">{{
+                dialogType[data["type"]]
+              }}</span>
+            </div>
+            <div
+              class="divTableCell cell-tc85"
+              style="text-align: left; white-space: pre-line"
+            >
+              <span>{{ data["text"] }}</span>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+
+  <div class="section group">
+    <div class="col span_2_of_2">
+      <h2 class="subtitle">속성 저항</h2>
       <div class="divTable" style="table-layout: fixed;">
         <div class="divTableRow">
           <div
@@ -105,14 +132,14 @@
           </div>
         </div>
       </div>
-      <hr class="hr90" />
+      <hr>
     </div>
   </div>
 
   <div class="section group">
     <div class="col span_1_of_2" style="white-space: pre-wrap; word-break: keep-all;">
       <h2 class="subtitle">고유 효과</h2>
-      <hr class="hr90" />
+      <hr>
         <div class="divTable">
           <div class="divTableRow" *ngFor="let x of getDescription()">
             <div class="divTableCell cell-listpadding" style="text-align: left;">
@@ -123,7 +150,7 @@
     </div>
     <div class="col span_1_of_2">
       <h2 class="subtitle">연관 글라디아</h2>
-      <hr class="hr90" />
+      <hr>
 
       <ng-container *ngIf="gladia.Rel !== ''">
         <div class="divTable" style="table-layout: fixed;">
@@ -149,7 +176,7 @@
   <div class="section group">
     <div class="col span_1_of_2">
       <h2 class="subtitle">드랍 고치</h2>
-      <hr class="hr90" />
+      <hr>
       <div class="divTable" *ngIf="gladia.Drop">
         <ng-container *ngFor="let x of getCocoon(gladia.Drop)">
           <div class="divTableRow">
