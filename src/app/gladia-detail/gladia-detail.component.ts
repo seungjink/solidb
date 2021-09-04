@@ -34,7 +34,6 @@ export class GladiaDetailComponent implements OnInit {
   ngOnInit(): void {
     this.route.params.subscribe( params => {
     this.idItem = params["id"];
-    console.log(this.idItem);
     this.gladia= this.soliProvider.getdataGladia()[this.soliProvider.hashGladiaList.get(this.idItem)]
     
     this.httpClient.get("assets/Texts/GladiaDialog/"+this.idItem+".json").subscribe(data =>{
