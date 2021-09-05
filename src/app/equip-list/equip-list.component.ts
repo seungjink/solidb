@@ -72,8 +72,9 @@ export class EquipListComponent implements OnInit, OnDestroy {
         { value: false, disabled: false },
         { value: false, disabled: false },
         { value: false, disabled: false },
+        { value: false, disabled: false },
         { value: true, disabled: false },
-        { value: true, disabled: false },
+        { value: true, disabled: false }
       ]),
       Name: ['']
     });
