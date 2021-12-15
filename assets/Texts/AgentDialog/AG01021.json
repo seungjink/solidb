@@ -1,0 +1,14 @@
+{ "tid" : "AG01021" , "dialogs" : [
+
+{ "type" : "order" , "text" : "제가 길을 열겠습니다!" } , 
+{ "type" : "order" , "text" : "가장 먼저, 그리고 가장 마지막에. 그것이 저의 위치입니다!" } , 
+{ "type" : "order_hurt" , "text" : "하윽… … 죄송, 합니다… 지금은, 조금… 무리…" } , 
+{ "type" : "view" , "text" : "%USER% 각하! 근무 중 이상 없습니다!" } , 
+{ "type" : "view_hurt" , "text" : "강습병 %NAME%… 죄송합니다… 몸이, 좋지가 않아서… 쉬게…" } , 
+{ "type" : "lv_up" , "text" : "한 걸음 더 깊숙히!" } , 
+{ "type" : "upgrade" , "text" : "이 앞에 무엇이 있든, 저는 그 길을 개척할 것입니다!" } , 
+{ "type" : "add_slot" , "text" : "배려에 감사드립니다, %USER% 각하!" } , 
+{ "type" : "add_stat" , "text" : "강습병 %NAME%, 몸이 가벼워졌습니다…?!" } , 
+{ "type" : "get" , "text" : "강습병 %NAME%. %USER% 각하의 길을 열겠습니다." } 
+
+]}

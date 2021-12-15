@@ -1,0 +1,14 @@
+{ "tid" : "AG01010" , "dialogs" : [
+
+{ "type" : "order" , "text" : "베겠어. 당신의 적을. 나의 적을." } , 
+{ "type" : "order" , "text" : "쌍검이 춤추고, 피보라가 흩날리겠지. 바라는 바야." } , 
+{ "type" : "order_hurt" , "text" : "… 할 수 있어. 아직. 아직… 더, 벨 수, 있어." } , 
+{ "type" : "view" , "text" : "아직 출동은 멀었어? %USER%. 나는 이미 맥스까지 충전됐다구." } , 
+{ "type" : "view_hurt" , "text" : "… 아프지, 않아. 정말이야. … 어서 날, 전장으로." } , 
+{ "type" : "lv_up" , "text" : "베어넘긴 적의 피. 살점. … 칼의 무게." } , 
+{ "type" : "upgrade" , "text" : "전장을 넘어서." } , 
+{ "type" : "add_slot" , "text" : "이 두 자루 칼의 움직임에 방해만 안 된다면, 뭐든지 좋아." } , 
+{ "type" : "add_stat" , "text" : "지금 나는, 조금 전까지의 나를 넘어섰어." } , 
+{ "type" : "get" , "text" : "나는 %NAME%. %USER%, 너의 검이야." } 
+
+]}

@@ -1,0 +1,14 @@
+{ "tid" : "AG01004" , "dialogs" : [
+
+{ "type" : "order" , "text" : "웅… 다녀올게…" } , 
+{ "type" : "order" , "text" : "나, 말 잘 들을 거야… 그러니 다녀오면, %USER%, 쓰다듬어줘…" } , 
+{ "type" : "order_hurt" , "text" : "… … 응… … 다녀올게… %USER%, 너를 위해서…" } , 
+{ "type" : "view" , "text" : "웅…?" } , 
+{ "type" : "view_hurt" , "text" : "읏… …. 웅… … 으응… 안 아파, 전혀…" } , 
+{ "type" : "lv_up" , "text" : "앗… 꽃잎이 하나 더, 활짝…" } , 
+{ "type" : "upgrade" , "text" : "나… %USER%, 너와의 열매를 맺은 것 같아…" } , 
+{ "type" : "add_slot" , "text" : "응… 네 선물들, … 내 보물들, 더 많이… 에헤헤." } , 
+{ "type" : "add_stat" , "text" : "어쩐지, 머리가 가벼워…" } , 
+{ "type" : "get" , "text" : "%NAME%…? %NAME%… 응, 이름 붙여줘서 고마워…!" } 
+
+]}

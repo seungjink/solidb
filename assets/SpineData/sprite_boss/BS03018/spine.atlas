@@ -1,0 +1,104 @@
+
+spine.png
+size: 1024,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+FX_sk2
+  rotate: false
+  xy: 164, 231
+  size: 299, 166
+  orig: 320, 180
+  offset: 0, 14
+  index: -1
+armBD_0
+  rotate: true
+  xy: 164, 399
+  size: 105, 372
+  orig: 105, 372
+  offset: 0, 0
+  index: -1
+armBU_0
+  rotate: false
+  xy: 465, 238
+  size: 51, 75
+  orig: 51, 75
+  offset: 0, 0
+  index: -1
+armFD_0
+  rotate: false
+  xy: 2, 142
+  size: 160, 362
+  orig: 160, 362
+  offset: 0, 0
+  index: -1
+armFU_0
+  rotate: false
+  xy: 375, 139
+  size: 92, 90
+  orig: 92, 90
+  offset: 0, 0
+  index: -1
+bodyD_0
+  rotate: true
+  xy: 894, 374
+  size: 130, 111
+  orig: 130, 111
+  offset: 0, 0
+  index: -1
+bodyM_0
+  rotate: false
+  xy: 469, 196
+  size: 37, 40
+  orig: 37, 40
+  offset: 0, 0
+  index: -1
+bodyU_0
+  rotate: true
+  xy: 538, 349
+  size: 155, 234
+  orig: 155, 234
+  offset: 0, 0
+  index: -1
+eye_0
+  rotate: false
+  xy: 774, 364
+  size: 14, 14
+  orig: 14, 14
+  offset: 0, 0
+  index: -1
+handB_0
+  rotate: false
+  xy: 774, 380
+  size: 118, 124
+  orig: 118, 124
+  offset: 0, 0
+  index: -1
+handF_0
+  rotate: false
+  xy: 2, 2
+  size: 123, 138
+  orig: 123, 138
+  offset: 0, 0
+  index: -1
+headD_0
+  rotate: false
+  xy: 465, 315
+  size: 66, 82
+  orig: 66, 82
+  offset: 0, 0
+  index: -1
+head_0
+  rotate: true
+  xy: 164, 135
+  size: 94, 101
+  orig: 94, 101
+  offset: 0, 0
+  index: -1
+neck_0
+  rotate: true
+  xy: 267, 151
+  size: 78, 106
+  orig: 78, 106
+  offset: 0, 0
+  index: -1

@@ -1,0 +1,17 @@
+{ "tid" : "AG01011" , "dialogs" : [
+
+{ "type" : "order" , "text" : "명령해라. 그것이 너의 일이다. 그리도 내 일은 그것을 따르는 것이지." } , 
+{ "type" : "order" , "text" : "앞장서겠다. 쉬운 일이다." } , 
+{ "type" : "order" , "text" : "네 명령만이 날 움직인다." } , 
+{ "type" : "order" , "text" : "머리에 꽃을 심어주면 좋겠군." } , 
+{ "type" : "order_hurt" , "text" : "별 것 아니다. 시멘트를 조금 발라주면 좋겠군." } , 
+{ "type" : "view" , "text" : "다음 명령은 무엇이냐?" } , 
+{ "type" : "view" , "text" : "네 도움이 될 일이라면, 어떤 명령이라도 기꺼이 듣겠다." } , 
+{ "type" : "view_hurt" , "text" : "걱정마라. 난 부숴지지 않는다." } , 
+{ "type" : "lv_up" , "text" : "내가 더 단단해졌다." } , 
+{ "type" : "upgrade" , "text" : "철분이 더 함유되었다!" } , 
+{ "type" : "add_slot" , "text" : "고맙다. 하나 알려주지. 난 뭘 붙여도 잘 어울린다." } , 
+{ "type" : "add_stat" , "text" : "이것이…돌의 힘인가?" } , 
+{ "type" : "get" , "text" : "난 부숴지지 않는다. 믿고 맡겨다오." } 
+
+]}

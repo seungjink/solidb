@@ -1,0 +1,199 @@
+/* ========== Grid Layout Setting ========== */
+
+@media screen and (min-width: 800px) {
+  .basecanvas {
+    width: 60%;
+  }
+}
+
+.basecanvas,
+.section {
+  clear: both;
+  margin: auto;
+}
+
+.basecanvas{
+  padding-left:10px;
+  padding-right:10px;
+}
+
+.section {
+  width: 100%;
+}
+
+/*  GROUPING  */
+
+.group:before,
+.group:after {
+  content: "";
+  display: table;
+}
+.group:after {
+  clear: both;
+}
+.group {
+  zoom: 1; /* For IE 6/7 (trigger hasLayout) */
+}
+
+/*  GRID COLUMN SETUP */
+
+.col {
+  display: block;
+  float: left;
+  margin: 1% 0 1% 1.6%;
+}
+
+.col:first-child {
+  margin-left: 0;
+} /* all browsers except IE6 and lower */
+
+/*  REMOVE MARGINS AS ALL GO FULL WIDTH AT 800 PIXELS */
+
+@media only screen and (max-width: 800px) {
+  .col {
+    margin: 1% 0 1% 0%;
+  }
+}
+.span_2_of_2 {
+  width: 100%;
+}
+
+.span_1_of_2 {
+  width: 49.2%;
+}
+
+/*  GO FULL WIDTH AT LESS THAN 800 PIXELS */
+
+@media only screen and (max-width: 800px) {
+  .span_2_of_2 {
+    width: 100%;
+  }
+  .span_1_of_2 {
+    width: 100%;
+  }
+}
+/* ========== End of grid settings ========== */
+
+/* ========== Start of div-table settings ========== */
+.divTable {
+  display: table;
+  width: 100%;
+}
+.divTableRow {
+  display: table-row;
+}
+.divTableCell {
+  display: table-cell;
+  text-align: center;
+  padding: 3px 10px;
+  word-break: keep-all;
+}
+.cell-tc10 {
+  width: 10%;
+}
+.cell-tc20 {
+  width: 20%;
+}
+.cell-tc30 {
+  width: 30%;
+}
+.cell-tc40 {
+  width: 40%;
+}
+.cell-tc90 {
+  width: 90%;
+}
+.cell-tc80 {
+  width: 80%;
+}
+.cell-tc70 {
+  width: 70%;
+}
+.cell-tc60 {
+  width: 60%;
+}
+.cell-tc35 {
+  width: 35%;
+}
+.cell-tc15 {
+  width: 15%;
+}
+.cell-tc85 {
+  width: 85%;
+}
+.cell-tc65 {
+  width: 65%;
+}
+
+.cell-listpadding{
+  padding-bottom: 0.4rem;
+  padding-top: 0.4rem;
+}
+/* ========== END of div-table settings ========== */
+
+.nohighlight {
+  color:black;
+}
+
+.highlight {
+  background: url("../../assets/Etc/brush.png");
+  background-repeat: no-repeat;
+  background-size: 100% 95%;
+  padding: 8px 0;
+  text-decoration: none;
+  color: black;
+}
+
+.highlightReduced {
+  background: url("../../assets/Etc/brush.png");
+  background-repeat: repeat;
+  background-size: 100% 80%;
+  padding: 8px 2;
+  text-decoration: none;
+  color: black;
+}
+
+img.inline10 {
+  display: inline-block;
+  vertical-align: middle;
+  width: 1.0rem;
+}
+
+img.inline15 {
+  display: inline-block;
+  vertical-align: middle;
+  width: 1.5rem;
+}
+
+img.inline20 {
+  display: inline-block;
+  vertical-align: middle;
+  width: 2rem;
+}
+
+img.inline25 {
+  display: inline-block;
+  vertical-align: middle;
+  width: 2.5rem;
+}
+
+img.inline30 {
+  display: inline-block;
+  vertical-align: middle;
+  width: 3rem;
+}
+
+img.inline35 {
+  display: inline-block;
+  vertical-align: middle;
+  width: 3.5rem;
+}
+
+img.inline40 {
+  vertical-align: middle;
+  width: 4rem;
+}
+
+.font-weight-bold{
+  font-weight: bold;
+}

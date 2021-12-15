@@ -1,0 +1,14 @@
+{ "tid" : "AG01005" , "dialogs" : [
+
+{ "type" : "order" , "text" : "가자! 세상을 태워버리자!" } , 
+{ "type" : "order" , "text" : "나는 지금 초 진심이야! 으럇~! 타~오~른~다~!" } , 
+{ "type" : "order_hurt" , "text" : "저, 저기 진심이야…? 나, 다쳤다구…?!" } , 
+{ "type" : "view" , "text" : "%USER%, 넌 지금 불을 들여다보고 있는 거야. 데어도 모른다?" } , 
+{ "type" : "view_hurt" , "text" : "읏… 몸이, 타들어가는 것 같아…!" } , 
+{ "type" : "lv_up" , "text" : "화력 1단계 상승. 절호조구만!" } , 
+{ "type" : "upgrade" , "text" : "나는 불사조! 불 속에서 다시 태어나지!" } , 
+{ "type" : "add_slot" , "text" : "그치그치. 불을 키우려면 우선 연료를 넣어야지! 왕창! 더 왕창!" } , 
+{ "type" : "add_stat" , "text" : "혁명이란 불꽃과 함께하는 법." } , 
+{ "type" : "get" , "text" : "%USER%? 오케이. 나는 %NAME%. 뜨겁게 놀아보자구!" } 
+
+]}
