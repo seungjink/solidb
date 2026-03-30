@@ -129,7 +129,7 @@
         "deploy": {
           "builder": "angular-cli-ghpages:deploy",
           "options": {
-            "base-href" : "https://solidb.pages.dev"
+            "base-href" : "https://solidb.xyz"
           }
         }
       }
