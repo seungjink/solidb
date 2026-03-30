@@ -73,25 +73,25 @@ public headerDict = {
     return this.dataNotice
   }
 
-  //sheetUrlAgent        : string ='https://dl.dropbox.com/s/'+ data.Agent +'/Agent.csv?dl=1'
-  //sheetUrlBossInfo     : string ='https://dl.dropbox.com/s/'+ data.BossInfo +'/BossInfo.csv?dl=1'
-  //sheetUrlItemMaterial : string ='https://dl.dropbox.com/s/'+ data.ItemMaterial +'/Item_Materials.csv?dl=1'
-  //sheetUrlQuest        : string ='https://dl.dropbox.com/s/'+ data.Quest +'/Quest.csv?dl=1'
-  //sheetUrlGladia       : string ='https://dl.dropbox.com/s/'+ data.Gladia +'/Gladia.csv?dl=1'
-  //sheetUrlCocoon       : string ='https://dl.dropbox.com/s/'+ data.Cocoon +'/Cocoon.csv?dl=1'
-  //sheetUrlRecipeEquip  : string ='https://dl.dropbox.com/s/'+ data.RecipeEquip +'/RecipeEquip.csv?dl=1'
-  //sheetUrlNotice       : string ='https://dl.dropbox.com/s/'+ data.Notice +'/Notice.csv?dl=1'
-  //sheetUrlEquip        : string ='https://dl.dropbox.com/s/'+ data.Equip+'/Equip.csv?dl=1'
+  sheetUrlAgent        : string ='https://dl.dropbox.com/s/'+ data.Agent +'/Agent.csv?dl=1'
+  sheetUrlBossInfo     : string ='https://dl.dropbox.com/s/'+ data.BossInfo +'/BossInfo.csv?dl=1'
+  sheetUrlItemMaterial : string ='https://dl.dropbox.com/s/'+ data.ItemMaterial +'/Item_Materials.csv?dl=1'
+  sheetUrlQuest        : string ='https://dl.dropbox.com/s/'+ data.Quest +'/Quest.csv?dl=1'
+  sheetUrlGladia       : string ='https://dl.dropbox.com/s/'+ data.Gladia +'/Gladia.csv?dl=1'
+  sheetUrlCocoon       : string ='https://dl.dropbox.com/s/'+ data.Cocoon +'/Cocoon.csv?dl=1'
+  sheetUrlRecipeEquip  : string ='https://dl.dropbox.com/s/'+ data.RecipeEquip +'/RecipeEquip.csv?dl=1'
+  sheetUrlNotice       : string ='https://dl.dropbox.com/s/'+ data.Notice +'/Notice.csv?dl=1'
+  sheetUrlEquip        : string ='https://dl.dropbox.com/s/'+ data.Equip+'/Equip.csv?dl=1'
 
-  sheetUrlAgent        : string ='https://www.dropbox.com/scl/fi/yr7a1oegm49lhtg89jh5b/Agent.csv?rlkey=ujsbpioixnrk9kmwp3q0pa2cv&st=xrf5h9w7&dl=1'
-  sheetUrlBossInfo     : string ='https://www.dropbox.com/scl/fi/a3gj5dozwqgtmusqgj7ym/BossInfo.csv?rlkey=08kg9d3udmnzyy8d1s50nwto2&st=p21f976m&dl=1'
-  sheetUrlItemMaterial : string ='https://www.dropbox.com/scl/fi/jc0h9lry6oludavrx4npa/Item_Materials.csv?rlkey=9n8ftai8zt11r427klhq12ywy&st=q338ncwm&dl=1'
-  sheetUrlQuest        : string ='https://www.dropbox.com/scl/fi/ojip6zfufvf9abn9aoxmw/Quest.csv?rlkey=nul4p49rjbsfw9r8kssvwcddq&st=j19046o0&dl=1'
-  sheetUrlGladia       : string ='https://www.dropbox.com/scl/fi/d4p0q7z2zp1rj4v1jjvtn/Gladia.csv?rlkey=cc6690tvanzjb5xs2cfopkasj&st=s5orfyg1&dl=1'
-  sheetUrlCocoon       : string ='https://www.dropbox.com/scl/fi/mk9zqa81amyaxissmu6fm/Cocoons.csv?rlkey=8nkb9v0l294d1olu3os997iib&st=dls9xsta&dl=1'
-  sheetUrlRecipeEquip  : string ='https://www.dropbox.com/scl/fi/5onolbj892i8wygp0k2pm/RecipeEquip.csv?rlkey=mrxtbzh31ag2aea437ottk1ay&st=w2tmk51e&dl=1'
-  sheetUrlNotice       : string ='https://www.dropbox.com/scl/fi/k5k3yfbbtckqb3td4igak/Notice.csv?rlkey=4wqs9dh1kl8xkla3kc5v46jne&st=wbedf44k&dl=1'
-  sheetUrlEquip        : string ='https://www.dropbox.com/scl/fi/b0ui2uo2q1q8b6e6rt0l8/Equip.csv?rlkey=mhtx4npoygrnruaum9079ux27&st=znulckyp&dl=1'
+  //sheetUrlAgent        : string ='https://www.dropbox.com/scl/fi/yr7a1oegm49lhtg89jh5b/Agent.csv?rlkey=ujsbpioixnrk9kmwp3q0pa2cv&st=xrf5h9w7&dl=1'
+  //sheetUrlBossInfo     : string ='https://www.dropbox.com/scl/fi/a3gj5dozwqgtmusqgj7ym/BossInfo.csv?rlkey=08kg9d3udmnzyy8d1s50nwto2&st=p21f976m&dl=1'
+  //sheetUrlItemMaterial : string ='https://www.dropbox.com/scl/fi/jc0h9lry6oludavrx4npa/Item_Materials.csv?rlkey=9n8ftai8zt11r427klhq12ywy&st=q338ncwm&dl=1'
+  //sheetUrlQuest        : string ='https://www.dropbox.com/scl/fi/ojip6zfufvf9abn9aoxmw/Quest.csv?rlkey=nul4p49rjbsfw9r8kssvwcddq&st=j19046o0&dl=1'
+  //sheetUrlGladia       : string ='https://www.dropbox.com/scl/fi/d4p0q7z2zp1rj4v1jjvtn/Gladia.csv?rlkey=cc6690tvanzjb5xs2cfopkasj&st=s5orfyg1&dl=1'
+  //sheetUrlCocoon       : string ='https://www.dropbox.com/scl/fi/mk9zqa81amyaxissmu6fm/Cocoons.csv?rlkey=8nkb9v0l294d1olu3os997iib&st=dls9xsta&dl=1'
+  //sheetUrlRecipeEquip  : string ='https://www.dropbox.com/scl/fi/5onolbj892i8wygp0k2pm/RecipeEquip.csv?rlkey=mrxtbzh31ag2aea437ottk1ay&st=w2tmk51e&dl=1'
+  //sheetUrlNotice       : string ='https://www.dropbox.com/scl/fi/k5k3yfbbtckqb3td4igak/Notice.csv?rlkey=4wqs9dh1kl8xkla3kc5v46jne&st=wbedf44k&dl=1'
+  //sheetUrlEquip        : string ='https://www.dropbox.com/scl/fi/b0ui2uo2q1q8b6e6rt0l8/Equip.csv?rlkey=mhtx4npoygrnruaum9079ux27&st=znulckyp&dl=1'
 
 //  sheetUrlAgent       : string = 'https://docs.google.com/spreadsheets/d/e/' + gdata.SheetID +'/pub?gid=' + data.Agent        +'&single=true&output=csv'; 
  // sheetUrlItemMaterial: string = 'https://docs.google.com/spreadsheets/d/e/' + data.SheetID +'/pub?gid=' + data.ItemMaterial +'&single=true&output=csv';
