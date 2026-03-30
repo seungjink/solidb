@@ -73,15 +73,15 @@ public headerDict = {
     return this.dataNotice
   }
 
-  sheetUrlAgent        : string ='https://dl.dropbox.com/s/'+ data.Agent +'/Agent.csv?dl=1'
-  sheetUrlBossInfo     : string ='https://dl.dropbox.com/s/'+ data.BossInfo +'/BossInfo.csv?dl=1'
-  sheetUrlItemMaterial : string ='https://dl.dropbox.com/s/'+ data.ItemMaterial +'/Item_Materials.csv?dl=1'
-  sheetUrlQuest        : string ='https://dl.dropbox.com/s/'+ data.Quest +'/Quest.csv?dl=1'
-  sheetUrlGladia       : string ='https://dl.dropbox.com/s/'+ data.Gladia +'/Gladia.csv?dl=1'
-  sheetUrlCocoon       : string ='https://dl.dropbox.com/s/'+ data.Cocoon +'/Cocoon.csv?dl=1'
-  sheetUrlRecipeEquip  : string ='https://dl.dropbox.com/s/'+ data.RecipeEquip +'/RecipeEquip.csv?dl=1'
-  sheetUrlNotice       : string ='https://dl.dropbox.com/s/'+ data.Notice +'/Notice.csv?dl=1'
-  sheetUrlEquip        : string ='https://dl.dropbox.com/s/'+ data.Equip+'/Equip.csv?dl=1'
+  //sheetUrlAgent        : string ='https://dl.dropbox.com/s/'+ data.Agent +'/Agent.csv?dl=1'
+  //sheetUrlBossInfo     : string ='https://dl.dropbox.com/s/'+ data.BossInfo +'/BossInfo.csv?dl=1'
+  //sheetUrlItemMaterial : string ='https://dl.dropbox.com/s/'+ data.ItemMaterial +'/Item_Materials.csv?dl=1'
+  //sheetUrlQuest        : string ='https://dl.dropbox.com/s/'+ data.Quest +'/Quest.csv?dl=1'
+  //sheetUrlGladia       : string ='https://dl.dropbox.com/s/'+ data.Gladia +'/Gladia.csv?dl=1'
+  //sheetUrlCocoon       : string ='https://dl.dropbox.com/s/'+ data.Cocoon +'/Cocoon.csv?dl=1'
+  //sheetUrlRecipeEquip  : string ='https://dl.dropbox.com/s/'+ data.RecipeEquip +'/RecipeEquip.csv?dl=1'
+  //sheetUrlNotice       : string ='https://dl.dropbox.com/s/'+ data.Notice +'/Notice.csv?dl=1'
+  //sheetUrlEquip        : string ='https://dl.dropbox.com/s/'+ data.Equip+'/Equip.csv?dl=1'
 
   sheetUrlAgent        : string ='https://www.dropbox.com/scl/fi/yr7a1oegm49lhtg89jh5b/Agent.csv?rlkey=ujsbpioixnrk9kmwp3q0pa2cv&st=xrf5h9w7&dl=1'
   sheetUrlBossInfo     : string ='https://www.dropbox.com/scl/fi/a3gj5dozwqgtmusqgj7ym/BossInfo.csv?rlkey=08kg9d3udmnzyy8d1s50nwto2&st=p21f976m&dl=1'
